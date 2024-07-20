@@ -161,28 +161,43 @@ export default function Home() {
   };
 
   const settings = {
-    lazyload: true,
-    speed: 300,
+    dots: true,
+    infinite: true,
+    speed: 500,
     slidesToShow: 3,
-      responsive: [
-        {
-          breakpoint: 1240,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            initialSlide: 1,
-          },
-        },
-      ],
+    slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
-    nextArrow: <NextArrow onClick={next} />,
-    prevArrow: <PrevArrow onClick={previous} />,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <main className="">
       <section className="mb-10 xl:mb-16 2xl:mb-20">
-        <div className="relative flex flex-col items-center py-32  xl:py-40 2xl:py-56 space-y-4 bg-[#0D121F] overflow-hidden">
+        <div className="relative flex flex-col items-center py-20  xl:py-40 2xl:py-56 space-y-4 bg-[#0D121F] overflow-hidden">
           <Image
             src="/landingpage/sidecircle.svg"
             alt="logo"
@@ -193,28 +208,29 @@ export default function Home() {
 
           <div className="p-2 2xl:p-0 slide-reveal relative z-[2] w-full h-full flex flex-col space-y-8 justify-center items-center text-white">
             <div className="flex flex-col items-center space-y-6">
-              <Image
-                src="/landingpage/landingpageicon.svg"
-                alt="logo"
-                width={64}
-                height={64}
-                className=""
-              />
-              <div className="flex flex-row items-center gap-x-4">
-                <h2
-                  className={`font-semibold 2xl:font-bold text-2xl sm:text-5xl 2xl:text-[56px] capitalize text-center ${colors[colorIndex]}`}
-                >
-                  Create Landing Pages with AI
-                </h2>
-                <Image
-                  src="/landingpage/search.svg"
-                  alt="search icon"
-                  width={74}
-                  height={64}
-                  className="translate-y-8 2xl:flex xl:flex hidden cursor-pointer"
-                  onClick={handleImageClick}
-                />
-              </div>
+             <Image
+    src="/landingpage/landingpageicon.svg"
+    alt="logo"
+    width={64}
+    height={64}
+    className="animate-shine"
+  />
+             <div className="flex flex-row items-center gap-x-4">
+  <h2
+    className={`font-semibold 2xl:font-bold text-2xl sm:text-5xl 2xl:text-[56px] capitalize text-center ${colors[colorIndex]}`}
+  >
+    Create Landing Pages with AI
+  </h2>
+  <Image
+    src="/landingpage/search.svg"
+    alt="search icon"
+    width={74}
+    height={64}
+    className=" 2xl:flex xl:flex hidden cursor-pointer animate-bounce"
+    onClick={handleImageClick}
+  />
+</div>
+
               <h4 className="text-sm 2xl:text-lg text-center">
                 🚀 Just Launched: Learn how to upload PDFs, eBooks, and more to
                 your landing page.
@@ -229,7 +245,7 @@ export default function Home() {
                 reality with just a single prompt.
               </h4>
             </div>
-            <div className="bg-white text-black  rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-xl shadow-gray-200/60">
+            <div className="bg-white text-black  rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-md shadow-gray-200/60">
               <Image
                 src="/landingpage/searchicon.svg"
                 alt="logo"
@@ -238,7 +254,7 @@ export default function Home() {
                 className="opacity-0"
               />
               <input
-                className="h-11 w-full"
+                className=" border-none outline-none h-[49.6px] w-[690px] -translate-x-10"
                 placeholder="A landing page for cozy bakery"
                 value={prompt}
                 onChange={handleInputChange}
@@ -248,7 +264,7 @@ export default function Home() {
                 alt="logo"
                 width={34}
                 height={34}
-                className="2xl:translate-x-8 xl:translate-x-8 "
+                className="2xl:translate-x-8 xl:translate-x-6 lg:translate-x-8 md:translate-x-8 sm:translate-x-8 -translate-x-8 relative "
               />
 
               <button className="bg-primary-green p-3 rounded-2xl grid place-content-center">
@@ -260,11 +276,11 @@ export default function Home() {
             <h2 className="text-[12px] font-medium text-primary-black items-start text-opacity-60">
               Describe your business
             </h2>
-            <div className="flex 2xl:flex-row xl:flex-row flex-col lg:flex-row md:flex-row  items-center gap-4">
+            <div className=" 2xl:flex xl:flex hidden lg:flex md:flex  items-center gap-4">
               {suggestions.map((suggestion, index) => (
                 <div
                   key={index}
-                  className="cursor-pointer hover:shadow-lg hover:shadow-gray-200 transition duration-300 flex items-center gap-2  border font-light border-[#E4E4E7] py-2 px-2.5 rounded-md text-[11px]"
+                  className="cursor-pointer hover:shadow-sm hover:shadow-gray-200 transition duration-300 flex items-center gap-2  border font-light border-[#E4E4E7] py-2 px-2.5 rounded-md text-[11px]"
                   onClick={() => handleSuggestionClick(suggestion)}
                 >
                   {suggestion} <TbArrowUpRight size={18} />
@@ -284,7 +300,7 @@ export default function Home() {
       </section>
 
       <section className="px-6 md:px-16  bg-white text-black">
-        <div className="max-w-[1720px] mx-auto">
+        <div className="max-w-[1420px] mx-auto">
           <h4 className="text-[#00A4A6] tracking-[3.35px] leading-[19.2px] font-medium uppercase mb-2 text-[16px] 2xl:text-[20px]">
             Templates
           </h4>
@@ -309,6 +325,28 @@ export default function Home() {
               </div>
             </div>
           </Motion>
+          <svg className="absolute 2xl:flex hidden   translate-y-20 -translate-x-52" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_10_3708)">
+<circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3708)" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_10_3708" x="0" y="0" width="71" height="71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="3"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3708"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3708" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_10_3708" x1="35.5" y1="17" x2="35.5" y2="48" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4485FF" stop-opacity="0.8"/>
+<stop offset="1" stop-color="#377DFF"/>
+</linearGradient>
+</defs>
+</svg>
+
 
           <div className="mt-16 2xl:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-10">
   {[
@@ -339,19 +377,34 @@ export default function Home() {
       </div>
     </Motion>
   ))}
-</div>
-          {/* <div className="lg:hidden flex justify-center">
-          <Link href="/products" className="w-fit">
-            <button className="md:px-3 md:py-3 mt-6 w-28 whitespace-nowrap transition duration-300 px-2 py-3 text-[#FB524A] ring-1 ring-[#FB524A] rounded-md font-bold hover:bg-[#FB524A] outline-none hover:text-[white]">
-              View All
-            </button>
-          </Link>
-        </div> */}
+</div><svg className="absolute translate-x-[1550px] 2xl:flex hidden -translate-y-24" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_10_3707)">
+<circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3707)" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_10_3707" x="0" y="0" width="71" height="71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="3"/>
+<feGaussianBlur stdDeviation="10"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3707"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3707" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_10_3707" x1="35.5" y1="17" x2="35.5" y2="48" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00A4A6" stop-opacity="0.8"/>
+<stop offset="1" stop-color="#00A4A6"/>
+</linearGradient>
+</defs>
+</svg>
+
+      
         </div>
       </section>
 
       <section className="px-6 md:px-16 py-10 mb-20 bg-white text-black">
-        <div className="max-w-[1720px] mx-auto">
+        <div className="max-w-[1420px] mx-auto">
           <svg
             className="translate-y-24 2xl:flex xl:flex hidden "
             width="115"
@@ -575,9 +628,9 @@ export default function Home() {
           </Motion>
 
           <div className="mt-16 2xl:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-x-10 gap-y-10">
-            <Motion
+          <Motion
               classNames="h-full"
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -602,10 +655,9 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </Motion>
-            <Motion
+            </Motion>  <Motion
               classNames="h-full"
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.5 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -621,19 +673,16 @@ export default function Home() {
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
-                  </h1>
+                  Intuitive editing interface                  </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
+                  Enjoy the freedom to tweak your landing pages. Add sections, change templates, and refine text with ease – either manually or with AI assistance.
                   </p>
                 </div>
               </div>
             </Motion>
             <Motion
               classNames="h-full"
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -648,20 +697,18 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
-                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
-                  </p>
+
+                <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">                 
+                   Seamless cloud deployment                 
+                
+                  Launch your landing page in the cloud with just a few clicks. Connect it to your domain for a professional touch.
+                  </p>  
                 </div>
               </div>
             </Motion>
             <Motion
               classNames="h-full"
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -677,19 +724,16 @@ export default function Home() {
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
-                  </h1>
+                  Rapid development                  </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
+                  Ideal for developers and businesses, AIPage.dev significantly reduces the time and effort required to build and deploy landing pages.
                   </p>
                 </div>
               </div>
             </Motion>
             <Motion
               classNames="h-full"
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -705,19 +749,16 @@ export default function Home() {
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
-                  </h1>
+                  Effortless blog post creation                  </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
+                  Easily generate, customize, and publish captivating blog posts using our AI-powered tool. Craft engaging content without the hassle.
                   </p>
                 </div>
               </div>
             </Motion>
             <Motion
               classNames="h-full"
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -733,12 +774,10 @@ export default function Home() {
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
+                  Unlimited hosting for blog posts
                   </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
+                  Host an unlimited number of blog posts on our platform, allowing you to share your insights and expertise with your audience seamlessly.
                   </p>
                 </div>
               </div>
@@ -761,12 +800,9 @@ export default function Home() {
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
-                  </h1>
+                  Lead collection                  </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
+                  Collecting leads for your events has never been easier. With Event Registration Form section, seamlessly gather attendee information directly from your landing pages. Effortlessly manage RSVPs and streamline your event planning process.
                   </p>
                 </div>
               </div>
@@ -789,16 +825,14 @@ export default function Home() {
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                    AI-driven design
-                  </h1>
+                  Seamless integration with leading providers                  </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                    Just describe your vision, and our AI will craft a landing
-                    page that not only looks great but also aligns perfectly
-                    with your goals.
+                  Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo.
                   </p>
                 </div>
               </div>
             </Motion>
+         
           </div>
           {/* <div className="lg:hidden flex justify-center">
           <Link href="/products" className="w-fit">
@@ -810,7 +844,7 @@ export default function Home() {
         </div>
       </section>
       <section className="px-6 md:px-16 py-20 bg-[#FAFAFF] text-black">
-        <div className="max-w-[1720px] mx-auto">
+        <div className="max-w-[1420px] mx-auto">
           <h4 className="text-[#00A4A6] tracking-[3.35px] leading-[19.2px] font-medium uppercase mb-2 text-[16px] 2xl:text-[20px]">
             Templates
           </h4>
@@ -898,13 +932,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* <div className="mt-6 flex justify-center">
-          <Link target="blank" href="https://www.trustpilot.com/review/webbuddy.agency">
-            <button className="md:px-3 md:py-3  whitespace-nowrap transition duration-300 px-2 py-3 text-[#FB524A] ring-1 ring-[#FB524A] rounded-md font-bold hover:bg-[#FB524A] outline-none hover:text-[white]">
-              View All Reviews on Trustpilot
-            </button>
-          </Link>
-        </div> */}
+            
           </div>
         </div>
       </section>
