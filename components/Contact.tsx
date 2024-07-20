@@ -2,7 +2,7 @@
 
 // import { subjectsOptions } from "@/app/(pages)/about/components/constants/data";
 // import Motion from "@/components/client/Motion";
-// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+// import { , SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 // import { Slider } from "@/components/ui/slider";
 // import { sendContactForm } from "@/lib/contactApi";
 // import Validations from "@/lib/validations";
