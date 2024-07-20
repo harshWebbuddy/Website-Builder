@@ -1,26 +1,36 @@
-import React, { ReactNode } from 'react';
-
+// app/layout.tsx
+import React from 'react';
 import './globals.css'; 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-export const metadata = {
-  title: 'My Next.js App',
-  description: 'A description of my Next.js app',
-};
+import WebsiteNavbar from './mainapp/components/Navbar';
+
+// export const metadata = {
+//   title: 'My Next.js App',
+//   description: 'A description of my Next.js app',
+// };
 
 interface RootLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
+  showNavbar?: boolean; 
+  shoWebar?: boolean;  
+  showFooter?: boolean;
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children, showNavbar = false,showFooter=false,shoWebar=false }) => {
   return (
     <html lang="en">
       <body>
-        <nav>
-          <Navbar bcolor={undefined} gradientbg={undefined} aicolor={undefined} project={undefined} isTransparent={undefined}/>
-        </nav>
+        {showNavbar && (
+          <nav>
+            <Navbar bcolor={undefined} gradientbg={undefined} aicolor={undefined} project={undefined} isTransparent={undefined}/>
+          </nav>
+        )}
+        {shoWebar && <WebsiteNavbar/>}  
         {children}
-<Footer/>      </body>
+        {showFooter && <Footer />}
+       
+      </body>
     </html>
   );
 }
