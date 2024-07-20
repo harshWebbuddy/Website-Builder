@@ -300,7 +300,7 @@ export default function Home() {
       </section>
 
       <section className="px-6 md:px-16  bg-white text-black">
-        <div className="max-w-[1720px] mx-auto">
+        <div className="max-w-[1420px] mx-auto">
           <h4 className="text-[#00A4A6] tracking-[3.35px] leading-[19.2px] font-medium uppercase mb-2 text-[16px] 2xl:text-[20px]">
             Templates
           </h4>
@@ -377,7 +377,7 @@ export default function Home() {
       </div>
     </Motion>
   ))}
-</div><svg className="absolute translate-x-[1850px] 2xl:flex hidden -translate-y-24" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+</div><svg className="absolute translate-x-[1550px] 2xl:flex hidden -translate-y-24" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_10_3707)">
 <circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3707)" shape-rendering="crispEdges"/>
 </g>
@@ -399,18 +399,12 @@ export default function Home() {
 </defs>
 </svg>
 
-          {/* <div className="lg:hidden flex justify-center">
-          <Link href="/products" className="w-fit">
-            <button className="md:px-3 md:py-3 mt-6 w-28 whitespace-nowrap transition duration-300 px-2 py-3 text-[#FB524A] ring-1 ring-[#FB524A] rounded-md font-bold hover:bg-[#FB524A] outline-none hover:text-[white]">
-              View All
-            </button>
-          </Link>
-        </div> */}
+      
         </div>
       </section>
 
       <section className="px-6 md:px-16 py-10 mb-20 bg-white text-black">
-        <div className="max-w-[1720px] mx-auto">
+        <div className="max-w-[1420px] mx-auto">
           <svg
             className="translate-y-24 2xl:flex xl:flex hidden "
             width="115"
@@ -703,11 +697,12 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Seamless cloud deployment                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+
+                <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">                 
+                   Seamless cloud deployment                 
+                
                   Launch your landing page in the cloud with just a few clicks. Connect it to your domain for a professional touch.
-                  </p>
+                  </p>  
                 </div>
               </div>
             </Motion>
@@ -832,7 +827,7 @@ export default function Home() {
                   <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
                   Seamless integration with leading providers                  </h1>
                   <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo, Intercom, and more. Connect with your preferred email .
+                  Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo.
                   </p>
                 </div>
               </div>
@@ -849,7 +844,7 @@ export default function Home() {
         </div>
       </section>
       <section className="px-6 md:px-16 py-20 bg-[#FAFAFF] text-black">
-        <div className="max-w-[1720px] mx-auto">
+        <div className="max-w-[1420px] mx-auto">
           <h4 className="text-[#00A4A6] tracking-[3.35px] leading-[19.2px] font-medium uppercase mb-2 text-[16px] 2xl:text-[20px]">
             Templates
           </h4>
@@ -937,13 +932,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* <div className="mt-6 flex justify-center">
-          <Link target="blank" href="https://www.trustpilot.com/review/webbuddy.agency">
-            <button className="md:px-3 md:py-3  whitespace-nowrap transition duration-300 px-2 py-3 text-[#FB524A] ring-1 ring-[#FB524A] rounded-md font-bold hover:bg-[#FB524A] outline-none hover:text-[white]">
-              View All Reviews on Trustpilot
-            </button>
-          </Link>
-        </div> */}
+            
           </div>
         </div>
       </section>
