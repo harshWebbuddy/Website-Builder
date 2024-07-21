@@ -10,9 +10,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { testimonialData as testimonials } from "../lib/data";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowReturnLeft, BsFillArrowRightCircleFill } from "react-icons/bs";
 import LayoutWithNavbar from "./layout";
 import RootLayout from "./layout";
+import Spinner from "@/components/Spinner";
 
 export default function Home() {
   interface FeatureProps {
