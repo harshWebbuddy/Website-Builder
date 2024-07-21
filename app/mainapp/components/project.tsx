@@ -12,7 +12,7 @@ export default function ProjectCard({
   created_on: { date: string; time: string };
 }) {
   return (
-    <div className="border border-[#E8E8E8] p-6 rounded-3xl bg-white space-y-6">
+    <div className="border max-w-[402px] border-[#E8E8E8] p-6 rounded-3xl bg-white space-y-6">
       <Image src={preview_image} alt="" width={400} height={400} className="rounded-xl min-h-[200px] w-full object-cover max-h-[200px]" />
       <div className="flex items-start">
         <div className="w-full">
@@ -27,7 +27,7 @@ export default function ProjectCard({
               <MoreVertical size={20}/>
             </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          {/* <DropdownMenuContent>
             <DropdownMenuItem inset className="min-w-[200px] flex justify-between gap-8 items-center my-1">
               <div className="flex gap-3">
                 <Edit size={20}/>
@@ -42,7 +42,7 @@ export default function ProjectCard({
               </div>
               <ChevronRight size={20}/>
             </DropdownMenuItem>
-          </DropdownMenuContent>
+          </DropdownMenuContent> */}
         </DropdownMenu>
       </div>
     </div>

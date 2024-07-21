@@ -13,7 +13,7 @@ export default function WebsiteNavbar() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section className="absolute top-0 w-full px-4 py-4 z-[5] bg-[#E8E8E8]">
+    <section className="absolute top-0 w-full px-4 py-4 z-[5] ">
       <div className="bg-white border shadow-xl rounded-xl max-w-[1480px] mx-auto">
         <nav className="w-full flex items-center justify-between">
         <svg  className="select-none min-w-[180px] max-h-14 ml-6" 
