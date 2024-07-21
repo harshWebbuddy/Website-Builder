@@ -112,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ bcolor, gradientbg, aicolor, project, i
           </nav>
         </div>
       </header>
-      {/* <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} project={project} /> */}
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} project={project} />
     </Fragment>
   );
 };

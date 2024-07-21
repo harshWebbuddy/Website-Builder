@@ -39,27 +39,27 @@ export default function Modal({ onClose, isOpen, project }) {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <Dialog.Panel className="overflow-auto new-scroll w-full h-full max-w-[1520px] mx-auto bg-white backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-between gap-10">
-                <div>
+              <Dialog.Panel className="overflow-auto new-scroll w-full h-full max-w-[1520px] mx-auto bg-[#0D121F] backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-between gap-10">
+                <div className="">
                   <div className="flex justify-between">
                     <Link href="/">
-                      <img src="/logo/logo.png" alt="logo" width={160} className="hidden md:block" />
-                      <img src="/logo/logo.png" alt="logo" width={140} className="md:hidden block" />
+                      <img src="/logo.svg" alt="logo" width={160} className="hidden md:block" />
+                      <img src="/logo.svg" alt="logo" width={140} className="md:hidden block" />
                     </Link>
-                    <button onClick={onClose} className="p-2 ring-1 ring-[gray] rounded-xl cursor-pointer">
-                      <MdClose size={25} className="text-[gray]" />
+                    <button onClick={onClose} className="p-2 ring-1 ring-[#00A4A6] shadow-md shadow-[#00A4A6] rounded-xl cursor-pointer">
+                      <MdClose size={25} className="text-[white]" />
                     </button>
                   </div>
                   <div className="mt-8">
                     <div className="space-y-4 mt-4">
                       {navArray.map((navItem, i) => (
-                        <div key={i} className="border-b border-[gray] pb-2">
+                        <div key={i} className="border-b border-[#00A4A6] pb-2">
                           {navItem.link ? (
-                            <div className={`flex justify-between ${pathname == navItem.link && "!border-[#FB524A] !text-[#FB524A]"}`}>
+                            <div className={`flex justify-between ${pathname == navItem.link && "!border-[#00A4A6] !text-white"}`}>
                               <h1>
                                 <Link href={navItem.link && navItem.link}>{navItem.category_title}</Link>
                               </h1>
-                              <ArrowDownRight size={20} className="transform -rotate-90 text-[gray]" />
+                              <ArrowDownRight size={20} className="transform -rotate-90 text-[white] " />
                             </div>
                           ) : (
                             <div
@@ -78,66 +78,34 @@ export default function Modal({ onClose, isOpen, project }) {
                               </p>
                             </div>
                           )}
-                          {/* <div className="ml-6">
-                            {navItem.link ? null : (
-                              <Collapse isOpened={isExpanded && currentItem === i}>
-                                <div className="pb-6 max-w-3xl space-y-4 mt-3">
-                                  {navItem.sublinks.map((linkItem, i) => (
-                                    <div key={i}>
-                                      {linkItem.services ? (
-                                        <div className="flex gap-x-2 items-center group">
-                                          <h2
-                                            className="cursor-pointer"
-                                            onClick={() => {
-                                              if (currentSubItem === i) {
-                                                return setSubItemExpanded((prev) => !prev);
-                                              }
-                                              setSubItemExpanded(true);
-                                              setCurrentSubItem(i);
-                                            }}>
-                                            {linkItem.title}
-                                          </h2>
-                                          <ChevronDown
-                                            size={16}
-                                            className={`text-[#7c7c7c] transition duration-200 ${subItemExpanded && currentSubItem === i && "rotate-180"}`}
-                                          />
-                                        </div>
-                                      ) : (
-                                        <Link href={linkItem.link} onClick={onClose}>
-                                          <h2 className="hover:underline w-fit decoration-[gray]">{linkItem.title}</h2>
-                                        </Link>
-                                      )}
-                                      <div className="pl-6 border-l-[4px] rounded-l border-[#e4e4e4]">
-                                        {linkItem.services && (
-                                          <Collapse isOpened={subItemExpanded && currentSubItem === i}>
-                                            <div className="max-w-3xl space-y-4 py-3">
-                                              {linkItem.services.map((serviceItem, i) => (
-                                                <div key={i}>
-                                                  <Link href={serviceItem.link} onClick={onClose}>
-                                                    <p className="hover:underline w-fit decoration-[gray]">{serviceItem.name}</p>
-                                                  </Link>
-                                                </div>
-                                              ))}
-                                            </div>
-                                          </Collapse>
-                                        )}
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </Collapse>
-                            )}
-                          </div> */}
+                        
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-                {/* <Link href="/contact" className="self-end">
-                  <button className="px-6 h-[54px] border border-[#FB524A] bg-transparent rounded-md hover:bg-white/10 transition duration-300 font-bold whitespace-nowrap">
-                    {project ? "Start A Project" : "Get Qoute -It's Free"}
-                  </button>
-                </Link> */}
+             <div className="flex flex-row justify-between">           
+                <Link href="" className="group ">
+      <button className="px-8 py-2.5 flex flex-row items-center gap-x-2 shadow-md shadow-[#00A4A6] text-ellipsis border border-[#00A4A6] rounded-md group-hover:bg-white text-[16px] text-[#00A4A6] font-medium group-hover:text-[#00A4A6] whitespace-nowrap transition-all duration-300 ease-in-out">
+        Sign Up
+      
+      </button>
+    </Link> <Link href="" className="group">
+      <button className="px-8 py-2.5 flex flex-row items-center gap-x-2 text-ellipsis shadow-md shadow-[#00A4A6] bg-[#00A4A6] rounded-md group-hover:bg-white text-[16px] text-white font-medium group-hover:text-[#00A4A6] whitespace-nowrap transition-all duration-300 ease-in-out">
+        Sign In
+        <svg
+          width="13"
+          height="12"
+          viewBox="0 0 13 12"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          className="transition-all duration-300 ease-in-out fill-current group-hover:fill-[#00A4A6]"
+        >
+          <path d="M12.5 1C12.5 0.447714 12.0523 -7.61451e-07 11.5 -3.39982e-07L2.5 -2.13542e-07C1.94772 -5.50717e-07 1.5 0.447715 1.5 0.999999C1.5 1.55228 1.94772 2 2.5 2L10.5 2L10.5 10C10.5 10.5523 10.9477 11 11.5 11C12.0523 11 12.5 10.5523 12.5 10L12.5 1ZM2.20711 11.7071L12.2071 1.70711L10.7929 0.292893L0.792893 10.2929L2.20711 11.7071Z" />
+        </svg>
+      </button>
+    </Link></div>
+          
               </Dialog.Panel>
             </Transition.Child>
           </div>

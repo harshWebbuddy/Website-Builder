@@ -4,8 +4,8 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 export const metadata = {
-  title: 'My Next.js App',
-  description: 'A description of my Next.js app',
+  title: 'AI BUILDER',
+  description: 'AI BUILDER',
 };
 
 interface RootLayoutProps {
