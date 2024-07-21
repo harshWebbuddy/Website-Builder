@@ -1,23 +1,22 @@
-// app/layout.tsx
 import React from 'react';
-import './globals.css'; 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WebsiteNavbar from './mainapp/components/Navbar';
+import './globals.css';
 
-export const metadata = {
-  title: 'AI BUILDER',
-  description: 'AI BUILDER',
-};
+// export const metadata = {
+//   title: 'AI BUILDER',
+//   description: 'AI BUILDER',
+// };
 
 interface RootLayoutProps {
   children: React.ReactNode;
   showNavbar?: boolean; 
-  shoWebar?: boolean;  
+  showWebsiteNavbar?: boolean;  
   showFooter?: boolean;
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children, showNavbar = false,showFooter=false,shoWebar=false }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children, showNavbar = false, showFooter = false, showWebsiteNavbar = false }) => {
   return (
     <html lang="en">
       <body>
@@ -26,10 +25,9 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, showNavbar = false,sh
             <Navbar bcolor={undefined} gradientbg={undefined} aicolor={undefined} project={undefined} isTransparent={undefined}/>
           </nav>
         )}
-        {shoWebar && <WebsiteNavbar/>}  
+        {showWebsiteNavbar && <WebsiteNavbar />}  
         {children}
         {showFooter && <Footer />}
-       
       </body>
     </html>
   );
