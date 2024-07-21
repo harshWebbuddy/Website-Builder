@@ -1,6 +1,5 @@
 "use client";
 
-"use client";
 
 import { Eye, Rocket } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -10,7 +9,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import clsx from "clsx";
 import { useGeneratedHtml } from "@/components/context/GeneratedHtmlContext";
 import { Switch } from "@/components/ui/switch";
-import { WwwIcon } from "@/components/svgs";
+// import { WwwIcon } from "@/components/svgs";
 export default function ViewGeneratedWebsite() {
   const { generatedHtml } = useGeneratedHtml();
   const router = useRouter();
@@ -149,7 +148,7 @@ export default function ViewGeneratedWebsite() {
             </TooltipProvider>
 
             <button className="border h-10 w-10 rounded-lg flex gap-2 items-center justify-center">
-              <WwwIcon />
+              {/* <WwwIcon /> */}wwicon
             </button>
             <button className="border h-10 py-2 px-4 rounded-lg flex gap-2 items-center justify-center">
               <Rocket size={20} />
