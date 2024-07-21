@@ -10,10 +10,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { testimonialData as testimonials } from "../lib/data";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
-import { BsArrowReturnLeft, BsFillArrowRightCircleFill } from "react-icons/bs";
-import LayoutWithNavbar from "./layout";
-import RootLayout from "./layout";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Spinner from "@/components/Spinner";
+import { BsArrowReturnLeft } from "react-icons/bs";
+import RootLayout from "./layout";
 
 export default function Home() {
   interface FeatureProps {
@@ -162,10 +162,13 @@ export default function Home() {
       },
     ],
   };
-  return ( <RootLayout showNavbar={true} showFooter={true}>
+  return (
+          <RootLayout showNavbar={true} showFooter={true} >
+
     <main className="">
-      <section className="mb-10 xl:mb-16 2xl:mb-20">
-        <div className="relative flex flex-col items-center py-20  xl:py-40 2xl:py-56 space-y-4 bg-[#0D121F] overflow-hidden">
+    
+      <section className="mb-10 brightness-90 xl:mb-16 2xl:mb-20 ">
+        <div className="relative flex  flex-col items-center py-16  xl:py-40 2xl:py-56 space-y-4 bg-[#0D121F] overflow-hidden">
           <Image
             src="/landingpage/sidecircle.svg"
             alt="logo"
@@ -276,80 +279,80 @@ export default function Home() {
             </div>
           </Motion>
           <svg className="absolute 2xl:flex hidden   translate-y-20 -translate-x-52" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_10_3708)">
-<circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3708)" shape-rendering="crispEdges"/>
-</g>
-<defs>
-<filter id="filter0_d_10_3708" x="0" y="0" width="71" height="71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="3"/>
-<feGaussianBlur stdDeviation="10"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3708"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3708" result="shape"/>
-</filter>
-<linearGradient id="paint0_linear_10_3708" x1="35.5" y1="17" x2="35.5" y2="48" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4485FF" stop-opacity="0.8"/>
-<stop offset="1" stop-color="#377DFF"/>
-</linearGradient>
-</defs>
-</svg>
+            <g filter="url(#filter0_d_10_3708)">
+              <circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3708)" shape-rendering="crispEdges" />
+            </g>
+            <defs>
+              <filter id="filter0_d_10_3708" x="0" y="0" width="71" height="71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dy="3" />
+                <feGaussianBlur stdDeviation="10" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3708" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3708" result="shape" />
+              </filter>
+              <linearGradient id="paint0_linear_10_3708" x1="35.5" y1="17" x2="35.5" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#4485FF" stop-opacity="0.8" />
+                <stop offset="1" stop-color="#377DFF" />
+              </linearGradient>
+            </defs>
+          </svg>
 
 
-          <div className="mt-16 2xl:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-10">
-  {[
-    "/templates/temp1.png",
-    "/templates/temp2.png",
-    "/templates/temp3.png",
-    "/templates/temp4.png",
-    "/templates/temp5.png",
-    "/templates/temp6.png"
-  ].map((src, index) => (
-    <Motion
-      key={index}
-      classNames="h-full"
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      variants={{
-        hidden: { opacity: 0, x: -50 },
-        visible: { opacity: 1, x: 0 },
-      }}
-    >
-      <div className="relative w-full h-64">
-        <Image
-          src={src}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-2xl"
-          alt={`product-${index}`}
-        />
-      </div>
-    </Motion>
-  ))}
-</div><svg className="absolute translate-x-[1550px] 2xl:flex hidden -translate-y-24" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_10_3707)">
-<circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3707)" shape-rendering="crispEdges"/>
-</g>
-<defs>
-<filter id="filter0_d_10_3707" x="0" y="0" width="71" height="71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="3"/>
-<feGaussianBlur stdDeviation="10"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3707"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3707" result="shape"/>
-</filter>
-<linearGradient id="paint0_linear_10_3707" x1="35.5" y1="17" x2="35.5" y2="48" gradientUnits="userSpaceOnUse">
-<stop stop-color="#00A4A6" stop-opacity="0.8"/>
-<stop offset="1" stop-color="#00A4A6"/>
-</linearGradient>
-</defs>
-</svg>
+          <div className="mt-6 xl:mt-16 2xl:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-3.5">
+            {[
+              "/templates/temp1.png",
+              "/templates/temp2.png",
+              "/templates/temp3.png",
+              "/templates/temp4.png",
+              "/templates/temp5.png",
+              "/templates/temp6.png"
+            ].map((src, index) => (
+              <Motion
+                key={index}
+                classNames="h-full"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={{
+                  hidden: { opacity: 0, x: -50 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+              >
+                <div className="relative w-full h-64">
+                  <Image
+                    src={src}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-2xl"
+                    alt={`product-${index}`}
+                  />
+                </div>
+              </Motion>
+            ))}
+          </div><svg className="absolute translate-x-[1550px] 2xl:flex hidden -translate-y-24" width="71" height="71" viewBox="0 0 71 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_10_3707)">
+              <circle cx="35.5" cy="32.5" r="15.5" fill="url(#paint0_linear_10_3707)" shape-rendering="crispEdges" />
+            </g>
+            <defs>
+              <filter id="filter0_d_10_3707" x="0" y="0" width="71" height="71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dy="3" />
+                <feGaussianBlur stdDeviation="10" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3707" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3707" result="shape" />
+              </filter>
+              <linearGradient id="paint0_linear_10_3707" x1="35.5" y1="17" x2="35.5" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00A4A6" stop-opacity="0.8" />
+                <stop offset="1" stop-color="#00A4A6" />
+              </linearGradient>
+            </defs>
+          </svg>
 
-      
+
         </div>
       </section>
 
@@ -577,9 +580,9 @@ export default function Home() {
             </div>
           </Motion>
 
-          <div className="mt-16 2xl:mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-x-10 gap-y-10">
-          <Motion
-              classNames="h-full"
+          <div className="mt-2 xl:mt-16 2xl:mt-20 grid grid-cols-1 lg:grid-cols-wsm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2 gap-x-4 2xl:gap-x-10 gap-y-4 2xl:gap-y-10 " >
+            <Motion
+              classNames="h-full 2xl:flex xl:flex md:hidden lg:hidden hidden"
               transition={{ duration: 0.5, delay: 0.5 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
@@ -606,9 +609,10 @@ export default function Home() {
                 </div>
 
               </div>
-            </Motion>  <Motion
-              classNames="h-full"
-              transition={{ duration: 0.5 }}
+            </Motion>
+            <Motion
+              classNames="h-full 2xl:hidden xl:hidden flex"
+              transition={{ duration: 0.5, delay: 0.5 }}
               variants={{
                 hidden: { opacity: 0, x: -50 },
                 visible: { opacity: 1, x: 0 },
@@ -616,7 +620,7 @@ export default function Home() {
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2  rounded-[10px] ">
                 <div className="flex flex-row gap-x-4 justify-between w-full ">     <Image
-                  src="./features/features2.svg"
+                  src="./features/features1.svg"
                   className="w-[30px] h-[30px] rounded-[20px] "
                   alt="product"
                   width={102}
@@ -652,10 +656,11 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Intuitive editing interface                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Enjoy the freedom to tweak your landing pages. Add sections, change templates, and refine text with ease – either manually or with AI assistance.
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Intuitive editing interface
+                  </h1>
+                  <p className="text-[#151515]  w-full whitespace-normal word-wrap-break-word text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Enjoy the freedom to tweak your landing pages.Add sections, change templates, and refine text with ease – either manually .
                   </p>
                 </div>
 
@@ -706,13 +711,41 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-
-                <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">                 
-                   Seamless cloud deployment                 
-                
-                  Launch your landing page in the cloud with just a few clicks. Connect it to your domain for a professional touch.
-                  </p>  
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Seamless cloud deployment
+                  </h1>
+                  <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Launch your landing page in the cloud with just a few clicks. Connect it to your domain for a professional touch.
+                  </p>
                 </div>
+
+              </div>
+            </Motion>
+            <Motion
+              classNames="h-full 2xl:hidden xl:hidden flex"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
+              <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
+                <div className="flex flex-row justify-between w-full ">     <Image
+                  src="./features/features3.svg"
+                  className="w-[30px] h-[30px] rounded-[20px] "
+                  alt="product"
+                  width={102}
+                  height={102}
+                />
+
+                  <h1 className="text-[16px] font-semibold text-[#151515]">
+                    Seamless cloud deployment
+
+                  </h1>  </div>
+                <p className="text-[#151515]  w-full text-[12px] ">
+                  Launch your landing page in the cloud with just a few clicks. Connect it to your domain for a professional touch.
+
+                </p>
               </div>
             </Motion>
             <Motion
@@ -732,10 +765,11 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Rapid development                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Ideal for developers and businesses, AIPage.dev significantly reduces the time and effort required to build and deploy landing pages.
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Rapid development
+                  </h1>
+                  <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Ideal for developers and businesses, AIPage.dev significantly reduces the time and effort required to build and deploy landing .
                   </p>
                 </div>
 
@@ -784,10 +818,12 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Effortless blog post creation                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Easily generate, customize, and publish captivating blog posts using our AI-powered tool. Craft engaging content without the hassle.
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Effortless blog post creation
+                  </h1>
+                  <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Easily generate, customize, and publish captivating blog posts using our AI-powered tool. Craft engaging content without the .
+
                   </p>
                 </div>
 
@@ -838,11 +874,11 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Unlimited hosting for blog posts
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Unlimited hosting for blog posts
                   </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Host an unlimited number of blog posts on our platform, allowing you to share your insights and expertise with your audience seamlessly.
+                  <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Host an unlimited number of blog posts on our platform, allowing you to share your insights and expertise with your audience seamlessly.
                   </p>
                 </div>
 
@@ -892,11 +928,11 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Lead collection                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Collecting leads for your events has never been easier. With Event Registration Form section, seamlessly gather attendee information directly from your landing pages. Effortlessly manage RSVPs and streamline your event planning process.
-                  </p>
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Lead collection
+                  </h1>
+                  <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Collecting leads for your events has never been easier. With Event Registration Form section, seamlessly gather attendee information directly from your landing pages. Effortlessly manage RSVPs and streamline your event planning process.                  </p>
                 </div>
 
               </div>
@@ -911,7 +947,7 @@ export default function Home() {
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
-                  src="./features/features8.svg"
+                  src="./features/features7.svg"
                   className="w-[30px] h-[30px] rounded-[20px] "
                   alt="product"
                   width={102}
@@ -945,24 +981,44 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[26px] leading-[36px] font-bold text-[#151515]">
-                  Seamless integration with leading providers                  </h1>
-                  <p className="text-[#151515] w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
-                  Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo.
-                  </p>
+                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                    Seamless integration with leading providers                  </h1>
+                  <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                    Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo, Intercom, and more. Connect with your preferred email marketing, CRM, or communication tools with ease.                  </p>
                 </div>
 
               </div>
             </Motion>
-         
+            <Motion
+              classNames="h-full 2xl:hidden xl:hidden flex"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: -50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
+              <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
+                <div className="flex flex-row justify-between w-full ">     <Image
+                  src="./features/features8.svg"
+                  className="w-[30px] h-[30px] rounded-[20px] "
+                  alt="product"
+                  width={102}
+                  height={102}
+                />
+
+                  <h1 className="text-[16px] font-semibold text-[#151515]">
+                    Seamless integration with leading providers
+                  </h1>  </div>
+                <p className="text-[#151515]  w-full text-[12px] ">
+                  Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo, Intercom, and more. Connect with your preferred email marketing, CRM, or communication tools with ease.                  </p>
+
+
+              </div>
+            </Motion>
+
+
+
           </div>
-          {/* <div className="lg:hidden flex justify-center">
-          <Link href="/products" className="w-fit">
-            <button className="md:px-3 md:py-3 mt-6 w-28 whitespace-nowrap transition duration-300 px-2 py-3 text-[#FB524A] ring-1 ring-[#FB524A] rounded-md font-bold hover:bg-[#FB524A] outline-none hover:text-[white]">
-              View All
-            </button>
-          </Link>
-        </div> */}
         </div>
       </section>
       <section className="px-6 md:px-16 py-10 xl:py-16 backdrop:2xl:py-20 bg-[#FAFAFF] text-black">
@@ -1038,27 +1094,26 @@ export default function Home() {
             <div className="mt-16">
               <div className="hidden lg:block">
                 <div className="flex justify-center items-center  gap-6">
-                <button
-        className=" transition duration-300 cursor-pointer flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:bg-[#009a9b]"
-        title="Previous"
-        onClick={previous}
-      >
-        <GoArrowLeft size={25} />
-      </button>
-      <button
-        className=" transition duration-300 cursor-pointer flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:bg-[#009a9b]"
-        title="Next"
-        onClick={next}
-      >
- <GoArrowRight size={25} />      </button>
+                  <button
+                    className=" transition duration-300 cursor-pointer flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:bg-[#009a9b]"
+                    title="Previous"
+                    onClick={previous}
+                  >
+                    <GoArrowLeft size={25} />
+                  </button>
+                  <button
+                    className=" transition duration-300 cursor-pointer flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:bg-[#009a9b]"
+                    title="Next"
+                    onClick={next}
+                  >
+                    <GoArrowRight size={25} />      </button>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
-      
     </main></RootLayout>
   );
 }

@@ -45,7 +45,7 @@ const WebsiteBuilder=()=> {
 const WebApp = () => {
   return (
     <RootLayout shoWebar={true} >
-    <div className="bg-[#E8E8E8]">  <main className="">
+    <div className="bg-[#E8E8E8]/50">  <main className="">
       
       
     <section className="max-w-[1450px] mx-auto mb-10 xl:mb-16 2xl:mb-20">
