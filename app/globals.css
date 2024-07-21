@@ -1,6 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.toggle-container {
+  display: inline-block;
+  position: relative;
+  width: 72px;
+  height: 34px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.toggle-svg {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.toggle-background {
+  transition: fill 0.3s ease;
+}
+
+.toggle-circle {
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+  fill: white;
+}
+
+.toggle-input:checked + .toggle-label .toggle-circle {
+  transform: translateX(38px); /* Adjust based on the toggle width */
+}
+
+.toggle-input:checked + .toggle-label .toggle-background {
+  fill: #00A4A6; /* Change the background color when checked */
+}
+
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);

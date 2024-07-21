@@ -309,7 +309,7 @@ export const navArray = [
   {
     id: 1,
     category_title: "Pricing",
-    link: "/",
+    link: "/pricing",
   },  {
     id: 2,
     category_title: "Blog",

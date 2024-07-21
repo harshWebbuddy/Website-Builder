@@ -28,7 +28,7 @@ export default function WebsiteNavbar() {
 <rect width="24.9166" height="24.9166" fill="white" transform="translate(0 5.0417)"/>
 </clipPath>
 </defs>
-</svg>  <div className="bg-[#C9C9C9] h-8 w-[1px] -translate-x-96" />
+</svg>  <div className="bg-[#C9C9C9] h-8 w-[1px] 2xl:flex xl:flex hidden -translate-x-96" />
         <div className="w-10 grid place-content-center ml-6 xl:hidden">
             <div
               className="flex flex-col items-end justify-center rounded-md transition duration-100 p-2 space-y-[7px] cursor-pointer group"
