@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className=" ] px-6 py-10 md:px-16 md:pt-16 md:pb-6 2xl:px-24 text-white">
+    <footer className=" px-6 xl:py-8 2xl:py-16 md:px-16 md:pt-16 md:pb-6 2xl:px-24 text-white">
     <div className="max-w-[1420px] mx-auto pt-10">
   <div className="flex flex-row w-full justify-between">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-x-2  gap-y-10">
-      <div className="flex flex-col gap-y-8 items-center  ">
+      <div className="flex flex-col 2xl:gap-y-8 items-center  ">
         <Motion 
                               transition={{ duration: 0.4 }}
                               variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
-                              className="flex flex-col gap-y-6" classNames={undefined}   >
+                              className="flex flex-col 2xl:gap-y-6" classNames={undefined}   >
 <svg width="232" height="50" viewBox="0 0 232 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.125 16C1.125 11.6508 4.65076 8.125 9 8.125H27C31.3493 8.125 34.875 11.6508 34.875 16V25C34.875 25.6213 34.3713 26.125 33.75 26.125C33.1287 26.125 32.625 25.6213 32.625 25V18.8125H3.375V34C3.375 37.1066 5.89342 39.625 9 39.625H18C18.6213 39.625 19.125 40.1287 19.125 40.75C19.125 41.3713 18.6213 41.875 18 41.875H9C4.65076 41.875 1.125 38.3493 1.125 34V16ZM7.3125 13.75C7.3125 13.1287 7.81616 12.625 8.4375 12.625H9.5625C10.1838 12.625 10.6875 13.1287 10.6875 13.75C10.6875 14.3713 10.1838 14.875 9.5625 14.875H8.4375C7.81616 14.875 7.3125 14.3713 7.3125 13.75Z" fill="black"/>
 <path d="M28.097 27.0005C27.9805 26.4884 27.5252 26.125 27 26.125C26.4748 26.125 26.0195 26.4884 25.903 27.0005L25.2805 29.7379C24.9927 31.004 24.004 31.9927 22.7379 32.2805L20.0005 32.903C19.4884 33.0195 19.125 33.4748 19.125 34C19.125 34.5252 19.4884 34.9805 20.0005 35.097L22.7379 35.7194C24.004 36.0073 24.9927 36.996 25.2805 38.2621L25.903 40.9995C26.0195 41.5116 26.4748 41.875 27 41.875C27.5252 41.875 27.9805 41.5116 28.097 40.9995L28.7194 38.2621C29.0073 36.996 29.996 36.0073 31.2621 35.7194L33.9995 35.097C34.5116 34.9805 34.875 34.5252 34.875 34C34.875 33.4748 34.5116 33.0195 33.9995 32.903L31.2621 32.2805C29.996 31.9927 29.0073 31.004 28.7194 29.7379L28.097 27.0005Z" fill="#00A4A6"/>
@@ -26,8 +26,8 @@ const Footer = () => {
         
       </div>
 
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-16 gap-y-10"> 
-          <ul className="text-white leading-8 flex flex-col gap-y-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-16 gap-y-10"> 
+            <ul className="text-white leading-8 flex flex-col gap-y-6">
                 <li className="text-black text-[24px] font-bold mb-3">Product</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}classNames={undefined}>
                 {/* <Link className="w-fit" href="/services/mobile/"> */}
@@ -48,8 +48,8 @@ const Footer = () => {
         
             </ul>
 
-            <ul className="text-white flex flex-col gap-y-2 leading-8">
-                <li className="text-black text-[24px] font-bold mb-3">Resources</li>
+            <ul className="text-white flex flex-col gap-y-6 leading-8">
+                <li className="text-black text-[20px] font-bold mb-3">Resources</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }} classNames={undefined}>
                 <Link className="w-fit" href="/products/narratex">
                     <li className="text-[#596780] hover:text-black font-light">Help Center</li>
@@ -67,8 +67,8 @@ const Footer = () => {
                 </Motion>
             
             </ul>
-           
-            <ul className="text-white flex flex-col gap-y-2 leading-8">
+
+            <ul className="text-white leading-8 flex flex-col gap-y-6 ">
                 <li className="text-black  text-[24px]  font-bold mb-3">Features</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}  classNames={undefined}>
                 <Link className="w-fit" href="/about">
@@ -89,8 +89,8 @@ const Footer = () => {
             
             </ul>
 
-            <ul className="text-white flex flex-col gap-y-2 leading-8 relative">
-                <li className="text-black text-xl md:text-[24px]  font-bold mb-3 whitespace-nowrap">Follow Us</li>
+            <ul className="text-white flex flex-col gap-y-6 leading-8 relative">
+                <li className="text-black text-xl md: text-[24px]  font-bold mb-3 whitespace-nowrap">Follow Us</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}  classNames={undefined}>
                 <Link className="w-fit" href="/blog">
                     <li className="text-[#596780] font-light hover:text-black">LinkedIn</li>
@@ -114,19 +114,19 @@ const Footer = () => {
             </ul></div>
         </div>
         </div>
-        <div className="border border-[#CEBEFE] mt-10 mb-2 "></div>
+        <div className="border border-[#CEBEFE] mt-2 2xl:mt-10 mb-2 "></div>
         <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0 } }}  classNames={undefined}>
      
-          <div className="text-black text-[20px] flex flex-col-reverse lg:flex-row-reverse gap-y-8 gap-x-6 justify-between items-center pt-10 pb-6">
+          <div className="text-black text-[12px] xl:text-[16px] 2xl:text-[20px] flex flex-col-reverse lg:flex-row-reverse gap-y-4 2xl:gap-y-8 gap-x-2 2xl:gap-x-6 justify-between items-center pt-4 2xl:pt-10 pb-2 2xl:pb-6">
             <h3 className="">© AI builder 2024</h3>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-8">
-            <Link href="/policies/refund" className="border-r pr-8 border-[#525050] whitespace-nowrap w-fit">
+            <div className="flex flex-row items-center gap-x-2 2xl:gap-x-8 gap-y-8">
+            <Link href="/policies/refund" className="border-r  pr-2 2xl:pr-8 border-[#525050] whitespace-nowrap w-fit">
             Privacy policy
               </Link>
-            <Link href="/policies/shipping" className="border-r pr-8 border-[#525050] whitespace-nowrap w-fit">
+            <Link href="/policies/shipping"  className="border-r  pr-2 2xl:pr-8 border-[#525050] whitespace-nowrap w-fit">
             Terms & conditions
               </Link>
-              <Link href="/policies/terms" className="border-r pr-8 border-[#525050] whitespace-nowrap w-fit">
+              <Link href="/policies/terms" className=" pr-2 2xl:pr-8 border-[#525050] whitespace-nowrap w-fit">
               Cookie policy
               </Link>
            

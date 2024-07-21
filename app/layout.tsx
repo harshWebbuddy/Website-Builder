@@ -3,12 +3,11 @@ import React from 'react';
 import './globals.css'; 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WebsiteNavbar from './mainapp/components/Navbar';
 
-// export const metadata = {
-//   title: 'My Next.js App',
-//   description: 'A description of my Next.js app',
-// };
+export const metadata = {
+  title: 'AI BUILDER',
+  description: 'AI BUILDER',
+};
 
 interface RootLayoutProps {
   children: React.ReactNode;
