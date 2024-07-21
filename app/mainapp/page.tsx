@@ -12,8 +12,8 @@ const WebsiteBuilder=()=> {
   return (
     
     <Fragment>
-      <main className="mt-28">
-        <div className="flex max-w-[10px] max-h-[1080x] mx-auto justify-between items-center mt-8">
+      <main className="mt-40">
+        <div className="flex max-w-[1740px] max-h-[1080x] mx-auto justify-between items-center mt-20">
           <div className="space-y-2 w-full">
             <h1 className="text-2xl font-semibold">AI website builder</h1>
             <p className="flex items-center gap-2 text-[#3D3D3D] text-opacity-50 text-[15px]">Manage your projects.</p>
