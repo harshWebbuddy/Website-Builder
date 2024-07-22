@@ -89,7 +89,7 @@ const Plan2 = () => {
     {/* cards */}
     <section className="mt-2 2xl:mt-4 px-4 2xl:px-0 " ref={ref}>
       <div className="flex flex-col gap-8 max-w-[1000px] xl:flex-row md:flex-row lg:flex-row 2xl:flex-row w-full justify-center items-center" >
-  <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-2xl mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
+  <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-md mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
     <div className="pt-10 flex flex-col w-full 2xl:space-y-6 group">
       <h2 className="font-mona-sans text-center mx-auto text-gray-900 xl:text-[18px] text-[16px] 2xl:text-[20px] font-medium group-hover:text-white">
         Form integration
@@ -131,7 +131,7 @@ const Plan2 = () => {
     </div>
   </div>
 
-  <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-2xl mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
+  <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-md mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
     <div className="pt-10 flex flex-col w-full 2xl:space-y-6 group">
       <h2 className="font-mona-sans text-center mx-auto text-gray-900 xl:text-[18px] text-[16px] 2xl:text-[20px] font-medium group-hover:text-white">
         Form integration
@@ -174,7 +174,7 @@ const Plan2 = () => {
   </div>
 
 
-  <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-2xl mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
+  <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-md mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
     <div className="pt-10 flex flex-col w-full 2xl:space-y-6 group">
       <h2 className="font-mona-sans text-center mx-auto text-gray-900 xl:text-[18px] text-[16px] 2xl:text-[20px] font-medium group-hover:text-white">
         Form integration

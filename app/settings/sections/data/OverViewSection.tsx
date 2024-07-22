@@ -8,7 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function OverViewSection() {
   return (
-<Motion transition={{ duration: 0.5 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} classNames={undefined}>
+<Motion transition={{ duration: 0.5 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} classNames="p-4 2xl:p-0">
   <div className='2xl:p-0 border rounded-3xl p-4 flex flex-col gap-y-6 w-full max-w-[823px] hover:shadow-lg'>
         <div className="     w-full 2xl:w-[823px] max-w-[823px]  rounded-3xl  p-10">
           <h1 className="text-[20px] brightness-90 font-semibold  pb-3.5">Billing address</h1>

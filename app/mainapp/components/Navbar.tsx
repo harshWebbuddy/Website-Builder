@@ -82,7 +82,7 @@ export default function WebsiteNavbar() {
             <div className="flex gap-x-4 items-center">
               <div className="bg-[#C9C9C9] h-8 w-[1px]" />
              
-              <Link href="/auth/register" className="sheen bg-primary-green text-black text-[20px] font-semibold py-3.5 px-9 rounded-xl flex flex-row gap-6 items-center justify-center">
+              <Link href="" className="sheen bg-primary-green text-black text-[20px] font-semibold py-3.5 px-9 rounded-xl flex flex-row gap-6 items-center justify-center">
               Marian Jhon 
                
         <div className="relative z-[20]">   

@@ -8,52 +8,51 @@ import RootLayout from "../layout";
 import { useRouter } from "next/navigation";
 
 const WebsiteBuilder = () => {
-   const router = useRouter(); 
+  const router = useRouter();
 
   const handleCreateNewClick = () => {
-    router.push('/websitebuilding'); 
+    router.push('/websitebuilding');
   };
-  return (
-    <div >
-           <div className="2xl:p-0 p-4  ">
- <div className="mt-40 flex flex-col xl:flex-row 2xl:flex-row justify-between gap-8 max-w-[1700px] w-full mx-auto  "> <div className="space-y-2 w-full flex flex-col 2xl:items-start xl:items-center items-center ">
-    <h1 className="xl:text-[18px] text-[16px] 2xl:text-[22px] font-semibold">AI website builder</h1>
-    <p className="flex items-center gap-2 text-[#3D3D3D] text-opacity-50 text-[12px] 2xl:text-[15px]">
-      Manage your projects.
-    </p>
-  </div>
-  <div className="w-full flex gap-2 ">
-    <div className="bg-[#F4F4F4] border border-[#EBEBEB] px-2 py-1 rounded-xl flex gap-2 items-center w-full max-w-[416px]">
-      <Search className="text-gray-500" size={16} />
-      <input
-        type="search"
-        className="outline-none h-[24px]  2xl:h-[42px] w-full bg-[#F4F4F4] text-sm"
-        placeholder="Search websites"
-      />
-    </div>
-    <button
-      onClick={handleCreateNewClick}
-      className="bg-[#00A4A6] text-white text-[10px] xl:text-[14px] 2xl:text-[18px] sheen transition duration-500 px-2 2xl:px-5 py-2 rounded-xl flex items-center gap-2"
-    >
-      <Plus size={20} />
-      Create new AI Website
-    </button>
-  </div>
-</div></div>
 
-        <div className="2xl:p-0 p-4 max-w-[1700px] w-full mx-auto grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-6">
+  return (
+    <div className="p-4 flex flex-col xl:flex-row 2xl:flex-col gap-8 mx-auto max-w-[1640px]">
+      <div className="mt-40 flex flex-col xl:flex-row 2xl:flex-row justify-between  w-full mx-auto">
+        <div className="space-y-2 flex flex-col   ">
+          <h1 className="text-xl xl:text-2xl 2xl:text-3xl font-semibold">AI Website Builder</h1>
+          <p className="text-gray-600 text-sm xl:text-base">Manage your projects.</p>
+        </div>
+        <div className="flex gap-6  mt-4 xl:mt-0">
+          <div className="bg-gray-100 border  border-gray-300 px-3 py-2 rounded-xl flex items-center w-full ">
+            <Search className="text-gray-500" size={16} />
+            <input
+              type="search"
+              className="outline-none h-[24px] xl:w-[461px] 2xl:w-[461px] max-w-[461px] xl:h-[34px] 2xl:h-[52px] w-full bg-gray-100 text-sm px-2"
+              placeholder="Search websites"
+            />
+          </div>
+          <button
+            onClick={handleCreateNewClick}
+            className="bg-teal-600 text-white text-sm xl:text-base py-2 px-4 xl:px-6 rounded-xl flex items-center gap-2"
+          >
+            <Plus size={20} />
+            Create New AI Website
+          </button>
+        </div>
+      </div>
+
+      <div className="p-4 grid gap-4 mt-2 w-full grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {projects.map((data, index) => (
           <ProjectCard {...data} key={index} />
         ))}
       </div>
-      </div>
-    )
+    </div>
+  );
 }
 
 const WebApp = () => {
   return (
     <RootLayout shoWebar={true}>
-      <main className="max-w-[1450px] mx-auto mb-10 xl:mb-16 2xl:mb-20">
+      <main className="max-w-[1640px] mx-auto">
         <WebsiteBuilder />
       </main>
     </RootLayout>
