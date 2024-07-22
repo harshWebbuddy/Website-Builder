@@ -7,21 +7,21 @@ import { useEffect, useState, useRef } from "react";
 import { SlScreenDesktop, SlScreenTablet, SlScreenSmartphone } from "react-icons/sl";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import clsx from "clsx";
-import { useGeneratedHtml } from "@/components/context/GeneratedHtmlContext";
+// import { useGeneratedHtml } from "@/components/context/GeneratedHtmlContext";
 import { Switch } from "@/components/ui/switch";
 // import { WwwIcon } from "@/components/svgs";
 export default function ViewGeneratedWebsite() {
-  const { generatedHtml } = useGeneratedHtml();
+  // const { generatedHtml } = useGeneratedHtml();
   const router = useRouter();
   const [iframeWidth, setIframeWidth] = useState("100%");
   const [editingMode, setEditingMode] = useState(false); // State to track editing mode
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  useEffect(() => {
-    if (!generatedHtml) {
-      router.push("/websitebuilding"); // Redirect if no HTML is generated
-    }
-  }, [generatedHtml, router]);
+  // useEffect(() => {
+  //   if (!generatedHtml) {
+  //     router.push("/websitebuilding"); // Redirect if no HTML is generated
+  //   }
+  // }, [generatedHtml, router]);
 
   const handleViewScreenChange = (view: string) => {
     switch (view) {
@@ -161,7 +161,7 @@ export default function ViewGeneratedWebsite() {
           </div>
         </div>
       </div>
-      <div className="flex-1">
+      {/* <div className="flex-1">
         {generatedHtml ? (
           <iframe
             ref={iframeRef}
@@ -172,7 +172,7 @@ export default function ViewGeneratedWebsite() {
         ) : (
           <p className="text-center text-gray-500">Loading...</p>
         )}
-      </div>
+      </div> */}
     </main>
   );
 }
