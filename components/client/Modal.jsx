@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Collapse } from "react-collapse";
 import { ArrowDownRight, ChevronDown } from "lucide-react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import Image from "next/image";
 
 export default function Modal({ onClose, isOpen, project }) {
   const pathname = usePathname();
@@ -43,8 +44,8 @@ export default function Modal({ onClose, isOpen, project }) {
                 <div className="">
                   <div className="flex justify-between">
                     <Link href="/">
-                      <img src="/logo.svg" alt="logo" width={160} className="hidden md:block" />
-                      <img src="/logo.svg" alt="logo" width={140} className="md:hidden block" />
+                      <Image src="/logo.svg" alt="logo" width={160} className="hidden md:block" />
+                      <Image src="/logo.svg" alt="logo" width={140} className="md:hidden block" />
                     </Link>
                     <button onClick={onClose} className="p-2 ring-1 ring-[#00A4A6] shadow-md shadow-[#00A4A6] rounded-xl cursor-pointer">
                       <MdClose size={25} className="text-[white]" />
