@@ -619,7 +619,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2  rounded-[10px] ">
-                <div className="flex flex-row gap-x-4 justify-between w-full ">     <Image
+                <div className="flex flex-row gap-x-4  w-full ">     <Image
                   src="./features/features1.svg"
                   className="w-[30px] h-[30px] rounded-[20px]  "
                   alt="product"
@@ -675,7 +675,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2  rounded-[10px] ">
-                <div className="flex flex-row gap-x-4 justify-between w-full ">     <Image
+                <div className="flex flex-row  w-full ">     <Image
                   src="./features/features2.svg"
               className="w-[30px] h-[30px] rounded-[20px] mr-4"
 
@@ -684,7 +684,7 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
+                  <h1 className="text-[16px]  font-semibold text-[#151515]">
                     Intuitive editing interface
                   </h1>  </div>
                 <p className="text-[#151515]  w-full     text-[12px]   ">
@@ -731,7 +731,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row justify-between w-full ">     <Image
+                <div className="flex flex-row  w-full ">     <Image
                   src="./features/features3.svg"
               className="w-[30px] h-[30px] rounded-[20px] mr-4"
 
@@ -786,7 +786,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row justify-between w-full ">     <Image
+                <div className="flex flex-row    w-full ">     <Image
                   src="./features/features4.svg"
               className="w-[30px] h-[30px] rounded-[20px] mr-4"
 
@@ -841,7 +841,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row justify-between w-full ">     <Image
+                <div className="flex flex-row w-full ">     <Image
                   src="./features/features5.svg"
                   className="w-[30px] h-[30px] rounded-[20px] mr-4"
                   alt="product"
@@ -896,7 +896,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row justify-between w-full ">     <Image
+                <div className="flex flex-row   w-full ">     <Image
                   src="./features/features6.svg"
               className="w-[30px] h-[30px] rounded-[20px] mr-4"
 
@@ -905,7 +905,7 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
+                  <h1 className="text-[16px]  font-semibold text-[#151515]">
                     Unlimited hosting for blog posts
                   </h1>  </div>
                 <p className="text-[#151515]  w-full     text-[12px]   ">
@@ -950,7 +950,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row justify-between w-full ">     <Image
+                <div className="flex flex-row   w-full ">     <Image
                   src="./features/features7.svg"
               className="w-[30px] h-[30px] rounded-[20px] mr-4"
 
@@ -1003,7 +1003,7 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row justify-between w-full ">     <Image
+                <div className="flex flex-row  w-full ">     <Image
                   src="./features/features8.svg"
               className="w-[30px] h-[30px] rounded-[20px] mr-4"
 
@@ -1012,7 +1012,7 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
+                  <h1 className="text-[16px]  font-semibold text-[#151515]">
                     Seamless integration with    leading providers
                   </h1>  </div>
                 <p className="text-[#151515]  w-full    text-[12px] ">
