@@ -226,7 +226,7 @@ export default function Home() {
 
           </div>
           <div className="flex flex-col max-w-[606px] items-start text-white space-y-4">
-            <h2 className="text-[12px] font-medium text-primary-black items-start text-opacity-60">
+            <h2 className="   text-[12px] font-medium text-primary-black items-start text-opacity-60">
               Describe your business
             </h2>
             <div className=" 2xl:flex xl:flex hidden lg:flex md:flex  w-full  items-center gap-4">
@@ -267,10 +267,10 @@ export default function Home() {
           >
             <div className="flex xl:mt-2 2xl:mt-4 flex-col sm:flex-row justify-between gap-x-3 items-start">
               <div className="flex justify-between flex-col xl:flex-row 2xl:flex-row w-full">
-                <h1 className="text-[20px] xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
+                <h1 className="     text-[12px]   xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
                   Easy, simple, AI templates
                 </h1>
-                <p className="2xl:leading-[30px] text-[14px] xl:text-[16px] 2xl:text-[20px] md:text-[20px] text-[#151515]">
+                <p className="2xl:leading-[30px] text-[14px] xl:text-[16px] 2xl:text-[20px] md: text-[12px]text-[#151515]">
                   Our platform helps your business in managing expenses. These
                   are some of <br /> the reasons why you should use our platform
                   in managing business finances.
@@ -573,7 +573,7 @@ export default function Home() {
                 <h4 className="text-[#00A4A6] brightness-90 text-center font-light uppercase mb-2 text-[14px] xl:text-[16px] 2xl:text-[20px]">
                   FEATURES
                 </h4>
-                <h1 className="text-[20px] xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
+                <h1 className=" text-[12px]xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
                   Our AI features
                 </h1>
               </div>
@@ -598,7 +598,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     AI-driven design
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -621,7 +621,7 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2  rounded-[10px] ">
                 <div className="flex flex-row gap-x-4 justify-between w-full ">     <Image
                   src="./features/features1.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+                  className="w-[30px] h-[30px] rounded-[20px]  "
                   alt="product"
                   width={102}
                   height={102}
@@ -630,7 +630,7 @@ export default function Home() {
                   <h1 className="text-[16px] font-semibold text-[#151515]">
                     AI-driven design
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Just describe your vision, and our AI will craft a landing
                   page that  not only   looks great but also aligns perfectly
                   with your.                  </p>
@@ -656,7 +656,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Intuitive editing interface
                   </h1>
                   <p className="text-[#151515]  w-full whitespace-normal word-wrap-break-word text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -677,7 +677,8 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2  rounded-[10px] ">
                 <div className="flex flex-row gap-x-4 justify-between w-full ">     <Image
                   src="./features/features2.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+              className="w-[30px] h-[30px] rounded-[20px] mr-10 "
+
                   alt="product"
                   width={102}
                   height={102}
@@ -686,7 +687,7 @@ export default function Home() {
                   <h1 className="text-[16px] text-right font-semibold text-[#151515]">
                     Intuitive editing interface
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Enjoy the freedom to tweak your landing pages. Add sections, change templates, and refine text with ease – either manually or .
                 </p>
 
@@ -711,7 +712,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Seamless cloud deployment
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -732,7 +733,8 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
                   src="./features/features3.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+              className="w-[30px] h-[30px] rounded-[20px] mr-10 "
+
                   alt="product"
                   width={102}
                   height={102}
@@ -742,7 +744,7 @@ export default function Home() {
                     Seamless cloud deployment
 
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Launch your landing page in the cloud with just a few clicks. Connect it to your domain for a professional touch.
 
                 </p>
@@ -765,7 +767,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Rapid development
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -786,7 +788,8 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
                   src="./features/features4.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+              className="w-[30px] h-[30px] rounded-[20px] mr-10 "
+
                   alt="product"
                   width={102}
                   height={102}
@@ -794,7 +797,7 @@ export default function Home() {
 
                   <h1 className="text-[16px] font-semibold text-[#151515]">
                     Rapid development                  </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Ideal for developers and businesses, AIPage.dev significantly reduces the time and effort required to build and deploy landing pages.
                 </p>
 
@@ -818,7 +821,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Effortless blog post creation
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -840,17 +843,17 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
                   src="./features/features5.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+                  className="w-[30px] h-[30px] rounded-[20px] mr-10 "
                   alt="product"
                   width={102}
                   height={102}
                 />
 
                   <h1 className="text-[16px] font-semibold text-[#151515]">
-                    Effortless blog<br className="xl:hidden sm:hidden"/> post creation
+                    Effortless blog post creation
 
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Easily generate, customize, and publish captivating blog posts using our AI-powered tool. Craft engaging content without the.
 
                 </p>
@@ -874,7 +877,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className="     text-[12px]   md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Unlimited hosting for blog posts
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -895,16 +898,17 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
                   src="./features/features6.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+              className="w-[30px] h-[30px] rounded-[20px] mr-10 "
+
                   alt="product"
                   width={102}
                   height={102}
                 />
 
                   <h1 className="text-[16px] text-right font-semibold text-[#151515]">
-                    Unlimited hosting for<br className="xl:hidden sm:hidden"/> blog posts
+                    Unlimited hosting for blog posts
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Host an unlimited number of blog posts on our platform, allowing you to share your insights and expertise with your audience seamlessly.
                 </p>
 
@@ -928,7 +932,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className="     text-[12px]   md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Lead collection
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -948,7 +952,8 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
                   src="./features/features7.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+              className="w-[30px] h-[30px] rounded-[20px] mr-10 "
+
                   alt="product"
                   width={102}
                   height={102}
@@ -957,7 +962,7 @@ export default function Home() {
                   <h1 className="text-[16px] font-semibold text-[#151515]">
                     Lead collection
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full     text-[12px]   ">
                   Collecting leads for your events has never been easier. With Event Registration Form section, seamlessly gather attendee information directly from your landing pages. Effortlessly manage RSVPs and streamline your event planning process.                  </p>
 
 
@@ -981,7 +986,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className="text-[20px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className="     text-[12px]   md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Seamless integration with leading providers                  </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                     Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo, Intercom, and more. Connect with your preferred email marketing, CRM, or communication tools with ease.                  </p>
@@ -1000,16 +1005,17 @@ export default function Home() {
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
                 <div className="flex flex-row justify-between w-full ">     <Image
                   src="./features/features8.svg"
-                  className="w-[30px] h-[30px] rounded-[20px] "
+              className="w-[30px] h-[30px] rounded-[20px] mr-10 "
+
                   alt="product"
                   width={102}
                   height={102}
                 />
 
                   <h1 className="text-[16px] text-right font-semibold text-[#151515]">
-                    Seamless integration with <br className="xl:hidden sm:hidden"/> leading providers
+                    Seamless integration with    leading providers
                   </h1>  </div>
-                <p className="text-[#151515]  w-full text-[12px] ">
+                <p className="text-[#151515]  w-full    text-[12px] ">
                   Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo, Intercom, and more. Connect with your preferred email marketing, CRM, or communication tools with ease.                  </p>
 
 
@@ -1036,12 +1042,12 @@ export default function Home() {
           >
             <div className="flex xl:mt-2 2xl:mt-4 flex-col sm:flex-row justify-between gap-x-3 items-start">
               <div className="flex justify-between flex-col xl:flex-row 2xl:flex-row w-full">
-                <h1 className="text-[20px] xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
+                <h1 className="    text-[12px] xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
                   Easy, simple, AI templates
                 </h1>
                 <p className="2xl:leading-[30px] text-[14px] xl:text-[16px] 2xl:text-[20px] md:text-[20px] text-[#151515]">
                   Our platform helps your business in managing expenses. These
-                  are some of <br /> the reasons why you should use our platform
+                  are some of  the reasons why you should use our platform
                   in managing business finances.
                 </p>
               </div>
