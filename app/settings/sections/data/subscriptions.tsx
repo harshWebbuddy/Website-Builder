@@ -5,7 +5,7 @@ import React from 'react';
 const Subscriptions = () => {
   return (
     <Motion transition={{ duration: 0.5 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} classNames={undefined}>
-    <div className='flex flex-col gap-y-6 w-full max-w-[823px] hover:shadow-lg'>
+    <div className='flex flex-col gap-y-6 w-full max-w-[823px]'>
     <div className='bg-white mt-10 2xl:mt-0 xl:mt-0 border  xl:w-[823px] md:w-[723px] sm:w-[623px] w-full lg:w-[823px] 2xl:w-[823px] max-w-[823px] rounded-2xl'>
     <div className='bg-white py-20 w-full flex flex-col space-y-2.5 items-center justify-center mx-auto rounded-2xl'>
           <Image src="/gif1.gif" width={136} height={136} alt="gif"/>
