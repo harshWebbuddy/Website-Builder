@@ -8,17 +8,21 @@ import { navLinks } from "./nav";
 import { MdArrowOutward } from "react-icons/md";
 import React from "react";
 import Image from "next/image.js";
+
 interface Props {
   onClose: () => void;
   isOpen?: boolean;
 }
+
 export default function MobileSidebar({ onClose, isOpen }: Props) {
   const mainRef = useRef<HTMLElement | null>(null);
+
   const handleClickOutside = (event: any) => {
     if (mainRef.current && !mainRef.current.contains(event.target)) {
       onClose();
     }
   };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
