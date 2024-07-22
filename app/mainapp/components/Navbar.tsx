@@ -7,6 +7,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Image from "next/image";
 import { navLinks } from "./nav";
 import MobileSidebar from "./MobileSide";
+import { ProfileButton } from "../ProfileButton";
 
 export default function WebsiteNavbar() {
   const pathname = usePathname();
@@ -14,7 +15,7 @@ export default function WebsiteNavbar() {
 
   return (
     <section className="absolute top-0 w-full px-4 py-4 z-[5] ">
-      <div className="bg-white border shadow-xl rounded-xl max-w-[1480px] mx-auto">
+      <div className="bg-white border shadow-xl rounded-xl max-w-[1740px] mx-auto">
         <nav className="w-full flex items-center justify-between">
         <svg  className="select-none min-w-[180px] max-h-14 ml-6" 
  width="162" height="35" viewBox="0 0 162 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +29,7 @@ export default function WebsiteNavbar() {
 <rect width="24.9166" height="24.9166" fill="white" transform="translate(0 5.0417)"/>
 </clipPath>
 </defs>
-</svg>  <div className="bg-[#C9C9C9] h-8 w-[1px] 2xl:flex xl:flex hidden -translate-x-96" />
+</svg>  <div className="bg-[#C9C9C9] h-8 w-[1px] 2xl:flex xl:flex hidden -translate-x-[500px]" />
         <div className="w-10 grid place-content-center ml-6 xl:hidden">
             <div
               className="flex flex-col items-end justify-center rounded-md transition duration-100 p-2 space-y-[7px] cursor-pointer group"
@@ -84,7 +85,9 @@ export default function WebsiteNavbar() {
               <Link href="/auth/register" className="sheen bg-primary-green text-black text-[20px] font-semibold py-3.5 px-9 rounded-xl flex flex-row gap-6 items-center justify-center">
               Marian Jhon 
                
-               <Image src="/websitebuilder/3.svg" alt="website" width={50} height={30}/>
+        <div className="relative z-[20]">   
+          <ProfileButton />
+          </div>      
               </Link>
             </div>
           </div>
