@@ -29,12 +29,12 @@ const WebsiteBuilder=()=> {
   <Search className="text-gray-500" size={16} />
   <input
     type="search"
-    className="outline-none h-[24px]  2xl:h-[52px] w-full bg-[#F4F4F4] text-sm"
+    className="outline-none h-[24px]  2xl:h-[32px] w-full bg-[#F4F4F4] text-sm"
     placeholder="Search websites"
   />
 </div>
 <Link href="/websitebuilding">
-  <button onClick={handleCreateNewClick} className="bg-[#00A4A6] text-white text-[10px] xl:text-[14px] 2xl:text-[18px] sheen transition duration-500 px-2 2xl:px-5 py-2 2xl:py-4 rounded-xl flex items-center gap-2">
+  <button onClick={handleCreateNewClick} className="bg-[#00A4A6] text-white text-[10px] xl:text-[14px] 2xl:text-[18px] sheen transition duration-500 px-2 2xl:px-5 py-2 2xl:py-2 rounded-xl flex items-center gap-2">
     <Plus size={20} />
     Create new AI Website
   </button>

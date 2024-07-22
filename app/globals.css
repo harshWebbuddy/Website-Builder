@@ -4,12 +4,12 @@
 .toggle-container {
   display: inline-block;
   position: relative;
-  width: 72px;
-  height: 34px;
+  width: 50px; /* Adjusted width */
+  height: 24px; /* Adjusted height */
 }
 
 .toggle-input {
-  display: none;
+  display: none; /* Hide the checkbox */
 }
 
 .toggle-label {
@@ -21,8 +21,8 @@
 }
 
 .toggle-svg {
-  width: 100%;
-  height: 100%;
+  width: 100%; /* Responsive width */
+  height: 100%; /* Responsive height */
   transition: all 0.3s ease;
 }
 
@@ -32,17 +32,20 @@
 
 .toggle-circle {
   transition: transform 0.3s ease;
-  transform: translateX(0);
-  fill: white;
+  transform: translateX(0); /* Initial position */
+  fill: white; /* Circle color */
 }
 
+/* Adjusting the position of the circle when checked */
 .toggle-input:checked + .toggle-label .toggle-circle {
-  transform: translateX(38px); /* Adjust based on the toggle width */
+  transform: translateX(38px); /* Adjust based on the new toggle width */
 }
 
+/* Changing the background color when checked */
 .toggle-input:checked + .toggle-label .toggle-background {
-  fill: #00A4A6; /* Change the background color when checked */
+  fill: #00A4A6; /* Background color when checked */
 }
+
 
 @keyframes bounce {
   0%, 100% {

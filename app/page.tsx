@@ -683,7 +683,7 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] font-semibold text-[#151515]">
+                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
                     Intuitive editing interface
                   </h1>  </div>
                 <p className="text-[#151515]  w-full text-[12px] ">
@@ -738,7 +738,7 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] font-semibold text-[#151515]">
+                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
                     Seamless cloud deployment
 
                   </h1>  </div>
@@ -847,7 +847,7 @@ export default function Home() {
                 />
 
                   <h1 className="text-[16px] font-semibold text-[#151515]">
-                    Effortless blog post creation
+                    Effortless blog<br className="xl:hidden sm:hidden"/> post creation
 
                   </h1>  </div>
                 <p className="text-[#151515]  w-full text-[12px] ">
@@ -901,8 +901,8 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] font-semibold text-[#151515]">
-                    Unlimited hosting for blog posts
+                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
+                    Unlimited hosting for<br className="xl:hidden sm:hidden"/> blog posts
                   </h1>  </div>
                 <p className="text-[#151515]  w-full text-[12px] ">
                   Host an unlimited number of blog posts on our platform, allowing you to share your insights and expertise with your audience seamlessly.
@@ -1006,8 +1006,8 @@ export default function Home() {
                   height={102}
                 />
 
-                  <h1 className="text-[16px] font-semibold text-[#151515]">
-                    Seamless integration with leading providers
+                  <h1 className="text-[16px] text-right font-semibold text-[#151515]">
+                    Seamless integration with <br className="xl:hidden sm:hidden"/> leading providers
                   </h1>  </div>
                 <p className="text-[#151515]  w-full text-[12px] ">
                   Integrate with your favorite providers effortlessly. Event Registration Form section allows you to sync collected leads with leading service providers such as SendGrid, Klaviyo, Intercom, and more. Connect with your preferred email marketing, CRM, or communication tools with ease.                  </p>
