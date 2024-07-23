@@ -164,7 +164,7 @@ export default function Home() {
     ],
   };
   return (
-    <AuthProvider>
+    // <AuthProvider>
           <RootLayout showNavbar={true} showFooter={true} >
 
     <main className="">
@@ -1116,6 +1116,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main></RootLayout></AuthProvider>
+    </main></RootLayout>
+    // </AuthProvider>
   );
 }

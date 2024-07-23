@@ -122,7 +122,7 @@ export default function AuthPage() {
             {renderContent()}
           </div>
          
-                  <div className="w-full flex items-center justify-center mt-4">
+                  <div className="z-[60] w-full flex items-center justify-center mt-4">
                   <a
                   className="text-blue-500 hover:underline"
                   onClick={handleLinkClick}
