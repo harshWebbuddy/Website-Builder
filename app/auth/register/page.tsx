@@ -18,6 +18,7 @@ import { useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { login } from "@/components/lib/features/auth/auth.slice";
 import toast from "react-hot-toast";
+import { setCookie } from "cookies-next";
 
 export default function Register() {
   const router = useRouter();
@@ -259,55 +260,33 @@ export default function Register() {
                     </div>
                     {errors.agreeToTerms && (
                       <span className="text-rose-600 text-sm">
-                        {errors.agreeToTerms.message}
+                        {errors.agreeToTerms?.message}
                       </span>
                     )}
                   </div>
+
                   <button
                     type="submit"
-                    className="bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white h-[60px] w-full rounded-xl flex justify-center items-center"
+                    className="w-full h-[60px] flex items-center justify-center rounded-xl bg-primary-green text-white font-medium hover:bg-primary-dark-green transition-colors"
+                    disabled={isPending}
                   >
-                    {isPending ? <Spinner /> : "Sign Up"}
+                    {isPending ? (
+                      <Spinner />
+                    ) : (
+                      "Register"
+                    )}
                   </button>
                 </form>
-
-                <div className="flex items-center text-[#667085] gap-2">
-                  <div className="h-[2px] w-full bg-[#EFEFF4]" />
-                  <span className="whitespace-nowrap">OR</span>
-                  <div className="h-[2px] w-full bg-[#EFEFF4]" />
-                </div>
-                <div className="space-y-3">
-                  <Link
-                    href={`${API_URL}/users/api/v1/auth/facebook`}
-                    className="h-[56px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#E9EBEE] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
-                  >
-                    <Image
-                      src="/icons/facebook.svg"
-                      alt="Facebook"
-                      width={20}
-                      height={20}
-                    />
-                    <span className="text-base font-medium">
-                      Continue with Facebook
-                    </span>
-                  </Link>
-                  <Link
-                    href={`${API_URL}/users/api/v1/auth/google`}
-                    className="h-[56px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#F8F9FA] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
-                  >
-                    <Image
-                      src="/icons/google.svg"
-                      alt="Google"
-                      width={20}
-                      height={20}
-                    />
-                    <span className="text-base font-medium">
-                      Continue with Google
-                    </span>
-                  </Link>
-                </div>
               </div>
-              <div />
+
+              <div className="text-center">
+                <p className="text-sm text-[#667085]">
+                  Already have an account?{" "}
+                  <Link href="/login" className="text-primary-green font-medium">
+                    Login
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -315,7 +294,5 @@ export default function Register() {
     </main>
   );
 }
-function setCookie(arg0: string, token: any, arg2: { secure: boolean; sameSite: string; expires: Date; }) {
-  throw new Error("Function not implemented.");
-}
+
 

@@ -1116,6 +1116,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main></RootLayout></AuthProvider>
+    </main></RootLayout>
+    </AuthProvider>
   );
 }
