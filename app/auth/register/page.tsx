@@ -1,20 +1,31 @@
 "use client";
 
 import Spinner from "@/components/Spinner";
-import instance from "@/components/config/axios.config";
 import { Checkbox } from "@/components/ui/checkbox";
+
 import { API_URL } from "@/lib/api";
-import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next-nprogress-bar";
+import { useSearchParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { login } from "@/components/lib/features/auth/auth.slice";
+import { setCookie } from "cookies-next";
 
 export default function Register() {
-  const ValidationSchema = z
+  const router = useRouter();
+  const dispatch = useDispatch();
+  // const searchParams = useSearchParams();
+  const [isLoading, setIsLoading] = useState(false);
+   const ValidationSchema = z
     .object({
       email: z.string().email("Please enter a valid email address"),
       password: z
@@ -49,10 +60,18 @@ export default function Register() {
     setIsPending(true);
     try {
       const { email, password } = data;
-      const response = await instance.post(API_URL + "/users/api/v1/signup", {
+      const response = await axios.post(API_URL + "/users/api/v1/signup", {
         email,
         password,
       });
+      setCookie("token", response.data.data.token, {
+        secure: true,
+        sameSite: "none",
+        expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
+      });
+      dispatch(login(response.data.data));
+
+      router.push("/mainapp");
       toast.success(response.data.message);
     } catch (error: any) {
       if (error.response) {
@@ -60,7 +79,7 @@ export default function Register() {
       } else {
         toast.error(error.message);
       }
-      console.error("Login failed:", error);
+      console.error("Registration failed:", error);
     } finally {
       setIsPending(false);
     }

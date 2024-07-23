@@ -6,8 +6,7 @@ import Login from "./login/page";
 import Image from "next/image";
 import Link from "next/link";
 import { Provider } from "react-redux";
-import { persistor, store } from "@/components/lib/store";
-import { PersistGate } from "redux-persist/es/integration/react";
+import { store } from "@/components/lib/store";
 export default function AuthPage() {
   const tabs = ["Log In", "Sign Up"];
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
@@ -27,20 +26,12 @@ export default function AuthPage() {
   const renderContent = () => {
     switch (selectedTabIndex) {
       case 0:
-        return
-         <Provider store={store} >
-            <PersistGate loading={null} persistor={persistor}>
+        return (
+         
             <Login />
-          </PersistGate>
-          </Provider>
-   
+        );
       case 1:
-        return      
-        <Provider store={store} >
-    <PersistGate loading={null} persistor={persistor}>
-          <Register />  
-           </PersistGate>
-           </Provider>;
+        return  <Register />;
       default:
         return null;
     }
@@ -49,7 +40,7 @@ export default function AuthPage() {
     setSelectedTabIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
   };
   return (
-     <main className="w-full h-full flex justify-center  overflow-hidden   ">
+    <Provider store={store} >    <main className="w-full h-full flex justify-center  overflow-hidden   ">
       <div className=" w-full  flex justify-between  overflow-auto">
         <div className="relative flex flex-col w-full 2xl:p-0 p-4  ">
           <Image
@@ -159,7 +150,7 @@ export default function AuthPage() {
           </section>
         </div>
       </div>
-    </main>
+    </main></Provider>
 
   );
 }

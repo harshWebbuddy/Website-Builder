@@ -1,20 +1,19 @@
-"use client";
+'use client';
 
 import Spinner from "@/components/Spinner";
-import { useRouter } from "next-nprogress-bar";
-
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { login } from "../../../components/lib/features/auth/auth.slice";
 import { setCookie } from "cookies-next";
 import { useSearchParams } from "next/navigation";
-import { login } from "@/components/lib/features/auth/auth.slice";
 
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
-  toast.success("Wait Redirecting to dashboard...");
+  
   useEffect(() => {
     const token = searchParams.get("token");
 
@@ -23,10 +22,8 @@ export default function Login() {
       const id = searchParams.get("id");
       const email = searchParams.get("email");
       const avatar = searchParams.get("avatar");
-      //   console.log(token);
       setCookie("token", token, {
         secure: true,
-        // path: "/",
         sameSite: "none",
         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
       });
@@ -38,75 +35,20 @@ export default function Login() {
       };
       dispatch(login(user));
 
-      router.push("/app");
+      router.push("/mainapp");
       toast.success("Successfully logged in...");
     } else {
       router.push("/auth/login");
     }
-  }, []);
+  }, [searchParams, dispatch, router]);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h2>Wait Redirecting to dashboard...</h2>
       <div className="itemh-screen">
         <div className="w-12 h-12 rounded-full absolute border-8 border-solid border-gray-200"></div>
-        <div className="w-12 h-12 rounded-full animate-spin absolute  border-8 border-solid border-green-500 border-t-transparent"></div>
+        <div className="w-12 h-12 rounded-full animate-spin absolute border-8 border-solid border-green-500 border-t-transparent"></div>
       </div>
     </div>
   );
 }
-
-// 'use client';
-
-// import Spinner from "@/components/Spinner";
-// import { useRouter } from "next/navigation";
-// import { useEffect } from "react";
-// import toast from "react-hot-toast";
-// import { useDispatch } from "react-redux";
-// import { login } from "../../../components/lib/features/auth/auth.slice";
-// import { setCookie } from "cookies-next";
-// import { useSearchParams } from "next/navigation";
-
-// export default function Login() {
-//   const router = useRouter();
-//   const dispatch = useDispatch();
-//   const searchParams = useSearchParams();
-  
-//   useEffect(() => {
-//     const token = searchParams.get("token");
-
-//     if (token) {
-//       const user_name = searchParams.get("user_name");
-//       const id = searchParams.get("id");
-//       const email = searchParams.get("email");
-//       const avatar = searchParams.get("avatar");
-//       setCookie("token", token, {
-//         secure: true,
-//         sameSite: "none",
-//         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
-//       });
-//       const user = {
-//         user_name,
-//         email,
-//         id,
-//         avatar,
-//       };
-//       dispatch(login(user));
-
-//       router.push("/mainapp");
-//       toast.success("Successfully logged in...");
-//     } else {
-//       router.push("/auth/login");
-//     }
-//   }, [searchParams, dispatch, router]);
-
-//   return (
-//     <div className="flex flex-col items-center justify-center h-screen">
-//       <h2>Wait Redirecting to dashboard...</h2>
-//       <div className="itemh-screen">
-//         <div className="w-12 h-12 rounded-full absolute border-8 border-solid border-gray-200"></div>
-//         <div className="w-12 h-12 rounded-full animate-spin absolute border-8 border-solid border-green-500 border-t-transparent"></div>
-//       </div>
-//     </div>
-//   );
-// }
