@@ -23,7 +23,7 @@ import { setCookie } from "cookies-next";
 export default function Register() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
    const ValidationSchema = z
     .object({

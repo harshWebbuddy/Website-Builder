@@ -26,12 +26,12 @@ export default function AuthPage() {
   const renderContent = () => {
     switch (selectedTabIndex) {
       case 0:
-        return (
-         
-            <Login />
-        );
+        return
+         <Provider store={store} >
+            <Login /></Provider>
+   
       case 1:
-        return  <Register />;
+        return      <Provider store={store} ><Register />   </Provider>;
       default:
         return null;
     }
@@ -40,7 +40,7 @@ export default function AuthPage() {
     setSelectedTabIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
   };
   return (
-    <Provider store={store} >    <main className="w-full h-full flex justify-center  overflow-hidden   ">
+     <main className="w-full h-full flex justify-center  overflow-hidden   ">
       <div className=" w-full  flex justify-between  overflow-auto">
         <div className="relative flex flex-col w-full 2xl:p-0 p-4  ">
           <Image
@@ -150,7 +150,7 @@ export default function AuthPage() {
           </section>
         </div>
       </div>
-    </main></Provider>
+    </main>
 
   );
 }

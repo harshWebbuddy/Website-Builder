@@ -23,7 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const ValidationSchema = z.object({
     email: z.string().email("Please enter a valid email address"),
