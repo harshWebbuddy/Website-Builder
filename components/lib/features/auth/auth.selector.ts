@@ -2,12 +2,12 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../components/lib/store";
 
-const isAuthenticated = () => {
+const IsAuthenticated = () => {
   return useSelector((state: RootState) => state.auth.isAuthenticated);
 };
 
-const getCurrentUser = () => {
+const GetCurrentUser = () => {
   return useSelector((state: RootState) => state.auth.user);
 };
 
-export { isAuthenticated, getCurrentUser };
+export { IsAuthenticated, GetCurrentUser };
