@@ -86,12 +86,12 @@ const Navbar: React.FC<NavbarProps> = ({ bcolor, gradientbg, aicolor, project, i
 <line x1="1" y1="2.18557e-08" x2="0.999999" y2="21" stroke="#C9C9C9"/>
 </svg>
 </div>
-                <Link href="/auth/register" className="group ml-4">
+                <Link href="/auth" className="group ml-4">
       <button className="px-8 py-2.5 flex flex-row items-center gap-x-2 shadow-md shadow-[#00A4A6] text-ellipsis border border-[#00A4A6] rounded-md group-hover:bg-white text-[16px] text-[#00A4A6] font-medium group-hover:text-[#00A4A6] whitespace-nowrap transition-all duration-300 ease-in-out">
         Sign Up
       
       </button>
-    </Link> <Link href="/mainapp" className="group">
+    </Link> <Link href="/auth" className="group">
       <button className="px-8 py-2.5 flex flex-row items-center gap-x-2 text-ellipsis shadow-md shadow-[#00A4A6] bg-[#00A4A6] rounded-md group-hover:bg-white text-[16px] text-white font-medium group-hover:text-[#00A4A6] whitespace-nowrap transition-all duration-300 ease-in-out">
         Sign In
         <svg

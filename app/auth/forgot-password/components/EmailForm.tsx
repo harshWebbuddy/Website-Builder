@@ -6,12 +6,13 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import clsx from "clsx";
-import toast from "react-hot-toast";
+import "react-toastify/dist/ReactToastify.css";
 import Spinner from "@/components/Spinner";
 import { API_URL } from "@/lib/api";
-
 import Link from "next/link";
 import Motion from "@/components/client/Motion";
+import Image from "next/image";
+import toast from "react-hot-toast";
 
 const EmailValidationSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -37,7 +38,10 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
     setIsPending(true);
     try {
       const validatedData = EmailValidationSchema.parse(data);
-      const response = await axios.post(API_URL + "/users/api/v1/password-reset-request", validatedData);
+      const response = await axios.post(
+        API_URL + "/users/api/v1/password-reset-request",
+        validatedData
+      );
       toast.success(response.data.message);
       onEmailSubmitted(data.email); // Call the callback function to proceed to OTP verification
     } catch (error: any) {
@@ -53,20 +57,49 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
   };
 
   return (
-    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} classNames={undefined}>
-      <div className="space-y-6 w-full">
-        <div className="space-y-3">
-          <h1 className="text-3xl font-bold text-center">Forgot password?</h1>
-          <p className="text-[#002030B2] text-base text-center">Enter your email to receive password reset OTP</p>
+    <Motion
+      transition={{ duration: 0.6 }}
+      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+      classNames={undefined}
+    >
+      <div className="flex flex-col items-center justify-center space-y-6 w-full">
+        <div className="text-center space-y-3">
+          <Image
+            src="/auth/otp.svg"
+            alt="growstack"
+            height={331}
+            width={220}
+            className="mx-auto"
+          />
+          <h1 className="2xl:text-[34px] xl:text-[22px] text-[16px] font-bold">
+            Forgot password?
+          </h1>
+          <p className="text-[#002030B2] 2xl:text-[14px] xl:text-[12px] text-[10px] font-medium">
+            Lorem ipsum dolor sit amet consectetur. Sit nec at rhoncus vulputate
+            ornare mauris adipiscing amet. Lacus viverra arcu nulla.
+          </p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 !mt-7 w-full">
-          <div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col items-center space-y-7 w-full max-w-[445px]"
+        >
+          <div className="w-full">
+            <h2 className="2xl:text-[16px] xl:text-[14px] text-[12px] mb-2">
+              Email address
+            </h2>
             <div
               className={clsx(
-                "w-full h-full flex items-center gap-3 bg-white outline-none border border-[#00203056] rounded-xl px-4 transition-all focus-within:border-primary-green",
+                "flex items-center gap-3 bg-white outline-none border border-[#00203056] rounded-xl px-4 transition-all focus-within:border-primary-green",
                 errors.email && "border-rose-600 focus-within:border-rose-600"
-              )}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16" fill="none">
+              )}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -74,26 +107,46 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
                   fill="#667085"
                 />
               </svg>
-              <div className="relative group space-y-2 cursor-text w-full">
-                <input
-                  id="email"
-                  autoComplete="email"
-                  className="text-sm  focus:ring-0 h-[60px] w-full"
-                  placeholder="Enter your email..."
-                  {...register("email")}
-                />
-              </div>
+              <input
+                id="email"
+                autoComplete="email"
+                className="text-sm w-full focus:ring-0 h-[60px] px-3"
+                placeholder="Enter your email..."
+                {...register("email")}
+              />
             </div>
-            {errors.email && <span className="text-rose-600 text-sm">{errors.email?.message}</span>}
+            {errors.email && (
+              <span className="text-rose-600 text-sm">
+                {errors.email?.message}
+              </span>
+            )}
           </div>
 
-          <button type="submit" className="bg-primary-green hover:bg-primary-green/90 text-white h-[60px] w-full rounded-xl flex justify-center items-center">
+          <button
+            type="submit"
+            className="bg-[#00A4A6] hover:bg-[#00A4A6]/90 hover:shadow-[#00A4A6] shadow-md text-white h-[60px] w-full rounded-xl flex justify-center items-center"
+          >
             {isPending ? <Spinner /> : "Reset password"}
           </button>
         </form>
-        <Link href="/auth/login" className="text-[#14171B] text-center flex items-center gap-4 justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-            <path d="M7 1L1 7L7 13" stroke="#14171B" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+        <Link
+          href="/auth/login"
+          className="text-[#14171B] text-center flex items-center gap-4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+          >
+            <path
+              d="M7 1L1 7L7 13"
+              stroke="#14171B"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
           Back to login
         </Link>

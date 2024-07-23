@@ -44,8 +44,8 @@ export default function Modal({ onClose, isOpen, project }) {
                 <div className="">
                   <div className="flex justify-between">
                     <Link href="/">
-                      <Image src="/logo.svg" alt="logo" width={160} className="hidden md:block" />
-                      <Image src="/logo.svg" alt="logo" width={140} className="md:hidden block" />
+                      <Image src="/logo.svg" alt="logo" width={160} height={100}  className="hidden md:block" />
+                      <Image src="/logo.svg" alt="logo" width={140}   height={100} className="md:hidden block" />
                     </Link>
                     <button onClick={onClose} className="p-2 ring-1 ring-[#00A4A6] shadow-md shadow-[#00A4A6] rounded-xl cursor-pointer">
                       <MdClose size={25} className="text-[white]" />
@@ -58,7 +58,7 @@ export default function Modal({ onClose, isOpen, project }) {
                           {navItem.link ? (
                             <div className={`flex justify-between ${pathname == navItem.link && "!border-[#00A4A6] !text-white"}`}>
                               <h1>
-                                <Link href={navItem.link && navItem.link}>{navItem.category_title}</Link>
+                                <Link className="text-white" href={navItem.link && navItem.link}>{navItem.category_title}</Link>
                               </h1>
                               <ArrowDownRight size={20} className="transform -rotate-90 text-[white] " />
                             </div>
@@ -85,13 +85,13 @@ export default function Modal({ onClose, isOpen, project }) {
                     </div>
                   </div>
                 </div>
-             <div className="flex flex-row justify-between">           
-                <Link href="" className="group ">
+             <div className="flex flex-row  gap-x-4 w-full justify-between">           
+                <Link href="/auth" className="group ">
       <button className="px-8 py-2.5 flex flex-row items-center gap-x-2 shadow-md shadow-[#00A4A6] text-ellipsis border border-[#00A4A6] rounded-md group-hover:bg-white text-[16px] text-[#00A4A6] font-medium group-hover:text-[#00A4A6] whitespace-nowrap transition-all duration-300 ease-in-out">
         Sign Up
       
       </button>
-    </Link> <Link href="" className="group">
+    </Link> <Link href="/auth" className="group">
       <button className="px-8 py-2.5 flex flex-row items-center gap-x-2 text-ellipsis shadow-md shadow-[#00A4A6] bg-[#00A4A6] rounded-md group-hover:bg-white text-[16px] text-white font-medium group-hover:text-[#00A4A6] whitespace-nowrap transition-all duration-300 ease-in-out">
         Sign In
         <svg

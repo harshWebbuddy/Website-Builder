@@ -14,6 +14,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Spinner from "@/components/Spinner";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import RootLayout from "./layout";
+import AuthProvider from "@/components/providers/AuthProvider";
 
 export default function Home() {
   interface FeatureProps {
@@ -163,19 +164,14 @@ export default function Home() {
     ],
   };
   return (
+    <AuthProvider>
           <RootLayout showNavbar={true} showFooter={true} >
 
     <main className="">
     
-      <section className="mb-10 brightness-90 xl:mb-16 2xl:mb-20 ">
+      <section className="mb-10 brightness-125 xl:mb-16 2xl:mb-20 ">
         <div className="relative flex  flex-col items-center py-16  xl:py-40 2xl:py-56 space-y-4 bg-[#0D121F] overflow-hidden">
-          <Image
-            src="/landingpage/sidecircle.svg"
-            alt="logo"
-            width={100}
-            height={100}
-            className="w-[900px] translate-y-[500px]  xl:flex 2xl:flex hidden absolute inset-0 -translate-x-60"
-          />
+       
 
           <div className="p-8 2xl:p-0 slide-reveal relative z-[2] w-full h-full flex flex-col space-y-8 justify-center items-center text-white">
             <div className="flex flex-col items-center space-y-6">
@@ -1120,6 +1116,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main></RootLayout>
+    </main></RootLayout></AuthProvider>
   );
 }

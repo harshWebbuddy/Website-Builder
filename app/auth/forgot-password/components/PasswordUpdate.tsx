@@ -6,10 +6,15 @@ import { API_URL } from "@/lib/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import clsx from "clsx";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
+import { useRouter } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 
 interface PasswordUpdateProps {
   email: string;
@@ -17,11 +22,21 @@ interface PasswordUpdateProps {
   setStep: (value: number) => void;
 }
 
-const PasswordUpdate: React.FC<PasswordUpdateProps> = ({ email, otp, setStep }) => {
+const PasswordUpdate: React.FC<PasswordUpdateProps> = ({
+  email,
+  otp,
+  setStep,
+}) => {
   const [isPending, setIsPending] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State for confirm password visibility
+  const router = useRouter();
+
   const PasswordUpdateSchema = z
     .object({
-      password: z.string().min(6, "Password must be at least 6 characters long"),
+      password: z
+        .string()
+        .min(6, "Password must be at least 6 characters long"),
       confirmPassword: z.string(),
     })
     .refine((data) => data.password === data.confirmPassword, {
@@ -41,8 +56,12 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({ email, otp, setStep }) 
   const onSubmit: SubmitHandler<PasswordUpdateSchemaType> = async (data) => {
     setIsPending(true);
     try {
-      const response = await axios.put(API_URL + "/users/api/v1/reset-password", { email, otp, password: data.password });
+      const response = await axios.put(
+        API_URL + "/users/api/v1/reset-password",
+        { email, otp, password: data.password }
+      );
       toast.success(response.data.message);
+      router.push("/login"); // Redirect to login page
     } catch (error: any) {
       if (error.response) {
         toast.error(error.response.data.error || error.response.data);
@@ -56,20 +75,52 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({ email, otp, setStep }) 
   };
 
   return (
-    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}  classNames={undefined}>
+    <Motion
+      transition={{ duration: 0.2 }}
+      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+      classNames={undefined}
+    >
       <div className="space-y-6 w-full">
         <div className="space-y-3">
-          <h1 className="text-3xl font-bold text-center">You're finished!</h1>
-          <p className="text-[#002030B2] text-base text-center">Enter your new password</p>
+          <Image
+            src="/auth/passupdate.svg"
+            alt="growstack"
+            height={331}
+            width={220}
+            className="mx-auto"
+          />
+
+          <h1 className="2xl:text-[34px] xl:text-[24px] text-[12px] font-semibold text-center">
+            Reset your password
+          </h1>
+          <p className="text-[#002030B2] 2xl:text-[16px] xl:text-[14px] text-[12px] font-medium text-center">
+            Lorem ipsum dolor sit amet consectetur. Sit nec at rhoncus vulputate
+            ornare mauris adipiscing amet. Lacus viverra arcu nulla.
+          </p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 !mt-7 w-full">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="2xl:p-0 p-4 space-y-7 !mt-7 w-full"
+        >
           <div>
+            <h2 className="2xl:text-[16px] xl:text-[14px] text-[12px] font-medium mb-4">
+              {" "}
+              New password
+            </h2>
             <div
               className={clsx(
                 "w-full h-full flex items-center gap-3 bg-white outline-none border border-[#00203056] rounded-xl px-4 transition-all focus-within:border-primary-green",
-                errors["password"] && "border-rose-600 focus-within:border-rose-600"
-              )}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16" fill="none">
+                errors["password"] &&
+                  "border-rose-600 focus-within:border-rose-600"
+              )}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -79,24 +130,51 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({ email, otp, setStep }) 
               </svg>
               <div className="relative group space-y-2 cursor-text w-full">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="password"
                   placeholder="Enter your password..."
                   className={clsx("text-sm peer focus:ring-0 h-[60px] w-full")}
                   {...register("password")}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 transform -translate-y-4"
+                >
+                  {showPassword ? (
+                    <Eye size={20} color="#667085" />
+                  ) : (
+                    <EyeOff size={20} color="#667085" />
+                  )}
+                </button>
               </div>
             </div>
-            {errors.password && <span className="text-rose-600 text-sm">{errors.password?.message}</span>}
+            {errors.password && (
+              <span className="text-rose-600 text-sm">
+                {errors.password?.message}
+              </span>
+            )}
           </div>
           <div>
+            <h2 className="2xl:text-[16px] xl:text-[14px] text-[12px] font-medium mb-4">
+              {" "}
+              Confirm password
+            </h2>
             <div
               className={clsx(
                 "w-full h-full flex items-center gap-3 bg-white outline-none border border-[#00203056] rounded-xl px-4 transition-all focus-within:border-primary-green",
-                errors["confirmPassword"] && "border-rose-600 focus-within:border-rose-600"
-              )}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16" fill="none">
+                errors["confirmPassword"] &&
+                  "border-rose-600 focus-within:border-rose-600"
+              )}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
@@ -106,28 +184,40 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({ email, otp, setStep }) 
               </svg>
               <div className="relative group space-y-2 cursor-text w-full">
                 <input
-                  type="password"
-                  id="password"
-                  autoComplete="password"
+                  type={showConfirmPassword ? "text" : "password"} // Toggle visibility
+                  id="confirmPassword"
+                  autoComplete="confirm-password"
                   placeholder="Confirm your password..."
                   className={clsx("text-sm peer focus:ring-0 h-[60px] w-full")}
                   {...register("confirmPassword")}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-4 top-1/2 transform -translate-y-4"
+                >
+                  {showConfirmPassword ? (
+                    <Eye size={20} color="#667085" />
+                  ) : (
+                    <EyeOff size={20} color="#667085" />
+                  )}
+                </button>
               </div>
             </div>
-            {errors.confirmPassword && <span className="text-rose-600 text-sm">{errors.confirmPassword?.message}</span>}
+            {errors.confirmPassword && (
+              <span className="text-rose-600 text-sm">
+                {errors.confirmPassword?.message}
+              </span>
+            )}
           </div>
-
-          <button type="submit" className="bg-primary-green hover:bg-primary-green/90 text-white h-[60px] w-full rounded-xl flex justify-center items-center">
-            {isPending ? <Spinner /> : "Update password"}
+          <button
+            type="submit"
+            disabled={isPending}
+            className="w-full py-3 px-4 bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white font-semibold rounded-lg"
+          >
+            {isPending ? <Spinner /> : "Update Password"}
           </button>
         </form>
-        <button onClick={() => setStep(2)} className="text-[#14171B] text-center flex items-center gap-4 justify-center cursor-pointer mx-auto">
-          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-            <path d="M7 1L1 7L7 13" stroke="#14171B" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Back
-        </button>
       </div>
     </Motion>
   );
