@@ -36,7 +36,7 @@ export default function AuthPage() {
         return null;
     }
   };
-  const handleLinkClick = () => {
+  const handleLinkClick = (event: { preventDefault: () => void; }) => {
     setSelectedTabIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
   };
   return (
@@ -124,12 +124,18 @@ export default function AuthPage() {
          
                   <div className="w-full flex items-center justify-center mt-4">
                   <a
-                  className="text-blue-500 hover:underline"
+                  className="text-black text-md hover:underline"
                   onClick={handleLinkClick}
                 >
-                  {selectedTabIndex === 0
-                    ? "Don't have an account? Sign Up"
-                    : "Already have an account? Log In"}
+                  {selectedTabIndex === 0 ? (
+                    <>
+                      Do not have an account? <span style={{ color: '#00A4A6' }}>Sign Up now</span>
+                    </>
+                  ) : (
+                    <>
+                      Already have an account? <span style={{ color: '#00A4A6' }}>Log In</span>
+                    </>
+                  )}
                 </a>
             </div>
      </div>
