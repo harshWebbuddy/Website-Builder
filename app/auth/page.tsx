@@ -28,7 +28,8 @@ export default function AuthPage() {
       case 0:
         return
          <Provider store={store} >
-            <Login /></Provider>
+            <Login />
+            </Provider>
    
       case 1:
         return      <Provider store={store} ><Register />   </Provider>;

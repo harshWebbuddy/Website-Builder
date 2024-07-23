@@ -74,7 +74,7 @@ export default function Login() {
   };
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -245,6 +245,6 @@ export default function Login() {
           </section>
         </div>
       </motion.main>
-    </Provider>
+    // </Provider>
   );
 }
