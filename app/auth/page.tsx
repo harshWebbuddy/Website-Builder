@@ -6,7 +6,7 @@ import Login from "./login/page";
 import Image from "next/image";
 import Link from "next/link";
 import { Provider } from "react-redux";
-import { store } from "@/components/lib/store";
+// import { store } from "@/components/lib/store";
 export default function AuthPage() {
   const tabs = ["Log In", "Sign Up"];
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
@@ -27,12 +27,15 @@ export default function AuthPage() {
     switch (selectedTabIndex) {
       case 0:
         return
-         <Provider store={store} >
+        //  <Provider store={store} >
             <Login />
-            </Provider>
+            // </Provider>
    
       case 1:
-        return      <Provider store={store} ><Register />   </Provider>;
+        return      
+        // <Provider store={store} >
+          <Register />  
+          //  </Provider>;
       default:
         return null;
     }

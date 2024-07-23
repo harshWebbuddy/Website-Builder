@@ -17,7 +17,7 @@ import { setCookie } from "cookies-next";
 import { useSearchParams } from "next/navigation";
 import { Provider, useDispatch } from "react-redux";
 import { login } from "@/components/lib/features/auth/auth.slice";
-import { store } from "@/components/lib/store";
+// import { store } from "@/components/lib/store";
 import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 export default function Login() {
