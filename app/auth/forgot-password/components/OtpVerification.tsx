@@ -1,13 +1,13 @@
 "use client";
 
-import Motion from "@/components/Motion";
 import Spinner from "@/components/Spinner";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "../../..//../components/ui/input-otp";
 import { API_URL } from "@/lib/api";
 import axios from "axios";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Motion from "@/components/client/Motion";
 
 interface OtpVerificationProps {
   email: string;
@@ -42,7 +42,7 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ email, onOtpVerified,
   };
 
   return (
-    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} classNames={undefined}>
       <div className="space-y-6 w-full">
         <div className="space-y-3">
           <h1 className="text-3xl font-bold text-center">You're almost there</h1>
@@ -51,7 +51,7 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ email, onOtpVerified,
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-7 !mt-7 w-full">
           <div>
             <div className="relative group space-y-2 cursor-text w-full flex justify-center">
-              <InputOTP maxLength={4} onChange={(value) => setValue("otp", value, { shouldValidate: true })}>
+              <InputOTP maxLength={4} onChange={(value: string) => setValue("otp", value, { shouldValidate: true })}>
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
                   <InputOTPSlot index={1} />

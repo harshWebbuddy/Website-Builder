@@ -1,6 +1,6 @@
 "use client";
 
-import Motion from "@/components/Motion";
+import Motion from "@/components/client/Motion";
 import Spinner from "@/components/Spinner";
 import { API_URL } from "@/lib/api";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -56,7 +56,7 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({ email, otp, setStep }) 
   };
 
   return (
-    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}  classNames={undefined}>
       <div className="space-y-6 w-full">
         <div className="space-y-3">
           <h1 className="text-3xl font-bold text-center">You're finished!</h1>

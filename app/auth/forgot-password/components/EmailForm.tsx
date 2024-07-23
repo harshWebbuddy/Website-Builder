@@ -9,8 +9,9 @@ import clsx from "clsx";
 import toast from "react-hot-toast";
 import Spinner from "@/components/Spinner";
 import { API_URL } from "@/lib/api";
-import Motion from "@/components/Motion";
+
 import Link from "next/link";
+import Motion from "@/components/client/Motion";
 
 const EmailValidationSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -52,7 +53,7 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
   };
 
   return (
-    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+    <Motion transition={{ duration: 0.2 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }} classNames={undefined}>
       <div className="space-y-6 w-full">
         <div className="space-y-3">
           <h1 className="text-3xl font-bold text-center">Forgot password?</h1>
