@@ -598,7 +598,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     AI-driven design
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -656,7 +656,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Intuitive editing interface
                   </h1>
                   <p className="text-[#151515]  w-full whitespace-normal word-wrap-break-word text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -675,16 +675,16 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2  rounded-[10px] ">
-                <div className="flex flex-row  w-full ">     <Image
+              <div className="flex flex-row items-center gap-x-4  w-full ">     <Image
                   src="./features/features2.svg"
-              className="w-[30px] h-[30px] rounded-[20px] mr-4"
+              className="w-[30px] h-[30px] rounded-[20px] "
 
                   alt="product"
                   width={102}
                   height={102}
                 />
 
-                  <h1 className="text-[16px]  font-semibold text-[#151515]">
+                  <h1 className="text-[16px] w-full font-semibold text-left text-[#151515]">
                     Intuitive editing interface
                   </h1>  </div>
                 <p className="text-[#151515]  w-full     text-[12px]   ">
@@ -712,7 +712,7 @@ export default function Home() {
                   height={102}
                 />
                 <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className=" text-[12px]md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
+                  <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                     Seamless cloud deployment
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
@@ -731,16 +731,16 @@ export default function Home() {
               }}
             >
               <div className="bg-[#FAFAFF]  group flex flex-col  p-4 gap-y-2 rounded-[10px] ">
-                <div className="flex flex-row  w-full ">     <Image
+                <div className="flex flex-row gap-x-4  w-full ">     <Image
                   src="./features/features3.svg"
-              className="w-[30px] h-[30px] rounded-[20px] mr-4"
+              className="w-[30px] h-[30px] rounded-[20px] "
 
                   alt="product"
                   width={102}
                   height={102}
                 />
 
-                  <h1 className="text-[16px] text-right items-end font-semibold text-[#151515]">
+                  <h1 className="text-[16px] w-full font-semibold text-[#151515]">
                     Seamless cloud deployment
 
                   </h1>  </div>
@@ -766,8 +766,8 @@ export default function Home() {
                   width={102}
                   height={102}
                 />
-                <div className="flex flex-col justify-center w-full gap-y-2 mt-6">
-                  <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] text-right font-semibold text-[#151515]">
+                <div className="flex flex-col justify-start w-full gap-y-2 mt-6">
+                  <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px]  font-semibold text-[#151515]">
                     Rapid development
                   </h1>
                   <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
