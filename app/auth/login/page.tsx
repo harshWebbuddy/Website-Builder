@@ -4,27 +4,28 @@ import Spinner from "@/components/Spinner";
 import { useRouter } from "next-nprogress-bar";
 import { Checkbox } from "@/components/ui/checkbox";
 import { API_URL } from "@/lib/api";
+import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Provider, useDispatch } from "react-redux";
+
 import { setCookie } from "cookies-next";
 import { useSearchParams } from "next/navigation";
-import { Provider, useDispatch } from "react-redux";
-import { login } from "@/components/lib/features/auth/auth.slice";
-import { persistor, store } from "@/components/lib/store";
-import toast from "react-hot-toast";
-import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "@/components/lib/store";
+import { login } from "@/components/lib/features/auth/auth.slice";
+
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
-  // const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const ValidationSchema = z.object({
     email: z.string().email("Please enter a valid email address"),
@@ -55,12 +56,12 @@ export default function Login() {
       );
       setCookie("token", response.data.data.token, {
         secure: true,
+        // path: "/",
         sameSite: "none",
         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
       });
       dispatch(login(response.data.data));
-
-      router.push("/mainapp");
+      router.push("/app");
       toast.success(response.data.message);
     } catch (error: any) {
       if (error.response) {
