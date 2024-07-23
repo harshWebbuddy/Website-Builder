@@ -122,9 +122,10 @@ export default function AuthPage() {
             {renderContent()}
           </div>
          
-                  <div className="w-full flex items-center justify-center mt-4">
-                  <a
-                  className="text-black text-md hover:underline"
+                  <div className="w-full flex items-center justify-center absolute bottom-6 ">
+                 <a
+                  href="#"
+                  className="text-[#667085] text-xl hover:underline"
                   onClick={handleLinkClick}
                 >
                   {selectedTabIndex === 0 ? (

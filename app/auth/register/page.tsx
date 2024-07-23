@@ -10,7 +10,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,7 +17,7 @@ import { useRouter } from "next-nprogress-bar";
 import { useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { login } from "@/components/lib/features/auth/auth.slice";
-import { setCookie } from "cookies-next";
+import toast from "react-hot-toast";
 
 export default function Register() {
   const router = useRouter();
@@ -56,7 +55,7 @@ export default function Register() {
     defaultValues: { agreeToTerms: false },
   });
 
-  const onSubmit: SubmitHandler<ValidationSchemaType> = async (data) => {
+  const onSubmit: SubmitHandler<ValidationSchemaType> = async (data: { email: any; password: any; }) => {
     setIsPending(true);
     try {
       const { email, password } = data;
@@ -316,3 +315,7 @@ export default function Register() {
     </main>
   );
 }
+function setCookie(arg0: string, token: any, arg2: { secure: boolean; sameSite: string; expires: Date; }) {
+  throw new Error("Function not implemented.");
+}
+
