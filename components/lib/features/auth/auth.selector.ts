@@ -10,4 +10,5 @@ const GetCurrentUser = () => {
   return useSelector((state: RootState) => state.auth.user);
 };
 
+
 export { IsAuthenticated, GetCurrentUser };
