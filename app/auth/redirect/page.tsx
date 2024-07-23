@@ -41,7 +41,7 @@ export default function Login() {
     } else {
       router.push("/auth/login");
     }
-  }, [dispatch, router, searchParams]); 
+  }, []); 
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
