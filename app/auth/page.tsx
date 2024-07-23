@@ -6,7 +6,8 @@ import Login from "./login/page";
 import Image from "next/image";
 import Link from "next/link";
 import { Provider } from "react-redux";
-// import { store } from "@/components/lib/store";
+import { persistor, store } from "@/components/lib/store";
+import { PersistGate } from "redux-persist/es/integration/react";
 export default function AuthPage() {
   const tabs = ["Log In", "Sign Up"];
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
@@ -27,15 +28,19 @@ export default function AuthPage() {
     switch (selectedTabIndex) {
       case 0:
         return
-        //  <Provider store={store} >
+         <Provider store={store} >
+            <PersistGate loading={null} persistor={persistor}>
             <Login />
-            // </Provider>
+          </PersistGate>
+          </Provider>
    
       case 1:
         return      
-        // <Provider store={store} >
+        <Provider store={store} >
+    <PersistGate loading={null} persistor={persistor}>
           <Register />  
-          //  </Provider>;
+           </PersistGate>
+           </Provider>;
       default:
         return null;
     }

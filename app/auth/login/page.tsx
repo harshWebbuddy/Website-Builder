@@ -17,9 +17,10 @@ import { setCookie } from "cookies-next";
 import { useSearchParams } from "next/navigation";
 import { Provider, useDispatch } from "react-redux";
 import { login } from "@/components/lib/features/auth/auth.slice";
-// import { store } from "@/components/lib/store";
+import { persistor, store } from "@/components/lib/store";
 import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
+import { PersistGate } from "redux-persist/integration/react";
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -74,7 +75,8 @@ export default function Login() {
   };
 
   return (
-    // <Provider store={store}>
+      <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -245,6 +247,8 @@ export default function Login() {
           </section>
         </div>
       </motion.main>
-    // </Provider>
+        </PersistGate>
+    </Provider>
+
   );
 }
