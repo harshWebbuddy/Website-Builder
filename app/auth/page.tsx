@@ -26,14 +26,12 @@ export default function AuthPage() {
   const renderContent = () => {
     switch (selectedTabIndex) {
       case 0:
-        return (
-         
-            <Login />
-        );
+        return  <Login />
+
       case 1:
         return  <Register />;
       default:
-        return null;
+        return <Login/> ;
     }
   };
   const handleLinkClick = () => {
