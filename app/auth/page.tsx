@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Register from "./register/page";
-import Login from "./login/page";
+// import Register from "./register/page";
+// import Login from "./login/page";
 import Image from "next/image";
 import Link from "next/link";
 import { Provider } from "react-redux";
@@ -23,22 +23,23 @@ export default function AuthPage() {
     setTabUnderlineLeft(percentage);
   }, [selectedTabIndex, tabs.length]);
 
-  const renderContent = () => {
-    switch (selectedTabIndex) {
-      case 0:
-        return  <Login />
+  // const renderContent = () => {
+  //   switch (selectedTabIndex) {
+  //     case 0:
+  //       return  <Login />
 
-      case 1:
-        return  <Register />;
-      default:
-        return <Login/> ;
-    }
-  };
+  //     case 1:
+  //       return  <Register />;
+  //     default:
+  //       return <Login/> ;
+  //   }
+  // };
   const handleLinkClick = () => {
     setSelectedTabIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
   };
   return (
-    <Provider store={store} >    <main className="w-full h-full flex justify-center  overflow-hidden   ">
+    <Provider store={store} >  
+      <main className="w-full h-full flex justify-center  overflow-hidden   ">
       <div className=" w-full  flex justify-between  overflow-auto">
         <div className="relative flex flex-col w-full 2xl:p-0 p-4  ">
           <Image
@@ -117,7 +118,7 @@ export default function AuthPage() {
             </div>
           </div>
           <div className="w-full rounded-2xl z-[20] overflow-hidden mt-12 ">
-            {renderContent()}
+            {/* {renderContent()} */}
           </div>
          
                   <div className="z-[60] w-full flex items-center justify-center mt-4">
