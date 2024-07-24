@@ -6,7 +6,7 @@ import Login from "./login/page";
 import Image from "next/image";
 import Link from "next/link";
 import { Provider } from "react-redux";
-import { store } from "@/components/lib/store";
+import { store } from "@/lib/store";
 export default function AuthPage() {
   const tabs = ["Log In", "Sign Up"];
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);

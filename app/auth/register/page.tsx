@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next-nprogress-bar";
 import { useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
-import { login } from "@/components/lib/features/auth/auth.slice";
+import { login } from "@/lib/features/auth/auth.slice";
 import { setCookie } from "cookies-next";
 
 export default function Register() {
@@ -69,7 +69,7 @@ export default function Register() {
         sameSite: "none",
         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
       });
-      dispatch(login(response.data.data));
+      // dispatch(login(response.data.data));
 
       router.push("/mainapp");
       toast.success(response.data.message);

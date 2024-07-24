@@ -16,12 +16,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { setCookie } from "cookies-next";
 import { useSearchParams } from "next/navigation";
 import { Provider, useDispatch } from "react-redux";
-import { login } from "@/components/lib/features/auth/auth.slice";
-import { persistor, store } from "@/components/lib/store";
+import { login } from "@/lib/features/auth/auth.slice";
+import { persistor, store } from "@/lib/store";
 import toast from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import { PersistGate } from "redux-persist/integration/react";
-export default function Login() {
+ const Login= ()=> {
   const router = useRouter();
   const dispatch = useDispatch();
   // const searchParams = useSearchParams();
@@ -58,7 +58,7 @@ export default function Login() {
         sameSite: "none",
         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
       });
-      dispatch(login(response.data.data));
+      // dispatch(login(response.data.data));
 
       router.push("/mainapp");
       toast.success(response.data.message);
@@ -252,3 +252,4 @@ export default function Login() {
 
   );
 }
+export default Login

@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { login } from "../../../components/lib/features/auth/auth.slice";
+import { login } from "../../../lib/features/auth/auth.slice";
 import { setCookie } from "cookies-next";
 import { useSearchParams } from "next/navigation";
 
-export default function Login() {
+export default function Page() {
   const router = useRouter();
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
