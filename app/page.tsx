@@ -14,7 +14,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Spinner from "@/components/Spinner";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import RootLayout from "./layout";
-import AuthProvider from "@/providers/AuthProvider";
+// import AuthProvider from "@/providers/AuthProvider";
 
 export default function Home() {
   interface FeatureProps {
@@ -163,7 +163,7 @@ export default function Home() {
     ],
   };
   return (
-    <AuthProvider>
+    // <AuthProvider>
       <RootLayout showNavbar={true} showFooter={true}>
         <main className="">
           <section className="mb-10 brightness-125 xl:mb-16 2xl:mb-20 ">
@@ -1235,6 +1235,6 @@ export default function Home() {
           </section>
         </main>
       </RootLayout>
-    </AuthProvider>
+    // </AuthProvider>
   );
 }
