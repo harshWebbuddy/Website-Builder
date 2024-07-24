@@ -40,7 +40,8 @@ export default function AuthPage() {
     setSelectedTabIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
   };
   return (
-    <Provider store={store} >    <main className="w-full h-full flex justify-center  overflow-hidden   ">
+    <Provider store={store} >   
+     <main className="w-full h-full flex justify-center  overflow-hidden   ">
       <div className=" w-full  flex justify-between  overflow-auto">
         <div className="relative flex flex-col w-full 2xl:p-0 p-4  ">
           <Image
@@ -59,7 +60,7 @@ export default function AuthPage() {
           />
           <div className="w-full flex flex-col gap-y-24 items-center justify-center mx-auto py-2">
             <div className="items-center justify-center mx-auto w-full">
-              <svg
+              <svg 
                 className="animate-shine hover:scale-125 hover:brightness-90 mt-12 items-center justify-center mx-auto"
                 width="162"
                 height="35"
@@ -122,15 +123,19 @@ export default function AuthPage() {
             {renderContent()}
           </div>
          
-                  <div className="z-[60] w-full flex items-center justify-center mt-4">
+                  <div className="z-[60] text-xl w-full text-gray-100 flex bottom-20 absolute  items-center justify-center mt-4">
                   <a
-                  className="text-blue-500 hover:underline"
-                  onClick={handleLinkClick}
-                >
-                  {selectedTabIndex === 0
-                    ? "Don't have an account? Sign Up"
-                    : "Already have an account? Log In"}
-                </a>
+  className={`cursor-pointer ${
+    selectedTabIndex === 0
+      ? "text-[#00A4A6] hover:underline" 
+      : "text-[#00A4A6] hover:underline" 
+  }`}
+  onClick={handleLinkClick}
+>
+  {selectedTabIndex === 0
+    ? "Don't have an account? Sign Up"
+    : "Already have an account? Log In"}
+</a>
             </div>
      </div>
 

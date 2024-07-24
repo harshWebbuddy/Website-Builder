@@ -179,7 +179,7 @@ export default function Home() {
                   />
                   <div className="flex flex-row items-center gap-x-4">
                     <h2
-                      className={`font-semibold 2xl:font-bold text-2xl sm:text-5xl 2xl:text-[56px] capitalize text-center ${colors[colorIndex]}`}
+                      className={`font-semibold 2xl:font-bold text-2xl sm:text-5xl 2xl:text-[56px]  capitalize text-center ${colors[colorIndex]}`}
                     >
                       Create Landing Pages with AI
                     </h2>
@@ -209,8 +209,8 @@ export default function Home() {
                 </div>
                 <div className="bg-white brightness-90 text-[#000000] pl-4 pr-2 py-2 rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-xl hover:shadow-gray-200/60">
       
- <input className="h-11 w-full" placeholder="A landing page for cozy bakery" value={prompt} onChange={handleInputChange} />
-        <button className="bg-[#00A4A6] -translate-x-2 text-gray-100 translate-y-2 px-2 py-2 rounded-full grid place-content-center w-8 h-8">
+ <input className="h-11 w-full border-none outline-none " placeholder="A landing page for cozy bakery" value={prompt} onChange={handleInputChange}  />
+        <button className="bg-[#00A4A6]  -translate-x-2 text-gray-100 translate-y-2 px-2 py-2 rounded-full grid place-content-center w-8 h-8">
                 {loading ? <Spinner /> : <BsArrowReturnLeft className="text-white text-sm font-bold transform scale-125" />}
               </button>
       </div>
