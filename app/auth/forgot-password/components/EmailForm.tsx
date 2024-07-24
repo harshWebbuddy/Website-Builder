@@ -130,7 +130,7 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
           </button>
         </form>
         <Link
-          href="/auth/login"
+          href="/auth" //login commented
           className="text-[#14171B] text-center flex items-center gap-4"
         >
           <svg

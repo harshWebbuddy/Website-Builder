@@ -38,7 +38,7 @@ export default function Login() {
       router.push("/mainapp");
       toast.success("Successfully logged in...");
     } else {
-      router.push("/auth/login");
+      router.push("/auth"); //login commented
     }
   }, [searchParams, dispatch, router]);
 

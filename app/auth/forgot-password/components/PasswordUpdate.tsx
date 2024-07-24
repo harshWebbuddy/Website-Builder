@@ -61,7 +61,7 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({
         { email, otp, password: data.password }
       );
       toast.success(response.data.message);
-      router.push("/login"); // Redirect to login page
+      // router.push("/login"); // Redirect to login page //login commented
     } catch (error: any) {
       if (error.response) {
         toast.error(error.response.data.error || error.response.data);
