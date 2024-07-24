@@ -167,9 +167,9 @@ export default function Home() {
       <RootLayout showNavbar={true} showFooter={true}>
         <main className="">
           <section className="mb-10 brightness-125 xl:mb-16 2xl:mb-20 ">
-            <div className="relative flex  flex-col items-center py-16  xl:py-40 2xl:py-56 space-y-4 bg-[#0D121F] overflow-hidden">
+            <div className="relative flex  flex-col items-center py-16  xl:py-40 2xl:py-56 space-y-6 bg-[#0D121F] overflow-hidden">
               <div className="p-8 2xl:p-0 slide-reveal relative z-[2] w-full h-full flex flex-col space-y-8 justify-center items-center text-white">
-                <div className="flex flex-col items-center space-y-6">
+                <div className="flex flex-col items-center space-y-6 2xl:space-y-8">
                   <Image
                     src="/landingpage/landingpageicon.svg"
                     alt="logo"
@@ -193,7 +193,7 @@ export default function Home() {
                     />
                   </div>
 
-                  <h4 className="text-sm 2xl:text-lg text-center">
+                  <h4 className="text-sm 2xl:text-lg text-center ">
                     🚀 Just Launched: Learn how to upload PDFs, eBooks, and more
                     to your landing page.
                   </h4>
@@ -207,43 +207,26 @@ export default function Home() {
                     ideas into reality with just a single prompt.
                   </h4>
                 </div>
-                <div className="bg-white text-black  rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-md shadow-gray-200/60">
-                  <Image
-                    src="/logo/growstack-mini.svg"
-                    alt=""
-                    width={25}
-                    height={25}
-                    className="opacity-0"
-                  />
-                  <input
-                    className=" border-none  -translate-x-8 outline-none h-[49.6px] w-full"
-                    placeholder="A landing page for cozy bakery"
-                  />
-                  <button className="bg-[#00A4A6] -translate-x-2 translate-y-2 px-2 py-2 rounded-full grid place-content-center w-8 h-8">
-                    {loading ? (
-                      <Spinner />
-                    ) : (
-                      <BsArrowReturnLeft className="text-white text-sm font-bold transform scale-125" />
-                    )}
-                  </button>
-                </div>
+                <div className="bg-white brightness-90 text-[#000000] pl-4 pr-2 py-2 rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-xl hover:shadow-gray-200/60">
+      
+ <input className="h-11 w-full" placeholder="A landing page for cozy bakery" value={prompt} onChange={handleInputChange} />
+        <button className="bg-[#00A4A6] -translate-x-2 text-gray-100 translate-y-2 px-2 py-2 rounded-full grid place-content-center w-8 h-8">
+                {loading ? <Spinner /> : <BsArrowReturnLeft className="text-white text-sm font-bold transform scale-125" />}
+              </button>
+      </div>
               </div>
-              <div className="flex flex-col max-w-[606px] items-start text-white space-y-4">
-                <h2 className="   text-[12px] font-medium text-primary-black items-start text-opacity-60">
-                  Describe your business
-                </h2>
-                <div className=" 2xl:flex xl:flex hidden lg:flex md:flex  w-full  items-center gap-4">
-                  {suggestions.map((suggestion, index) => (
-                    <div
-                      key={index}
-                      className="cursor-pointer hover:shadow-sm whitespace-nowrap hover:shadow-gray-200 transition duration-300 flex items-center gap-2  border font-light border-[#E4E4E7] py-2 px-2.5 rounded-md text-[11px]"
-                      onClick={() => handleSuggestionClick(suggestion)}
-                    >
-                      {suggestion} <TbArrowUpRight size={18} />
-                    </div>
-                  ))}
-                </div>
-              </div>
+      <div className="max-w-[606px] flex flex-col space-y-4">     
+      <h2 className="text-sm text-ellipsis text-white font-medium  text-primary-black text-center 2xl:text-left 2xl:items-start 2xl:justify-start relative text-opacity-60">Describe your business</h2>
+      <div className="flex 2xl:flex-row xl:flex-row md:flex-row lg:flex-row flex-col justify-center mx-auto   items-center gap-4">
+        {suggestions.map((suggestion, index) => (
+          <div
+            key={index}
+            className="cursor-pointer max-w-[195px] whitespace-nowrap hover:shadow-md w-full justify-between  bg-transparent text-white hover:bg-white hover:shadow-gray-100 hover:text-black transition duration-300 flex items-center gap-2  border border-[#EBEBEB] py-4 px-2 rounded-xl text-[12px] font-light"
+            onClick={() => handleSuggestionClick(suggestion)}>
+            {suggestion} <TbArrowUpRight size={12} />
+          </div>
+        ))}</div>
+      </div>
 
               <Image
                 src="/landingpage/sidecircle.svg"

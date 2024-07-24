@@ -98,7 +98,7 @@ export default function NewWebsite() {
                 {loading ? <Spinner /> : <BsArrowReturnLeft className="text-white text-sm font-bold transform scale-125" />}
               </button>
       </div>
-      <h2 className="text-sm text-primary-black  text-left items-start justify-start relative -translate-x-80 text-opacity-60">Describe your business</h2>
+      <h2 className="text-sm text-primary-black text-center 2xl:text-left 2xl:items-start 2xl:justify-start relative xl:-translate-x-80 2xl:-translate-x-80 text-opacity-60">Describe your business</h2>
       <div className="flex 2xl:flex-row xl:flex-row md:flex-row lg:flex-row flex-col   items-center gap-4">
         {suggestions.map((suggestion, index) => (
           <div

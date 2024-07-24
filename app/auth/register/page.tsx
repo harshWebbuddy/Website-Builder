@@ -69,7 +69,7 @@ export default function Register() {
         sameSite: "none",
         expires: new Date(Date.now() + 2 * 60 * 60 * 1000),
       });
-      // dispatch(login(response.data.data));
+      dispatch(login(response.data.data));
 
       router.push("/mainapp");
       toast.success(response.data.message);
