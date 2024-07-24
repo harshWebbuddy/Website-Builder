@@ -42,7 +42,7 @@ const Plan2 = () => {
     <RootLayout shoWebar={true}>
  <div> 
    <div className='flex items-center justify-center xl:h-screen  2xl:h-screen '> 
-      <div className="flex flex-col max-w-[1000px] mx-auto 2xl:mt-32 xl:mt-28 mt-52 ">
+      <div className="flex flex-col max-w-[1000px] mx-auto 2xl:mt-32 xl:mt-4 mt-28 ">
     {/* heading */}
    <div className="slide-reveal flex flex-col bl:flex-row justify-between gap-y-6 gap-x-4 items-center mb-8 text-center">
   <div className="relative w-full">

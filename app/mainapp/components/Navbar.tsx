@@ -50,30 +50,33 @@ export default function WebsiteNavbar() {
           </div>
           <div className="hidden xl:flex items-center gap-x-12">
             <div className="">
-              <ul className="text-[#636369] flex gap-x-10">
+               <ul className="text-[#636369] flex gap-x-10">
                 {navLinks.map((link, index) => (
                   <Link href={link.href} key={index}>
                     <div
-                      className={`flex flex-row gap-[10px] items-center justify-center cursor-pointer relative ${
-                        pathname === link.href && "text-primary-green font-bold"
-                      }`}><svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="0.5" width="32" height="32" rx="8" fill="#FAFAFB"/>
-                      <g clip-path="url(#clip0_47_606)">
-                      <path d="M15.9998 8.66658C11.6798 8.66658 8.1665 12.1799 8.1665 16.4999C8.1665 20.8199 11.6798 24.3332 15.9998 24.3332C18.0932 24.3332 20.0598 23.5199 21.5398 22.0399C23.0198 20.5599 23.8332 18.5932 23.8332 16.4999C23.8332 12.1799 20.3198 8.66658 15.9998 8.66658ZM22.8165 15.9999H16.4998V9.68325C19.8698 9.92991 22.5698 12.6299 22.8165 15.9999ZM9.1665 16.4999C9.1665 12.8999 11.9632 9.93991 15.4998 9.68325V16.4999C15.4998 16.5332 15.5032 16.5632 15.5098 16.5966V16.5999C15.5132 16.6232 15.5232 16.6432 15.5298 16.6632L15.5398 16.6932C15.5432 16.7032 15.5498 16.7132 15.5532 16.7232C15.5565 16.7332 15.5632 16.7399 15.5665 16.7499C15.5698 16.7532 15.5732 16.7599 15.5732 16.7632C15.5765 16.7699 15.5798 16.7732 15.5832 16.7799C15.6032 16.8066 15.6232 16.8332 15.6465 16.8566L20.4665 21.6732C19.2265 22.7466 17.6598 23.3332 15.9998 23.3332C12.2332 23.3332 9.1665 20.2666 9.1665 16.4999ZM21.1732 20.9666L17.2065 16.9999H22.8132C22.7098 18.4699 22.1398 19.8499 21.1732 20.9666Z" fill="#14171B"/>
-                      </g>
-                      <defs>
-                      <clipPath id="clip0_47_606">
-                      <rect width="16" height="16" fill="white" transform="translate(8 8.5)"/>
-                      </clipPath>
-                      </defs>
-                      </svg>
+                      className={`flex flex-row gap-2 items-center justify-center cursor-pointer text-[14px] relative ${
+                        pathname === link.href && "bg-[#00A4A6] p-2 rounded-xl flex text-[14px] flex-row font-light text-white"
+                      }`}>
+                      <svg
+              width="32"
+              height="33"
+              viewBox="0 0 32 33"
+              fill={pathname === link.href ? "#ffffff" : "#14171B"}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="0.5" width="32" height="32" rx="8"   fill={pathname === link.href ? "#09CDCF" : "#FAFAFB"}/>
+              <g clipPath="url(#clip0_47_424)">
+                <path d="M16.0003 8.66658C11.6803 8.66658 8.16699 12.1799 8.16699 16.4999C8.16699 20.8199 11.6803 24.3332 16.0003 24.3332C18.0937 24.3332 20.0603 23.5199 21.5403 22.0399C23.0203 20.5599 23.8337 18.5932 23.8337 16.4999C23.8337 12.1799 20.3203 8.66658 16.0003 8.66658ZM22.817 15.9999H16.5003V9.68325C19.8703 9.92991 22.5703 12.6299 22.817 15.9999ZM9.16699 16.4999C9.16699 12.8999 11.9637 9.93991 15.5003 9.68325V16.4999C15.5003 16.5332 15.5037 16.5632 15.5103 16.5966V16.5999C15.5137 16.6232 15.5237 16.6432 15.5303 16.6632L15.5403 16.6932C15.5437 16.7032 15.5503 16.7132 15.5537 16.7232C15.557 16.7332 15.5637 16.7399 15.567 16.7499C15.5703 16.7532 15.5737 16.7599 15.5737 16.7632C15.577 16.7699 15.5803 16.7732 15.5837 16.7799C15.6037 16.8066 15.6237 16.8332 15.647 16.8566L20.467 21.6732C19.227 22.7466 17.6603 23.3332 16.0003 23.3332C12.2337 23.3332 9.16699 20.2666 9.16699 16.4999ZM21.1737 20.9666L17.207 16.9999H22.8137C22.7103 18.4699 22.1403 19.8499 21.1737 20.9666Z"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_47_424">
+                  <rect width="16" height="16" fill="white" transform="translate(8 8.5)"/>
+                </clipPath>
+              </defs>
+            </svg>
+                     
+                      <h1 className="whitespace-nowrap">{link.label}</h1>
                       
-                      <h1 className="whitespace-nowrap hover:font-bold">{link.label}</h1>
-                      <div
-                        className={`w-0 h-1 rounded-full bg-primary-green font-bold absolute left-0 mt-10 transition-all duration-300 ${
-                          pathname === link.href ? "!w-full" : "w-0"
-                        }`}
-                      />
                     </div>
                   </Link>
                 ))}
