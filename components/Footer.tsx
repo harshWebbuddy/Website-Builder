@@ -26,7 +26,7 @@ const Footer = () => {
         
       </div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-16 gap-y-4 2xl:gap-y-10"> 
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-x-16 gap-y-4 2xl:gap-y-10"> 
             <ul className="text-white leading-2 2xl:leading-8 flex flex-col gap-y-2 2xl:gap-y-4">
                 <li className="text-black text-[24px] font-bold mb-1.5 2xl:mb-3">Product</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}classNames={undefined}>
@@ -49,7 +49,7 @@ const Footer = () => {
             </ul>
 
             <ul className="text-white leading-2 2xl:leading-8 flex flex-col gap-y-2 2xl:gap-y-4">
-                <li className="text-black text-[20px] font-bold mb-1.5 2xl:mb-3">Resources</li>
+            <li className="text-black text-[24px] font-bold mb-1.5 2xl:mb-3">Resources</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }} classNames={undefined}>
                 <Link className="w-fit" href="/products/narratex">
                     <li className="text-[#596780] hover:text-black">Help Center</li>
@@ -69,7 +69,7 @@ const Footer = () => {
             </ul>
 
             <ul className="text-white leading-2 2xl:leading-8 flex flex-col gap-y-2 2xl:gap-y-4">
-                <li className="text-black  text-[24px]  font-bold mb-1.5">Features</li>
+            <li className="text-black text-[24px] font-bold mb-1.5 2xl:mb-3">Features</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}  classNames={undefined}>
                 <Link className="w-fit" href="/about">
                     <li className="text-[#596780] hover:text-black whitespace-nowrap">AI blog generation</li>
@@ -90,7 +90,7 @@ const Footer = () => {
             </ul>
 
             <ul className="text-white leading-2 2xl:leading-8 flex flex-col gap-y-2 2xl:gap-y-4">
-                <li className="text-black text-xl md: text-[24px]  font-bold mb-1.5 2xl:mb-3 whitespace-nowrap">Follow Us</li>
+            <li className="text-black text-[24px] font-bold mb-1.5 2xl:mb-3">Follow Us</li>
                 <Motion transition={{ duration: 0.4 }} variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}  classNames={undefined}>
                 <Link className="w-fit" href="/blog">
                     <li className="text-[#596780] hover:text-black">LinkedIn</li>

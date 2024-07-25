@@ -25,7 +25,7 @@ export default function Register() {
   const dispatch = useDispatch();
   // const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
-   const ValidationSchema = z
+  const ValidationSchema = z
     .object({
       email: z.string().email("Please enter a valid email address"),
       password: z
@@ -91,15 +91,14 @@ export default function Register() {
         <section className="w-full h-full flex justify-center items-center ">
           <div className="w-full  h-full ">
             <div className=" w-full h-full max-w-[445px] mx-auto flex flex-col justify-between items-center md:items-start space-y-10">
-              <div className="space-y-6 w-full">
+              <div className="space-y-4 xl:space-y-6 w-full">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="space-y-7  w-full"
+                  className="space-y-4 xl:space-y-7 w-full"
                 >
-                  {/* styled input field for email */}
                   <div>
                     {" "}
-                    <h2 className="2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
+                    <h2 className="ml-1  2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
                       Email address
                     </h2>
                     <div
@@ -127,7 +126,7 @@ export default function Register() {
                         <input
                           id="email"
                           autoComplete="email"
-                          className="text-sm peer focus:ring-0 h-[60px] w-full"
+                          className="text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                           placeholder="Enter your email..."
                           {...register("email")}
                         />
@@ -142,7 +141,7 @@ export default function Register() {
 
                   <div>
                     {" "}
-                    <h2 className="2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
+                    <h2 className="ml-1  2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
                       Password
                     </h2>
                     <div
@@ -173,7 +172,7 @@ export default function Register() {
                           autoComplete="password"
                           placeholder="Enter your password..."
                           className={clsx(
-                            "text-sm peer focus:ring-0 h-[60px] w-full"
+                            "text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                           )}
                           {...register("password")}
                         />
@@ -188,7 +187,7 @@ export default function Register() {
 
                   <div>
                     {" "}
-                    <h2 className="2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
+                    <h2 className="ml-1  2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
                       Confirm Password
                     </h2>
                     <div
@@ -219,7 +218,7 @@ export default function Register() {
                           autoComplete="confirm-password"
                           placeholder="Confirm password"
                           className={clsx(
-                            "text-sm peer focus:ring-0 h-[60px] w-full"
+                            "text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                           )}
                           {...register("confirmPassword")}
                         />
@@ -241,22 +240,22 @@ export default function Register() {
                           setValue("agreeToTerms", Boolean(checked))
                         }
                       />
-                      <label
-                        htmlFor="agree-to-terms"
-                        className="text-sm font-medium text-[#667085] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        I agree to the{" "}
-                        <Link href="" className="text-primary-green">
-                          Terms & Conditions
-                        </Link>{" "}
-                        and{" "}
-                        <Link
-                          href="/user-agreements/privacy-policy"
-                          className="text-primary-green"
+                        <label
+                          htmlFor="agree-to-terms"
+                          className="text-[9px] xl:text-[12px] xl:py-0 py-4  xl:text-sm font-medium text-[#667085] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         >
-                          Privacy Policy
-                        </Link>
-                      </label>
+                          I agree to the{" "}
+                          <Link href="" className="text-primary-green">
+                            Terms & Conditions
+                          </Link>{" "}
+                          and{" "}
+                          <Link
+                            href="/user-agreements/privacy-policy"
+                            className="text-primary-green"
+                          >
+                            Privacy Policy
+                          </Link>
+                        </label>
                     </div>
                     {errors.agreeToTerms && (
                       <span className="text-rose-600 text-sm">
@@ -266,7 +265,7 @@ export default function Register() {
                   </div>
                   <button
                     type="submit"
-                    className="bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white h-[60px] w-full rounded-xl flex justify-center items-center"
+                    className="bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white h-[30px] md:h-[40px] xl:h-[60px] w-full rounded-xl flex justify-center items-center"
                   >
                     {isPending ? <Spinner /> : "Sign Up"}
                   </button>
@@ -274,13 +273,13 @@ export default function Register() {
 
                 <div className="flex items-center text-[#667085] gap-2">
                   <div className="h-[2px] w-full bg-[#EFEFF4]" />
-                  <span className="whitespace-nowrap">OR</span>
+                  <span className="whitespace-nowrap font-light">OR</span>
                   <div className="h-[2px] w-full bg-[#EFEFF4]" />
                 </div>
                 <div className="space-y-3">
                   <Link
                     href={`${API_URL}/users/api/v1/auth/facebook`}
-                    className="h-[56px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#E9EBEE] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
+                    className=" h-[30px] md:h-[40px] xl:h-[60px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#E9EBEE] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
                   >
                     <Image
                       src="/icons/facebook.svg"
@@ -288,13 +287,13 @@ export default function Register() {
                       width={20}
                       height={20}
                     />
-                    <span className="text-base font-medium">
+                    <span className="text-[12px] xl:text-base font-medium">
                       Continue with Facebook
                     </span>
                   </Link>
                   <Link
                     href={`${API_URL}/users/api/v1/auth/google`}
-                    className="h-[56px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#F8F9FA] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
+                    className=" h-[30px] md:h-[40px] xl:h-[60px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#F8F9FA] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
                   >
                     <Image
                       src="/icons/google.svg"
@@ -302,7 +301,7 @@ export default function Register() {
                       width={20}
                       height={20}
                     />
-                    <span className="text-base font-medium">
+                    <span className="text-[12px] xl:text-base font-medium">
                       Continue with Google
                     </span>
                   </Link>

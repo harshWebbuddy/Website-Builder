@@ -91,10 +91,10 @@ import { PersistGate } from "redux-persist/integration/react";
                 <div className="space-y-6 w-full">
                   <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="space-y-7 w-full"
+                    className="space-y-4 xl:space-y-7 w-full"
                   >
                     <div>
-                      <h2 className="2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
+                      <h2 className="ml-1 2xl:text-[16px] font-medium xl:text-[14px] text-[12px] mb-2">
                         Email address
                       </h2>
                       <div
@@ -122,7 +122,7 @@ import { PersistGate } from "redux-persist/integration/react";
                           <input
                             id="email"
                             autoComplete="email"
-                            className="text-sm peer bg-white focus:ring-0 h-[60px] w-full"
+                            className="text-sm  bg-white focus:ring-0 h-[30px] xl:h-[60px] w-full"
                             placeholder="Enter your email..."
                             {...register("email")}
                           />
@@ -137,7 +137,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
                     <div>
                       {" "}
-                      <h2 className="2xl:text-[16px] font-medium  xl:text-[14px] text-[12px] mb-2">
+                      <h2 className="ml-1  2xl:text-[16px] font-medium  xl:text-[14px] text-[12px] mb-2">
                         Password
                       </h2>
                       <div
@@ -168,7 +168,7 @@ import { PersistGate } from "redux-persist/integration/react";
                             autoComplete="password"
                             placeholder="Enter your password..."
                             className={clsx(
-                              "text-sm peer focus:ring-0 h-[60px] w-full"
+                              "text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                             )}
                             {...register("password")}
                           />
@@ -200,7 +200,7 @@ import { PersistGate } from "redux-persist/integration/react";
                     </div>
                     <button
                       type="submit"
-                      className="bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white h-[60px] w-full rounded-xl flex justify-center items-center"
+                      className="bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white h-[30px] md:h-[40px] xl:h-[60px] w-full rounded-xl flex justify-center items-center"
                     >
                       {isPending ? <Spinner /> : "Login"}
                     </button>
@@ -212,35 +212,35 @@ import { PersistGate } from "redux-persist/integration/react";
                     <div className="h-[2px] w-full bg-[#EFEFF4]" />
                   </div>
                   <div className="space-y-3">
-                    <Link
-                      href={`${API_URL}/users/api/v1/auth/facebook`}
-                      className="h-[56px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#E9EBEE] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
-                    >
-                      <Image
-                        src="/icons/facebook.svg"
-                        alt="Facebook"
-                        width={20}
-                        height={20}
-                      />
-                      <span className="text-base font-medium">
-                        Continue with Facebook
-                      </span>
-                    </Link>
-                    <Link
-                      href={`${API_URL}/users/api/v1/auth/google`}
-                      className="h-[56px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#F8F9FA] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
-                    >
-                      <Image
-                        src="/icons/google.svg"
-                        alt="Google"
-                        width={20}
-                        height={20}
-                      />
-                      <span className="text-base font-medium">
-                        Continue with Google
-                      </span>
-                    </Link>
-                  </div>
+                  <Link
+                    href={`${API_URL}/users/api/v1/auth/facebook`}
+                    className=" h-[30px] md:h-[40px] xl:h-[60px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#E9EBEE] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
+                  >
+                    <Image
+                      src="/icons/facebook.svg"
+                      alt="Facebook"
+                      width={20}
+                      height={20}
+                    />
+                    <span className="text-[12px] xl:text-base font-medium">
+                      Continue with Facebook
+                    </span>
+                  </Link>
+                  <Link
+                    href={`${API_URL}/users/api/v1/auth/google`}
+                    className=" h-[30px] md:h-[40px] xl:h-[60px] w-full border border-[#D0D5DD] flex justify-center items-center gap-2 px-4 rounded-xl hover:bg-[#F8F9FA] hover:shadow-lg transition-all outline-none focus:ring focus:ring-[#00203021] focus:border-primary focus:shadow-outline"
+                  >
+                    <Image
+                      src="/icons/google.svg"
+                      alt="Google"
+                      width={20}
+                      height={20}
+                    />
+                    <span className="text-[12px] xl:text-base font-medium">
+                    Continue with Google
+                    </span>
+                  </Link>
+                </div>
                 </div>
               </div>
             </div>

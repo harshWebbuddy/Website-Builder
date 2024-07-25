@@ -58,10 +58,10 @@ export default function AuthPage() {
             height={100}
             className="w-[600px] h-[600px] hidden 2xl:flex absolute z-[0] -right-10 bottom-0 rotate-180"
           />
-          <div className="w-full flex flex-col gap-y-24 items-center justify-center mx-auto py-2">
+          <div className="w-full flex flex-col gap-y-6 xl:gap-y-24 items-center justify-center mx-auto py-2">
             <div className="items-center justify-center mx-auto w-full">
               <svg 
-                className="animate-shine hover:scale-125 hover:brightness-90 mt-12 items-center justify-center mx-auto"
+                className="animate-shine hover:scale-125 hover:brightness-90 mt-2 xl:mt-12 items-center justify-center mx-auto"
                 width="162"
                 height="35"
                 viewBox="0 0 162 35"
@@ -102,8 +102,8 @@ export default function AuthPage() {
                   key={index}
                   className={`w-full h-[48px] flex flex-row gap-x-2 justify-center items-center relative cursor-pointer z-[1] transition-all duration-300 ${
                     selectedTabIndex === index
-                      ? "!text-[#00A4A6] border-b-4 font-bold text-2xl rounded-sm border-[#00A4A6] whitespace-nowrap   mr-4"
-                      : "!text-primary-grey mr-4 text-[24px] whitespace-nowrap"
+                      ? "!text-[#00A4A6] border-b-4 font-bold  sm:text-xl xl:text-2xl rounded-sm border-[#00A4A6] whitespace-nowrap   mr-4"
+                      : "!text-primary-grey mr-4 xl:text-[18px] text-[16px] 2xl:text-[24px] whitespace-nowrap"
                   }`}
                   onClick={() => setSelectedTabIndex(index)}
                 >
@@ -119,11 +119,11 @@ export default function AuthPage() {
               />
             </div>
           </div>
-          <div className="w-full rounded-2xl z-[20] overflow-hidden mt-12 ">
+          <div className="w-full rounded-2xl z-[20] overflow-hidden mt-4 xl:mt-8 2xl:mt-12 ">
             {renderContent()}
           </div>
          
-                  <div className="z-[60] text-xl w-full text-gray-100 flex bottom-20 absolute  items-center justify-center mt-4">
+                  <div className="z-[60] sm:text-md xl:text-xl w-full text-[#12121299] flex 2xl:bottom-20 2xl:absolute  items-center justify-center mt-4">
                   <a
   className={`cursor-pointer ${
     selectedTabIndex === 0

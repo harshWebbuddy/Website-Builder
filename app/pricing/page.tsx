@@ -43,7 +43,7 @@ const Plan2 = () => {
  <div> 
    <div className='flex items-center justify-center xl:h-screen  2xl:h-screen '> 
       <div className="flex flex-col max-w-[1000px] mx-auto 2xl:mt-32 xl:mt-4 mt-28 ">
-    {/* heading */}
+    
    <div className="slide-reveal flex flex-col bl:flex-row justify-between gap-y-6 gap-x-4 items-center mb-8 text-center">
   <div className="relative w-full">
     <h2 className="text-black font-mona-sans font-bold xl:text-[18px] text-[16px] 2xl:text-[22px] capitalize leading-relaxed w-full">
@@ -134,11 +134,10 @@ const Plan2 = () => {
   <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-md mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
     <div className="pt-10 flex flex-col w-full 2xl:space-y-6 group">
       <h2 className="font-mona-sans text-center mx-auto text-gray-900 xl:text-[18px] text-[16px] 2xl:text-[20px] font-medium group-hover:text-white">
-        Form integration
+      Domain integration
       </h2>
       <div className="leading-9 text-center text-[22px] xl:text-[34px] 2xl:text-[64px] font-extrabold font-mono-sans-serif text-black group-hover:text-white 2xl:mb-2">
-        $14
-      </div>
+      $29      </div>
       <p className="font-mona-sans text-[12px] 2xl:text-[14px]  font-normal leading-21 text-center w-full opacity-45 group-hover:text-white text-[#747474]">
         per user, per month
       </p>
@@ -151,23 +150,23 @@ const Plan2 = () => {
       <div className="border-2 border-b mt-6 group-hover:border-white max-w-[100px] mb-4 border-black items-center justify-center mx-auto" />
       <div className="flex flex-col justify-center max-w-[201px] mt-4 group mx-auto">
         <h3 className="text-[14px] font-light mb-7 text-center leading-7.5 text-black group-hover:text-white">
-          Customizable form field
+        Custom domain integration
           <br />
-          Spam protection and security
+          SSL certificate for security
           <br />
-          Data collection and storage
+          Subdomain management
           <br />
-          Integration with email services
+          Technical support
           <br />
-          Form submission notifications
+          Domain SEO optimization
           <br />
-          Unlimited leads
+          Unlimited page views
           <br />
-          File upload support
+          Lightning-fast loading times
           <br />
-          Analytics and reporting
+          Dominate search rankings
           <br />
-          Multi-page forms
+          24/7 uptime guarantee
         </h3>
       </div>
     </div>
@@ -177,10 +176,10 @@ const Plan2 = () => {
   <div className="slide-item shad  duration-300 ease-in-out transform hover:scale-105  hover:brightness-110 hover:shadow-[#00A4a6] hover:shadow-md mb-5 max-h-[588px] h-full max-w-[300px] w-full transition-all bg-white border border-[#DBDBDB] hover:bg-[#00A4A6] px-10 rounded-2xl group">
     <div className="pt-10 flex flex-col w-full 2xl:space-y-6 group">
       <h2 className="font-mona-sans text-center mx-auto text-gray-900 xl:text-[18px] text-[16px] 2xl:text-[20px] font-medium group-hover:text-white">
-        Form integration
-      </h2>
+      Blog integration
+            </h2>
       <div className="leading-9 text-center text-[22px] xl:text-[34px] 2xl:text-[64px] font-extrabold font-mono-sans-serif text-black group-hover:text-white 2xl:mb-2">
-        $14
+      $139
       </div>
       <p className="font-mona-sans text-[12px] 2xl:text-[14px]  font-normal leading-21 text-center w-full opacity-45 group-hover:text-white text-[#747474]">
         per user, per month
@@ -194,23 +193,19 @@ const Plan2 = () => {
       <div className="border-2 border-b mt-6 group-hover:border-white max-w-[100px] mb-4 border-black items-center justify-center mx-auto" />
       <div className="flex flex-col justify-center max-w-[201px] mt-4 group mx-auto">
         <h3 className="text-[14px] font-light mb-7 text-center leading-7.5 text-black group-hover:text-white">
-          Customizable form field
+        AI-powered blog generation          <br />
+        Customizable blog templates
           <br />
-          Spam protection and security
-          <br />
-          Data collection and storage
-          <br />
-          Integration with email services
-          <br />
+          Blog analytics and insights          <br />
+          SEO optimization for blogs          <br />
           Form submission notifications
           <br />
-          Unlimited leads
+          Blog scheduling and publishing
           <br />
-          File upload support
+          Unlimited blog posts
           <br />
-          Analytics and reporting
+          Content suggestions
           <br />
-          Multi-page forms
         </h3>
       </div>
     </div>

@@ -177,6 +177,7 @@ export default function Home() {
                     height={64}
                     className="animate-shine"
                   />
+                  
                   <div className="flex flex-row items-center gap-x-4">
                     <h2
                       className={`font-semibold 2xl:font-bold text-2xl sm:text-5xl 2xl:text-[56px]  capitalize text-center ${colors[colorIndex]}`}
@@ -207,7 +208,7 @@ export default function Home() {
                     ideas into reality with just a single prompt.
                   </h4>
                 </div>
-                <div className="bg-white brightness-90 text-[#000000] pl-4 pr-2 py-2 rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-xl hover:shadow-gray-200/60">
+                <div className="bg-white brightness-90 text-[#000000] pl-4 pr-2 py-2 rounded-2xl border border-[#E8E8E8] w-full max-w-[672px] flex gap-4 shadow-md hover:shadow-gray-200/60">
       
  <input className="h-11 w-full border-none outline-none " placeholder="A landing page for cozy bakery" value={prompt} onChange={handleInputChange}  />
         <button className="bg-[#00A4A6]  -translate-x-2 text-gray-100 translate-y-2 px-2 py-2 rounded-full grid place-content-center w-8 h-8">
@@ -234,13 +235,19 @@ export default function Home() {
                 width={100}
                 height={100}
                 className="rotate-90 w-[900px] 2xl:flex xl:flex hidden -translate-y-[620px] absolute inset-0 translate-x-[1400px]"
-              />
+              />   <Image
+              src="/landingpage/sidecircle.svg"
+              alt="logo"
+              width={100}
+              height={100}
+              className="rotate-15 w-[900px] 2xl:flex xl:flex hidden translate-y-[580px] absolute inset-0 -translate-x-[150px]"
+            />
             </div>
           </section>
 
           <section className="px-6 md:px-16  bg-white text-black">
             <div className="max-w-[1420px] mx-auto">
-              <h4 className="text-[#00A4A6] brightness-90 font-light uppercase mb-2 text-[14px] xl:text-[16px] 2xl:text-[20px]">
+              <h4 className="text-[#00A4A6] brightness-90 font-light uppercase xl:mb-0 mb-2 text-[12px] xl:text-[16px] 2xl:text-[20px]">
                 Templates
               </h4>
               <Motion
@@ -251,12 +258,13 @@ export default function Home() {
                 }}
                 classNames={undefined}
               >
-                <div className="flex xl:mt-2 2xl:mt-4 flex-col sm:flex-row justify-between gap-x-3 items-start">
+                               <div className="flex xl:mt-2 2xl:mt-4 flex-col sm:flex-row justify-between gap-x-3 items-start">
+
                   <div className="flex justify-between flex-col xl:flex-row 2xl:flex-row w-full">
                     <h1 className="     text-[12px]   xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
                       Easy, simple, AI templates
                     </h1>
-                    <p className="2xl:leading-[30px] text-[14px] xl:text-[16px] 2xl:text-[20px] md: text-[12px]text-[#151515]">
+                    <p className="2xl:leading-[30px] text-[#191E2A] text-[14px] xl:text-[16px] 2xl:text-[20px] md: text-[12px]text-[#151515]">
                       Our platform helps your business in managing expenses.
                       These are some of <br /> the reasons why you should use
                       our platform in managing business finances.
@@ -644,10 +652,10 @@ export default function Home() {
               >
                 <div className="flex flex-col  mx-auto gap-x-3 items-center">
                   <div className="flex flex-col ">
-                    <h4 className="text-[#00A4A6] brightness-90 text-center font-light uppercase mb-2 text-[14px] xl:text-[16px] 2xl:text-[20px]">
+                    <h4 className="text-[#00A4A6] brightness-90 text-center font-light uppercase mb-3 text-[14px] xl:text-[16px] 2xl:text-[20px]">
                       FEATURES
                     </h4>
-                    <h1 className=" text-[12px]xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
+                    <h1 className="     text-[12px]   xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#191E2A] mb-3">
                       Our AI features
                     </h1>
                   </div>
@@ -675,7 +683,7 @@ export default function Home() {
                       <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         AI-driven design
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Just describe your vision, and our AI will craft a
                         landing page that not only looks great but also aligns
                         perfectly with your.
@@ -705,7 +713,7 @@ export default function Home() {
                         AI-driven design
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Just describe your vision, and our AI will craft a landing
                       page that not only looks great but also aligns perfectly
                       with your.{" "}
@@ -732,7 +740,7 @@ export default function Home() {
                       <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         Intuitive editing interface
                       </h1>
-                      <p className="text-[#151515]  w-full whitespace-normal word-wrap-break-word text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full whitespace-normal word-wrap-break-word text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Enjoy the freedom to tweak your landing pages.Add
                         sections, change templates, and refine text with ease –
                         either manually .
@@ -762,7 +770,7 @@ export default function Home() {
                         Intuitive editing interface
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Enjoy the freedom to tweak your landing pages. Add
                       sections, change templates, and refine text with ease –
                       either manually or .
@@ -789,7 +797,7 @@ export default function Home() {
                       <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         Seamless cloud deployment
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Launch your landing page in the cloud with just a few
                         clicks. Connect it to your domain for a professional
                         touch Connect it to your.
@@ -819,7 +827,7 @@ export default function Home() {
                         Seamless cloud deployment
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Launch your landing page in the cloud with just a few
                       clicks. Connect it to your domain for a professional touch
                       Connect it to your.
@@ -846,7 +854,7 @@ export default function Home() {
                       <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px]  font-semibold text-[#151515]">
                         Rapid development
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Ideal for developers and businesses, AIPage.dev
                         significantly reduces the time and effort required to
                         build and deploy landing .
@@ -876,7 +884,7 @@ export default function Home() {
                         Rapid development{" "}
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Ideal for developers and businesses, AIPage.dev
                       significantly reduces the time and effort required to
                       build and deploy landing pages.
@@ -903,7 +911,7 @@ export default function Home() {
                       <h1 className=" text-[12px] md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         Effortless blog post creation
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Easily generate, customize, and publish captivating blog
                         posts using our AI-powered tool. Craft engaging content
                         without the .
@@ -933,7 +941,7 @@ export default function Home() {
                         Effortless blog post creation
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Easily generate, customize, and publish captivating blog
                       posts using our AI-powered tool. Craft engaging content
                       without the.
@@ -960,7 +968,7 @@ export default function Home() {
                       <h1 className="     text-[12px]   md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         Unlimited hosting for blog posts
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Host an unlimited number of blog posts on our platform,
                         allowing you to share your insights and expertise with
                         your audience seamlessly.
@@ -990,7 +998,7 @@ export default function Home() {
                         Unlimited hosting for blog posts
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Host an unlimited number of blog posts on our platform,
                       allowing you to share your insights and expertise with
                       your audience seamlessly.
@@ -1017,7 +1025,7 @@ export default function Home() {
                       <h1 className="     text-[12px]   md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         Lead collection
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Collecting leads for your events has never been easier.
                         With Event Registration Form section, seamlessly gather
                         attendee information directly from your landing pages.
@@ -1049,7 +1057,7 @@ export default function Home() {
                         Lead collection
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full     text-[12px]   ">
+                    <p className="text-[#191E2A]w-full     text-[12px]   ">
                       Collecting leads for your events has never been easier.
                       With Event Registration Form section, seamlessly gather
                       attendee information directly from your landing pages.
@@ -1078,7 +1086,7 @@ export default function Home() {
                       <h1 className="     text-[12px]   md:text-[24px] 2xl:leading-[36px] font-semibold text-[#151515]">
                         Seamless integration with leading providers{" "}
                       </h1>
-                      <p className="text-[#151515]  w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
+                      <p className="text-[#191E2A]w-full text-[16px] md:text-[18px] leading-[34px] mb-8">
                         Integrate with your favorite providers effortlessly.
                         Event Registration Form section allows you to sync
                         collected leads with leading service providers such as
@@ -1111,7 +1119,7 @@ export default function Home() {
                         Seamless integration with leading providers
                       </h1>{" "}
                     </div>
-                    <p className="text-[#151515]  w-full    text-[12px] ">
+                    <p className="text-[#191E2A]w-full    text-[12px] ">
                       Integrate with your favorite providers effortlessly. Event
                       Registration Form section allows you to sync collected
                       leads with leading service providers such as SendGrid,
@@ -1125,8 +1133,8 @@ export default function Home() {
           </section>
           <section className="px-6 md:px-16 py-10 xl:py-16 backdrop:2xl:py-20 bg-[#FAFAFF] text-black">
             <div className="max-w-[1420px] mx-auto">
-              <h4 className="text-[#00A4A6] tracking-[3.35px] leading-[19.2px] font-medium uppercase mb-2 text-[16px] 2xl:text-[20px]">
-                Templates
+            <h4 className="text-[#00A4A6] brightness-90 font-light uppercase xl:mb-0 mb-2 text-[12px] xl:text-[16px] 2xl:text-[20px]">
+                Testimonials  
               </h4>
               <Motion
                 transition={{ duration: 0.5 }}
@@ -1138,13 +1146,13 @@ export default function Home() {
               >
                 <div className="flex xl:mt-2 2xl:mt-4 flex-col sm:flex-row justify-between gap-x-3 items-start">
                   <div className="flex justify-between flex-col xl:flex-row 2xl:flex-row w-full">
-                    <h1 className="    text-[12px] xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
-                      Easy, simple, AI templates
-                    </h1>
-                    <p className="2xl:leading-[30px] text-[14px] xl:text-[16px] 2xl:text-[20px] md:text-[20px] text-[#151515]">
+                  <h1 className="    text-[12px]   xl:text-[28px] 2xl:text-[40px] 2xl:leading-relaxed font-bold text-[#151515] mb-3">
+                  What our customers are saying
+                  </h1>
+                    <p className="2xl:leading-[30px] text-[#191E2A] text-[14px] xl:text-[16px] 2xl:text-[20px] md: text-[12px]text-[#151515]">
                       Our platform helps your business in managing expenses.
-                      These are some of the reasons why you should use our
-                      platform in managing business finances.
+                      These are some of <br /> the reasons why you should use
+                      our platform in managing business finances.
                     </p>
                   </div>
                 </div>
