@@ -1,4 +1,3 @@
-// app/websitebuilding/new-website/page.tsx
 "use client";
 
 import Image from "next/image";
@@ -34,7 +33,7 @@ export default function NewWebsite() {
     setPrompt(suggestion);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!prompt.trim()) {
       toast.error("Please enter a prompt");
       return;
@@ -43,48 +42,16 @@ export default function NewWebsite() {
     setLoading(true);
 
     try {
-      const getTokenFromCookies = (name: string) => {
-        const match = document.cookie.match(
-          new RegExp("(^| )" + name + "=([^;]+)")
-        );
-        return match ? match[2] : null;
-      };
+      console.log("Saving prompt:", prompt);
 
-      const token = getTokenFromCookies("token");
+      sessionStorage.removeItem("savedPrompt");
 
-      if (!token) {
-        toast.error("Authentication token not found");
-        setLoading(false);
-        return;
-      }
-      const response = await axios.post(
-        `${API_URL}/ai/api/v1/generate-website`,
-        {
-          user_prompt: prompt,
-          model: "gpt-4o",
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log(response.data.data.data.doc_content);
-      const docContent = response.data.data.data.doc_content;
-      if (response.data.success) {
-        router.push(
-          `/websitebuilding/view?doc_content=${encodeURIComponent(docContent)}`
-        );
-      } else {
-        toast.error("Failed to generate website");
-      }
+      sessionStorage.setItem("savedPrompt", prompt);
+
+      router.push("/websitebuilding/view");
     } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("An unexpected error occurred");
-      }
-      console.error("Error generating website:", error);
+      toast.error("An unexpected error occurred");
+      console.error("Error navigating to view page:", error);
     } finally {
       setLoading(false);
     }
