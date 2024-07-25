@@ -126,7 +126,7 @@ export default function Register() {
                         <input
                           id="email"
                           autoComplete="email"
-                          className="text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
+                          className="text-sm  border-none outline-none  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                           placeholder="Enter your email..."
                           {...register("email")}
                         />
@@ -172,7 +172,7 @@ export default function Register() {
                           autoComplete="password"
                           placeholder="Enter your password..."
                           className={clsx(
-                            "text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
+                            "text-sm  bg-white  border-none outline-none focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                           )}
                           {...register("password")}
                         />
@@ -218,7 +218,7 @@ export default function Register() {
                           autoComplete="confirm-password"
                           placeholder="Confirm password"
                           className={clsx(
-                            "text-sm  bg-white focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
+                            "text-sm  bg-white border-none outline-none focus:ring-0 h-[30px] xl:h-[50px] 2xl:h-[60px] w-full"
                           )}
                           {...register("confirmPassword")}
                         />
@@ -240,22 +240,22 @@ export default function Register() {
                           setValue("agreeToTerms", Boolean(checked))
                         }
                       />
-                        <label
-                          htmlFor="agree-to-terms"
-                          className="text-[9px] xl:text-[12px] xl:py-0 py-4  xl:text-sm font-medium text-[#667085] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      <label
+                        htmlFor="agree-to-terms"
+                        className=" sm:text-[12px] xl:py-0 py-4  xl:text-[16px] font-medium text-[#667085] leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        I agree to the{" "}
+                        <Link href="" className="text-primary-green">
+                          Terms & Conditions
+                        </Link>{" "}
+                        and{" "}
+                        <Link
+                          href="/user-agreements/privacy-policy"
+                          className="text-primary-green"
                         >
-                          I agree to the{" "}
-                          <Link href="" className="text-primary-green">
-                            Terms & Conditions
-                          </Link>{" "}
-                          and{" "}
-                          <Link
-                            href="/user-agreements/privacy-policy"
-                            className="text-primary-green"
-                          >
-                            Privacy Policy
-                          </Link>
-                        </label>
+                          Privacy Policy
+                        </Link>
+                      </label>
                     </div>
                     {errors.agreeToTerms && (
                       <span className="text-rose-600 text-sm">
@@ -287,7 +287,7 @@ export default function Register() {
                       width={20}
                       height={20}
                     />
-                    <span className="text-[12px] xl:text-base font-medium">
+                    <span className="text-2xl:text-[16px]  text-black  xl:text-[14px] font-medium">
                       Continue with Facebook
                     </span>
                   </Link>
@@ -301,7 +301,7 @@ export default function Register() {
                       width={20}
                       height={20}
                     />
-                    <span className="text-[12px] xl:text-base font-medium">
+                    <span className="text-2xl:text-[16px]  text-black   xl:text-[14px] font-medium">
                       Continue with Google
                     </span>
                   </Link>
