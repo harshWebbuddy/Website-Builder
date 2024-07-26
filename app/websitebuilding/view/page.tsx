@@ -720,12 +720,12 @@ export default function ViewGeneratedWebsite() {
                       {isFilterMenuOpen && (
                         <div
                           ref={filterMenuRef}
-                          className="absolute z-20 mt-2 top-16 -right-6 w-[448px] h-[757px  ]  bg-white border border-gray-300 rounded-2xl shadow-lg"
+                          className="absolute z-20 mt-2 top-16 -right-6 w-[448px] max-h-[757px]  bg-white border border-gray-300 rounded-2xl shadow-lg"
                         >
                           <div className="p-4">
-                            <div className="flex justify-between items-center mt-8">
-                              <div className="w-full flex items-center justify-end gap-3">
-                                <div className="w-full max-w-[620px] bg-gray-200 shadow-2xl shadow-gray-200 px-1.5 py-1.5 rounded-xl">
+                            <div className="flex justify-between items-center ">
+                              <div className="w-full flex items-center  gap-3">
+                                <div className="w-full max-w-[272px] bg-gray-200 shadow-2xl shadow-gray-200 px-1.5 py-1.5 rounded-xl">
                                   <div className="w-full flex relative bg-gray-200">
                                     {tabs.map((tab, index) => (
                                       <div
@@ -759,7 +759,7 @@ export default function ViewGeneratedWebsite() {
                               </div>
                             </div>
 
-                            <div className="mt-5">
+                            <div className="mt-4">
                               {renderContent(selectedTabIndex)}
                             </div>
                           </div>

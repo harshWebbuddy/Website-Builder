@@ -54,7 +54,7 @@ const CustomDomain = () => {
         </div>
       </div>
       <div className="border-[#E2E8F0] rounded-xl border ">
-        <div className="p-6 flex flex-col space-y-6  ">
+        <div className="px-6 py-4 flex flex-col space-y-4  ">
           {" "}
           <div className="border-[#E2E8F0] rounded-xl border w-full max-w-[372px] flex-col p-4  space-y-2">
             <h2 className="gap-2 flex font-light items-center">
@@ -145,7 +145,7 @@ const CustomDomain = () => {
                 </h2>
               </span>
             </div>
-            <div className="text-[14px] font-bold flex items-center w-full justify-between flex-row px-6 pb-6">
+            <div className="text-[14px] font-bold flex items-center w-full justify-between flex-row px-6 pb-4">
               <span className="flex  flex-col">
                 <h2 className="font-light">CNAME</h2>
               </span>
