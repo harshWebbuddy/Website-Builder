@@ -1,9 +1,16 @@
 "use client";
-
-import { Eye, Rocket, ZoomInIcon, ZoomOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
-import { FaSearchPlus, FaSearchMinus } from "react-icons/fa";
+import { FaSearchPlus, FaSearchMinus, FaEdit } from "react-icons/fa";
+import {
+  ZoomInIcon,
+  ZoomOutIcon,
+  FullscreenIcon,
+  MoonIcon,
+  SunIcon,
+  XIcon,
+} from "lucide-react";
+
 import {
   SlScreenDesktop,
   SlScreenTablet,
@@ -21,7 +28,13 @@ import RootLayout from "@/app/layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { API_URL } from "@/lib/api";
+import { RxCross1, RxCross2 } from "react-icons/rx";
+
 import { FaCheck, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { ChromePicker } from "react-color";
+import { BsPlus } from "react-icons/bs";
+import CustomDomain from "../components/CustomDomain";
+import SubDomain from "../components/SubDomain";
 type DesignOption = {
   value: string;
   label: string;
@@ -75,38 +88,42 @@ const CustomDesignDropdown: React.FC<CustomDesignDropdownProps> = ({
   }, [selectedDesign]);
 
   return (
-    <div className="relative w-64" ref={dropdownRef}>
+    <div
+      className="relative xl:w-[518px] w-[300px] lg:w-[418px] 2xl:w-[518px]"
+      ref={dropdownRef}
+    >
       <button
         onClick={toggleDropdown}
-        className="flex items-center justify-between w-full border p-2 rounded-lg bg-white"
+        className="flex items-center max-w-[82px] w-full justify-between border p-2 rounded-lg bg-white"
       >
         <div className="flex items-center">
-          <span className="mr-2">{selectedDesign}</span>
+          <span className="mr-2 text-[12px]">{selectedDesign}</span>
         </div>
-        <FaChevronDown />
+        {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       {isOpen && (
-        <div className="absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-          <div className="grid grid-cols-3 gap-2 p-2">
+        <div className="absolute z-10 mt-2 max-w-[518px] w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+          <div className="grid grid-cols-3 gap-2 p-2 w-full">
             {designOptions.map((option) => (
               <div
                 key={option.value}
-                className={`flex flex-col items-center p-2 cursor-pointer relative ${
-                  selectedDesign === option.value ? "bg-gray-300" : "bg-white"
-                }`}
+                className={`flex w-full max-w-[146px] justify-between flex-col items-center p-2 cursor-pointer relative`}
                 onClick={() => handleSelect(option.value)}
               >
                 <img
                   src={option.imgSrc}
                   alt={option.label}
-                  className="w-16 h-16 mb-2"
+                  className="w-full 2xl:w-[146px] 2xl:h-[79px] h-full mb-2"
                 />
-                <span>{option.label}</span>
-                {selectedDesign === option.value && (
-                  <div className="absolute top-1 right-1 text-green-500">
-                    <FaCheck />
-                  </div>
-                )}
+                <div className="flex flex-row items-center w-full justify-between">
+                  {option.label}
+                  <input
+                    type="checkbox"
+                    checked={selectedDesign === option.value}
+                    readOnly
+                    className="mr-2"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -177,16 +194,16 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   return (
     <div
       ref={dropdownRef}
-      className="relative inline-block w-64"
+      className="relative text-[12px] w-full max-w-[109.5px]"
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
       <button
         onClick={toggleDropdown}
-        className="flex items-center justify-between w-full border rounded-lg p-2 bg-white text-gray-700"
+        className="flex  text-[12px] items-center justify-between w-full border rounded-lg p-2 bg-white text-gray-700"
         style={{ fontFamily: selectedFont || "Arial" }}
       >
-        <span>{selectedFont || "Select a Font"}</span>
+        <span className=" text-[12px]">{selectedFont || "Select a Font"}</span>
         {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       {isOpen && (
@@ -210,38 +227,34 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
     </div>
   );
 };
+interface ColorPickerProps {
+  color: string;
+  onChange: (color: string) => void;
+}
 
-const ZoomControls = () => {
-  const [zoom, setZoom] = useState(1); // Initial zoom level
+const ColorPicker: React.FC<ColorPickerProps> = ({ color, onChange }) => {
+  const [showPicker, setShowPicker] = useState(false);
 
-  const zoomIn = () => {
-    setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3)); // Zoom in
-  };
-
-  const zoomOut = () => {
-    setZoom((prevZoom) => Math.max(prevZoom - 0.1, 0.5)); // Zoom out
+  const handleColorChange = (color: any) => {
+    onChange(color.hex);
   };
 
   return (
-    <div className="flex items-center gap-2 mb-4">
+    <div className="relative">
       <button
-        onClick={zoomOut}
-        className="flex items-center justify-center p-2 rounded border"
-        aria-label="Zoom Out"
-      >
-        <ZoomOutIcon className="w-5 h-5" />
-      </button>
-      <span>{(zoom * 100).toFixed(0)}%</span>
-      <button
-        onClick={zoomIn}
-        className="flex items-center justify-center p-2 rounded border"
-        aria-label="Zoom In"
-      >
-        <ZoomInIcon className="w-5 h-5" />
-      </button>
+        style={{ backgroundColor: color }}
+        className="p-2 border rounded-lg"
+        onClick={() => setShowPicker(!showPicker)}
+      ></button>
+      {showPicker && (
+        <div className="absolute z-10 mt-2">
+          <ChromePicker color={color} onChangeComplete={handleColorChange} />
+        </div>
+      )}
     </div>
   );
 };
+
 export default function ViewGeneratedWebsite() {
   const router = useRouter();
   const [iframeWidth, setIframeWidth] = useState("100%");
@@ -251,7 +264,32 @@ export default function ViewGeneratedWebsite() {
   const [selectedDesign, setSelectedDesign] = useState<string>("Classic");
   const [color, setColor] = useState<string>("#ffffff");
   const [zoom, setZoom] = useState<number>(1);
+  const [generatedId, setGeneratedId] = useState(null);
   const [selectedFont, setSelectedFont] = useState<string>("");
+  const [selectedButtonColor, setSelectedButtonColor] =
+    useState<string>("#007bff");
+  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
+  const tabs = ["CustomDomain ", "SubDomain"];
+
+  const renderContent = (selectedTabIndex: number) => {
+    switch (selectedTabIndex) {
+      case 0:
+        return <CustomDomain />;
+      case 1:
+        return <SubDomain />;
+    }
+  };
+  const handlePreview = () => {
+    if (generatedHtml) {
+      sessionStorage.setItem("previewHtml", generatedHtml);
+      window.open("/websitebuilding/preview", "_blank");
+    } else {
+      toast.error("No content to preview");
+    }
+  };
 
   const handleFontSelect = (font: string) => {
     setSelectedFont(font);
@@ -285,6 +323,8 @@ export default function ViewGeneratedWebsite() {
 
           if (response.data.success) {
             setGeneratedHtml(response.data.data.data.doc_content);
+            const id = response.data.data.data._id;
+            setGeneratedId(id);
           } else {
             throw new Error("Failed to generate website");
           }
@@ -307,52 +347,53 @@ export default function ViewGeneratedWebsite() {
       updateHtmlFont();
     }
   }, [selectedFont, generatedHtml, selectedDesign]);
+
   const updateHtmlFont = () => {
     if (iframeRef.current && generatedHtml) {
       const updatedHtml = `
-        <html>
-          <head>
-            <style>
-              @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage:wght@400;700&family=Grotesque:wght@400;700&family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
-              body {
-                font-family: ${selectedFont} !important;
-                color: ${color} !important;
-              }
-              .classic {
-                /* Default Classic theme styles */
-                background-color: #f5f5f5;
-                color: #333;
-              }
-              .modern {
-                /* Default Modern theme styles */
-                background-color: #fff;
-                color: #000;
-              }
-              .main {
-                /* Default Main theme styles */
-                background-color: #eaeaea;
-                color: #000;
-              }
-              .vintage {
-                /* Default Vintage theme styles */
-                background-color: #f9f3e1;
-                color: #555;
-              }
-              .minimal {
-                /* Default Minimal theme styles */
-                background-color: #fff;
-                color: #666;
-              }
-              .${selectedDesign.toLowerCase()} {
-                /* Add the selected design theme class */
-              }
-            </style>
-          </head>
-          <body class="${selectedDesign.toLowerCase()}">
-            ${generatedHtml}
-          </body>
-        </html>
-      `;
+          <html>
+            <head>
+              <style>
+                @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage:wght@400;700&family=Grotesque:wght@400;700&family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+                body {
+                  font-family: ${selectedFont} !important;
+                  color: ${color} !important;
+                }
+                .classic {
+                  /* Default Classic theme styles */
+                  background-color: #f5f5f5;
+                  color: #333;
+                }
+                .modern {
+                  /* Default Modern theme styles */
+                  background-color: #fff;
+                  color: #000;
+                }
+                .main {
+                  /* Default Main theme styles */
+                  background-color: #eaeaea;
+                  color: #000;
+                }
+                .vintage {
+                  /* Default Vintage theme styles */
+                  background-color: #f9f3e1;
+                  color: #555;
+                }
+                .minimal {
+                  /* Default Minimal theme styles */
+                  background-color: #fff;
+                  color: #666;
+                }
+                .${selectedDesign.toLowerCase()} {
+                  /* Add the selected design theme class */
+                }
+              </style>
+            </head>
+            <body class="${selectedDesign.toLowerCase()}">
+              ${generatedHtml}
+            </body>
+          </html>
+        `;
       iframeRef.current.srcdoc = updatedHtml;
     }
   };
@@ -414,33 +455,168 @@ export default function ViewGeneratedWebsite() {
     element.style.border = "none";
   };
 
-  const handleExitEdit = () => {
+  const handleExitEdit = async () => {
     setEditingMode(false);
+    try {
+      const token = document.cookie.match(
+        new RegExp("(^| )token=([^;]+)")
+      )?.[2];
+      if (!token) {
+        throw new Error("Authentication token not found");
+      }
+
+      if (generatedId) {
+        const response = await axios.put(
+          `${API_URL}/users/api/v1/docs/${generatedId}`,
+          {
+            updated_data: generatedHtml,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log(response);
+        if (response.data.success) {
+          toast.success("Website updated successfully");
+        } else {
+          throw new Error("Failed to update website");
+        }
+      } else {
+        throw new Error("ID not found. Cannot update website.");
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
+      console.error("Error updating website:", error);
+    }
   };
+
+  const handlePublish = () => {
+    toast.success("Project saved successfully");
+  };
+
+  const handleFullScreenChange = () => {
+    setIsFullScreen(document.fullscreenElement !== null);
+  };
+
+  const handleZoomIn = () => setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3));
+  const handleZoomOut = () =>
+    setZoom((prevZoom) => Math.max(prevZoom - 0.1, 0.5));
+  const toggleFullScreen = () => {
+    if (iframeRef.current) {
+      if (!document.fullscreenElement) {
+        iframeRef.current.requestFullscreen();
+        setIsFullScreen(true);
+      } else {
+        document.exitFullscreen();
+        setIsFullScreen(false);
+      }
+    }
+  };
+
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
+
+  useEffect(() => {
+    const iframeDocument = iframeRef.current?.contentDocument;
+    if (iframeDocument) {
+      const body = iframeDocument.body;
+      if (isDarkMode) {
+        body.classList.add("dark-mode");
+        body.classList.remove("light-mode");
+      } else {
+        body.classList.add("light-mode");
+        body.classList.remove("dark-mode");
+      }
+    }
+
+    document.addEventListener("fullscreenchange", handleFullScreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+    };
+  }, [isDarkMode]);
+
+  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
+  const filterMenuRef = useRef<HTMLDivElement | null>(null);
+  const handleMenuToggle = () => {
+    setIsFilterMenuOpen((prevState) => !prevState);
+  };
+
+  // Close menu if click is outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        filterMenuRef.current &&
+        !filterMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsFilterMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <RootLayout shoWebar={true}>
       <main className="flex-1 h-full w-full flex flex-col mt-10">
         <div className="bg-white py-3 px-5 flex flex-col justify-between max-w-[1668px] mx-auto w-full items-center rounded-xl translate-y-1 shadow shadow-gray-100 mt-20">
-          <div className="flex flex-row justify-between w-full">
+          <div className="flex flex-wrap 2xl:justify-between w-full">
             <div className="flex items-center gap-x-1.5 w-full max-w-fit">
               <span className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <span className="w-3 h-3 rounded-full bg-[#EAB308]" />
               <span className="w-3 h-3 rounded-full bg-[#22C55E]" />
             </div>
 
-            <div className="flex flex-col gap-5 p-5">
+            <div className="flex flex-wrap gap-5 p-5">
               {!editingMode ? (
                 <>
-                  <button
-                    className="border h-10 w-20 rounded-lg flex items-center justify-center"
-                    onClick={handleEdit}
-                  >
-                    Edit
-                  </button>
-
-                  {/* View Screen Options */}
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex xl:flex-nowrap  flex-wrap 2xl:flex-row items-center gap-3 mb-4">
+                    <div className="flex flex-row items-center mx-auto justify-center gap-2 2xl:gap-4">
+                      <div className="toggle-container">
+                        <input
+                          type="checkbox"
+                          id="toggle"
+                          className="toggle-input"
+                        />
+                        <label htmlFor="toggle" className="toggle-label">
+                          <svg
+                            className="toggle-svg"
+                            viewBox="0 0 72 34"
+                            fill="#00A4A6"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              className="toggle-background"
+                              opacity="0.15"
+                              y="0.5"
+                              width="72"
+                              height="33"
+                              rx="16.5"
+                              fill="#16191C"
+                            />
+                            <circle
+                              className="toggle-circle"
+                              cx="17.5"
+                              cy="17"
+                              r="10.5"
+                              fill="white"
+                            />
+                          </svg>
+                        </label>
+                      </div>
+                      <h2 className="font-mona-sans text-[10px] xl:text-[12px] 2xl:text-[14px] bl:text-base font-light whitespace-nowrap    leading-normal 2xl:leading-[24px] bl:leading-[32px] tracking-[0.05em] bl:tracking-[0.2px]">
+                        Construction mode
+                      </h2>
+                    </div>
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -460,7 +636,6 @@ export default function ViewGeneratedWebsite() {
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
-
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -480,7 +655,6 @@ export default function ViewGeneratedWebsite() {
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
-
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -500,70 +674,219 @@ export default function ViewGeneratedWebsite() {
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
+                    <div className="relative">
+                      <div
+                        className=" py-2 cursor-pointer"
+                        onClick={handleMenuToggle}
+                      >
+                        <button className="border h-10 w-10 rounded-lg flex gap-2 items-center justify-center">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 16 17"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g id="SVG">
+                              <path
+                                id="Vector"
+                                d="M8.00016 14.7669C11.6821 14.7669 14.6668 11.7822 14.6668 8.10026C14.6668 4.41836 11.6821 1.43359 8.00016 1.43359C4.31826 1.43359 1.3335 4.41836 1.3335 8.10026C1.3335 11.7822 4.31826 14.7669 8.00016 14.7669Z"
+                                stroke="currentColor"
+                                stroke-width="1.33333"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                id="Vector_2"
+                                d="M8.00016 1.43359C6.28832 3.23103 5.3335 5.61809 5.3335 8.10026C5.3335 10.5824 6.28832 12.9695 8.00016 14.7669C9.71201 12.9695 10.6668 10.5824 10.6668 8.10026C10.6668 5.61809 9.71201 3.23103 8.00016 1.43359Z"
+                                stroke="currentColor"
+                                stroke-width="1.33333"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                id="Vector_3"
+                                d="M1.3335 8.10156H14.6668"
+                                stroke="currentColor"
+                                stroke-width="1.33333"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>{" "}
+                      </div>
 
-                    <button className="border h-10 w-10 rounded-lg flex gap-2 items-center justify-center">
-                    <svg width="20" height="20" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="SVG">
-<path id="Vector" d="M8.00016 14.7669C11.6821 14.7669 14.6668 11.7822 14.6668 8.10026C14.6668 4.41836 11.6821 1.43359 8.00016 1.43359C4.31826 1.43359 1.3335 4.41836 1.3335 8.10026C1.3335 11.7822 4.31826 14.7669 8.00016 14.7669Z" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M8.00016 1.43359C6.28832 3.23103 5.3335 5.61809 5.3335 8.10026C5.3335 10.5824 6.28832 12.9695 8.00016 14.7669C9.71201 12.9695 10.6668 10.5824 10.6668 8.10026C10.6668 5.61809 9.71201 3.23103 8.00016 1.43359Z" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_3" d="M1.3335 8.10156H14.6668" stroke="currentColor" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</svg>
+                      {isFilterMenuOpen && (
+                        <div
+                          ref={filterMenuRef}
+                          className="absolute z-20 mt-2 top-16 -right-6 w-[448px] h-[757px  ]  bg-white border border-gray-300 rounded-2xl shadow-lg"
+                        >
+                          <div className="p-4">
+                            <div className="flex justify-between items-center mt-8">
+                              <div className="w-full flex items-center justify-end gap-3">
+                                <div className="w-full max-w-[620px] bg-gray-200 shadow-2xl shadow-gray-200 px-1.5 py-1.5 rounded-xl">
+                                  <div className="w-full flex relative bg-gray-200">
+                                    {tabs.map((tab, index) => (
+                                      <div
+                                        key={index}
+                                        className={`w-full h-[32px] flex gap-x-2 justify-center xl:text-[14px] sm:text-[12px] font-medium items-center rounded-md relative cursor-pointer z-[1] transition-all duration-500 ${
+                                          selectedTabIndex === index
+                                            ? "bg-[#00A4A6] text-white "
+                                            : "text-black bg-gray-200"
+                                        }`}
+                                        onClick={() => {
+                                          const totalTabs = tabs.length;
+                                          const percentage =
+                                            (index / totalTabs) * 100;
+                                          setSelectedTabIndex(index);
+                                          setTabUnderlineLeft(percentage);
+                                        }}
+                                      >
+                                        {tab}
+                                      </div>
+                                    ))}
 
-                    </button>
-                    <button className="border h-10 py-2 px-4 rounded-lg flex gap-2 items-center justify-center">
-                      <Rocket size={20} />
+                                    <div
+                                      className="absolute bottom-0 h-[48px] bg-primary-green custom-transition rounded-lg"
+                                      style={{
+                                        left: `calc(${tabUnderlineLeft}%)`,
+                                        width: `${100 / tabs.length}%`,
+                                      }}
+                                    ></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="mt-5">
+                              {renderContent(selectedTabIndex)}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      className="border h-full max-h-[38px] w-full max-w-[81px] text-[10px] font-light xl:text-[12px] gap-2 rounded-lg flex items-center justify-center"
+                      onClick={handlePublish}
+                    >
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 17 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.78988 11.0998C2.78988 11.9398 2.45654 14.4332 2.45654 14.4332C2.45654 14.4332 4.94988 14.0998 5.78988 13.0998C6.26321 12.5398 6.25654 11.6798 5.72988 11.1598C5.47075 10.9125 5.12941 10.7696 4.77136 10.7585C4.41332 10.7474 4.06379 10.869 3.78988 11.0998Z"
+                          stroke="#14171B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.79004 10.1004L6.79004 8.10043C7.1448 7.18005 7.59151 6.2978 8.12337 5.46709C8.90016 4.22508 9.98179 3.20246 11.2654 2.49649C12.549 1.79051 13.9918 1.42467 15.4567 1.43376C15.4567 3.24709 14.9367 6.43376 11.4567 8.76709C10.6146 9.29957 9.72127 9.74625 8.79004 10.1004Z"
+                          stroke="#14171B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6.78988 8.09995H3.45654C3.45654 8.09995 3.82321 6.07995 4.78988 5.43328C5.86988 4.71328 8.12321 5.43328 8.12321 5.43328"
+                          stroke="#14171B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.79004 10.1029V13.4362C8.79004 13.4362 10.81 13.0695 11.4567 12.1029C12.1767 11.0229 11.4567 8.76953 11.4567 8.76953"
+                          stroke="#14171B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
                       Publish
                     </button>
-                    <button className="border h-10 py-2 px-4 rounded-lg flex gap-2 items-center justify-center">
-                      <Eye size={20} />
+                    <button
+                      className="border h-full max-h-[38px] w-full max-w-[81px] text-[10px] font-light xl:text-[12px] gap-2 rounded-lg flex items-center justify-center"
+                      onClick={handlePreview}
+                    >
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 17 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.41382 8.10026C1.41382 8.10026 3.41382 3.43359 8.08049 3.43359C12.7472 3.43359 14.7472 8.10026 14.7472 8.10026C14.7472 8.10026 12.7472 12.7669 8.08049 12.7669C3.41382 12.7669 1.41382 8.10026 1.41382 8.10026Z"
+                          stroke="#14171B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.08032 10.1016C9.18489 10.1016 10.0803 9.20613 10.0803 8.10156C10.0803 6.99699 9.18489 6.10156 8.08032 6.10156C6.97575 6.10156 6.08032 6.99699 6.08032 8.10156C6.08032 9.20613 6.97575 10.1016 8.08032 10.1016Z"
+                          stroke="#14171B"
+                          stroke-width="1.33333"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
                       Preview
                     </button>
+                    <button
+                      className="border px-2 py-4 max-h-[22px] translate-y-  rounded-lg flex items-center justify-center"
+                      onClick={handleEdit}
+                    >
+                      <FaEdit size={15} />
+                    </button>{" "}
                   </div>
                 </>
               ) : (
                 <>
-                  <button
-                    className="border h-10 w-20 rounded-lg flex items-center justify-center"
-                    onClick={handleExitEdit}
-                  >
-                    Exit Edit
-                  </button>
-                  <div className="flex flex-row">
+                  <div className="flex 2xl:flex-nowrap flex-wrap flex-row gap-2">
                     {" "}
                     <CustomDropdown
                       selectedFont={selectedFont}
                       onSelectFont={handleFontSelect}
                     />
-                    <CustomDesignDropdown
-                      selectedDesign={selectedDesign}
-                      setSelectedDesign={setSelectedDesign}
-                    />
-                    {/* Color Picker */}
-                    <div className="flex flex-col gap-2 mb-4">
-                      <label htmlFor="color-picker">Select Color:</label>
-                      <input
-                        id="color-picker"
-                        type="color"
-                        value={color}
-                        onChange={(e) => setColor(e.target.value)}
-                        className="border p-2 rounded"
-                      />
-                    </div>
-                    {/* Magnification Tool */}
-                    <div className="flex items-center gap-2 mb-4">
-                      <input
-                        id="zoom-slider"
-                        type="range"
-                        min="0.5"
-                        max="3"
-                        step="0.1"
-                        value={zoom}
-                        onChange={(e) => setZoom(parseFloat(e.target.value))}
-                        className="border p-2 rounded"
-                      />
-                      <span>{(zoom * 100).toFixed(0)}%</span>
-                    </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={handleZoomOut}
+                        className="p-1 border rounded-lg"
+                      >
+                        <ZoomOutIcon />
+                      </button>
+
+                      <button
+                        onClick={handleZoomIn}
+                        className="p-1 border rounded-lg"
+                      >
+                        <ZoomInIcon />
+                      </button>
+                      <button
+                        onClick={toggleFullScreen}
+                        className="p-1 border rounded-lg"
+                      >
+                        {isFullScreen ? <XIcon /> : <FullscreenIcon />}{" "}
+                        {isFullScreen ? "" : ""}
+                      </button>
+                      <button
+                        onClick={toggleTheme}
+                        className="p-1 border rounded-lg"
+                      >
+                        {isDarkMode ? <SunIcon /> : <MoonIcon />}{" "}
+                        {isDarkMode ? "" : ""}
+                      </button>
+                    </div>{" "}
+                    <button
+                      className="border w-10 h-10 rounded-lg flex items-center justify-center"
+                      onClick={handleExitEdit}
+                    >
+                      <RxCross2 />
+                    </button>
                   </div>
                 </>
               )}
@@ -586,7 +909,13 @@ export default function ViewGeneratedWebsite() {
                 }}
               />
             ) : (
-              <p className="text-center text-gray-500">Loading...</p>
+              <div className="flex flex-col items-center translate-y-60 relative">
+                <img
+                  src="/LoadingCircles.gif"
+                  alt="Loading"
+                  className="w-32 h-32 mb-2"
+                />
+              </div>
             )}
           </div>
         </div>
