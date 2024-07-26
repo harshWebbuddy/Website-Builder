@@ -574,7 +574,13 @@ const ViewGeneratedWebsite = () => {
                 }}
               />
             ) : (
-              <p className="text-center text-gray-500">Loading...</p>
+              <div className="flex flex-col items-center translate-y-60 relative">
+              <img
+                src="/LoadingCircles.gif"
+                alt="Loading"
+                className="w-32 h-32 mb-2"
+              />
+            </div>
             )}
           </div>
         </div>

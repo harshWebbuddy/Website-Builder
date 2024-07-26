@@ -93,7 +93,13 @@ const WebsiteBuilder = () => {
     fetchProjects();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex flex-col items-center translate-y-60 relative">
+  <img
+    src="/LoadingCircles.gif"
+    alt="Loading"
+    className="w-32 h-32 mb-2"
+  />
+</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (

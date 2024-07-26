@@ -20,7 +20,13 @@ const PreviewPage = () => {
           style={{ width: "100%", height: "100vh", border: "none" }}
         />
       ) : (
-        <p>Loading...</p>
+        <div className="flex flex-col items-center translate-y-60 relative">
+        <img
+          src="/LoadingCircles.gif"
+          alt="Loading"
+          className="w-32 h-32 mb-2"
+        />
+      </div>
       )}
     </div>
   );
