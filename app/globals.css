@@ -1,13 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage:wght@400;700&family=Grotesque:wght@400;700&family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Courier+New:wght@400;700&family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&family=Verdana:wght@400;700&display=swap');
+.shadow-left {
+  box-shadow: -6px 0px 0px rgba(0, 164, 166, 1);
+  border-radius: 10px 10px 10px 10px;
+  position: relative;
+}
+.custom-bg {
+  background-color: rgba(0, 164, 166, 0.07);
+}
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage:wght@400;700&family=Grotesque:wght@400;700&family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Courier+New:wght@400;700&family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&family=Verdana:wght@400;700&display=swap");
 @font-face {
-  font-family: 'MyCustomFont';
-  src: url('/fonts/MyCustomFont.woff2') format('woff2'),
-       url('/fonts/MyCustomFont.woff') format('woff');
+  font-family: "MyCustomFont";
+  src: url("/fonts/MyCustomFont.woff2") format("woff2"),
+    url("/fonts/MyCustomFont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -53,12 +70,12 @@
 
 /* Changing the background color when checked */
 .toggle-input:checked + .toggle-label .toggle-background {
-  fill: #00A4A6; /* Background color when checked */
+  fill: #00a4a6; /* Background color when checked */
 }
 
-
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
