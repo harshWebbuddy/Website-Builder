@@ -210,7 +210,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
     </div>
   );
 };
-
+// dd
 const ZoomControls = () => {
   const [zoom, setZoom] = useState(1); // Initial zoom level
 
