@@ -43,7 +43,7 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
         validatedData
       );
       toast.success(response.data.message);
-      onEmailSubmitted(data.email); // Call the callback function to proceed to OTP verification
+      onEmailSubmitted(data.email); 
     } catch (error: any) {
       if (error.response) {
         toast.error(error.response.data.error || error.response.data);
@@ -110,7 +110,7 @@ const EmailForm: React.FC<EmailFormProps> = ({ onEmailSubmitted }) => {
               <input
                 id="email"
                 autoComplete="email"
-                className="text-sm w-full focus:ring-0 h-[60px] px-3"
+                className="text-sm border-none outline-none w-full focus:ring-0 h-[60px] px-3"
                 placeholder="Enter your email..."
                 {...register("email")}
               />

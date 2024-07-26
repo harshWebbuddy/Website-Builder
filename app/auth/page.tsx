@@ -58,7 +58,11 @@ export default function AuthPage() {
             <div className="items-center justify-center z-[90] mx-auto w-full">
               <div className="w-full flex flex-col gap-y-4 xl:gap-y-10 items-center justify-center mx-auto py-2">
                 <div className="items-center absolute top-6 justify-center mx-auto w-full">
-                  <svg
+               
+               
+  <a href="/"  rel="noopener noreferrer" aria-label="Logo Link">
+   
+   <svg
                     className="animate-shine hover:scale-125 hover:brightness-90  items-center justify-center mx-auto"
                     width="162"
                     height="35"
@@ -92,7 +96,7 @@ export default function AuthPage() {
                         />
                       </clipPath>
                     </defs>
-                  </svg>
+                  </svg></a>
                 </div>
                 <div className="w-full max-w-[445px] relative flex justify-center">
                   {tabs.map((tab, index) => (

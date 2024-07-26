@@ -61,7 +61,7 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({
         { email, otp, password: data.password }
       );
       toast.success(response.data.message);
-      router.push("/login"); // Redirect to login page
+      router.push("/auth"); 
     } catch (error: any) {
       if (error.response) {
         toast.error(error.response.data.error || error.response.data);
@@ -134,7 +134,7 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({
                   id="password"
                   autoComplete="password"
                   placeholder="Enter your password..."
-                  className={clsx("text-sm peer focus:ring-0 h-[60px] w-full")}
+                  className={clsx("text-sm border-none outline-none   peer focus:ring-0 h-[60px] w-full")}
                   {...register("password")}
                 />
                 <button
@@ -188,7 +188,7 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({
                   id="confirmPassword"
                   autoComplete="confirm-password"
                   placeholder="Confirm your password..."
-                  className={clsx("text-sm peer focus:ring-0 h-[60px] w-full")}
+                  className={clsx("text-sm border-none outline-none peer focus:ring-0 h-[60px] w-full")}
                   {...register("confirmPassword")}
                 />
                 <button
@@ -213,9 +213,9 @@ const PasswordUpdate: React.FC<PasswordUpdateProps> = ({
           <button
             type="submit"
             disabled={isPending}
-            className="w-full py-3 px-4 bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white font-semibold rounded-lg"
+                        className="text-2xl:text-[16px]   font-medium  xl:text-[14px] bg-[#00A4A6] hover:bg-[#00A4A6]/90 text-white h-[30px] md:h-[40px] xl:h-[60px] w-full rounded-xl flex justify-center items-center"
           >
-            {isPending ? <Spinner /> : "Update Password"}
+            {isPending ? <Spinner   /> : "Update Password"}
           </button>
         </form>
       </div>
