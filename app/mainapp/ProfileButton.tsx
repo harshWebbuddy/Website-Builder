@@ -35,7 +35,7 @@ export function ProfileButton() {
 
       Cookies.remove('token');
 console.log("sign out",response);
-      router.push('/auth');
+      router.push('/');
       toast.success('Successfully signed out!');
     } catch (error: any) {
       if (error.response) {
