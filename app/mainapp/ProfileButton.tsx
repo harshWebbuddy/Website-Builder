@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { API_URL } from "@/lib/api";
-
+import Cookies from 'js-cookie'; 
 export function ProfileButton() {
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
@@ -23,16 +23,19 @@ export function ProfileButton() {
   const handleSignOut = async () => {
     setIsPending(true);
     try {
-      const token = localStorage.getItem('token');
+      const token = Cookies.get('token');
+      if (!token) {
+        throw new Error('No token found');
+      }
       const response = await axios.get(`${API_URL}/users/api/v1/auth/logout`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
-console.log(response)
-      localStorage.removeItem('token');
 
-      router.push('/auth/login');
+      Cookies.remove('token');
+console.log("sign out",response);
+      router.push('/auth');
       toast.success('Successfully signed out!');
     } catch (error: any) {
       if (error.response) {
