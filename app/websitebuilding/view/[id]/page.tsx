@@ -1,6 +1,15 @@
 "use client";
 
-import { Eye, FullscreenIcon, MoonIcon, Rocket, SunIcon, XIcon, ZoomInIcon, ZoomOutIcon } from "lucide-react";
+import {
+  Eye,
+  FullscreenIcon,
+  MoonIcon,
+  Rocket,
+  SunIcon,
+  XIcon,
+  ZoomInIcon,
+  ZoomOutIcon,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { FaSearchPlus, FaSearchMinus } from "react-icons/fa";
@@ -80,38 +89,42 @@ const CustomDesignDropdown: React.FC<CustomDesignDropdownProps> = ({
   }, [selectedDesign]);
 
   return (
-    <div className="relative w-64" ref={dropdownRef}>
+    <div
+      className="relative xl:w-[518px] w-[300px] lg:w-[418px] 2xl:w-[518px]"
+      ref={dropdownRef}
+    >
       <button
         onClick={toggleDropdown}
-        className="flex items-center justify-between w-full border p-2 rounded-lg bg-white"
+        className="flex items-center max-w-[82px] w-full justify-between border p-2 rounded-lg bg-white"
       >
         <div className="flex items-center">
-          <span className="mr-2">{selectedDesign}</span>
+          <span className="mr-2 text-[12px]">{selectedDesign}</span>
         </div>
-        <FaChevronDown />
+        {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       {isOpen && (
-        <div className="absolute z-10 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-          <div className="grid grid-cols-3 gap-2 p-2">
+        <div className="absolute z-10 mt-2 max-w-[518px] w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+          <div className="grid grid-cols-3 gap-2 p-2 w-full">
             {designOptions.map((option) => (
               <div
                 key={option.value}
-                className={`flex flex-col items-center p-2 cursor-pointer relative ${
-                  selectedDesign === option.value ? "bg-gray-300" : "bg-white"
-                }`}
+                className={`flex w-full max-w-[146px] justify-between flex-col items-center p-2 cursor-pointer relative`}
                 onClick={() => handleSelect(option.value)}
               >
                 <img
                   src={option.imgSrc}
                   alt={option.label}
-                  className="w-16 h-16 mb-2"
+                  className="w-full 2xl:w-[146px] 2xl:h-[79px] h-full mb-2"
                 />
-                <span>{option.label}</span>
-                {selectedDesign === option.value && (
-                  <div className="absolute top-1 right-1 text-green-500">
-                    <FaCheck />
-                  </div>
-                )}
+                <div className="flex flex-row items-center w-full justify-between">
+                  {option.label}
+                  <input
+                    type="checkbox"
+                    checked={selectedDesign === option.value}
+                    readOnly
+                    className="mr-2"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -182,16 +195,16 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   return (
     <div
       ref={dropdownRef}
-      className="relative inline-block w-64"
+      className="relative text-[12px] w-full max-w-[109.5px]"
       onKeyDown={handleKeyDown}
       tabIndex={0}
     >
       <button
         onClick={toggleDropdown}
-        className="flex items-center justify-between w-full border rounded-lg p-2 bg-white text-gray-700"
+        className="flex  text-[12px] items-center justify-between w-full border rounded-lg p-2 bg-white text-gray-700"
         style={{ fontFamily: selectedFont || "Arial" }}
       >
-        <span>{selectedFont || "Select a Font"}</span>
+        <span className=" text-[12px]">{selectedFont || "Select a Font"}</span>
         {isOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       {isOpen && (
@@ -218,28 +231,34 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
 const ViewGeneratedWebsite = () => {
   const router = useRouter();
-  const [iframeWidth, setIframeWidth] = useState("100%");
-  const [editingMode, setEditingMode] = useState(false);
+  const [iframeWidth, setIframeWidth] = useState<string>("100%");
+  const [editingMode, setEditingMode] = useState<boolean>(false);
   const [generatedHtml, setGeneratedHtml] = useState<string | null>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [selectedDesign, setSelectedDesign] = useState<string>("Classic");
   const [color, setColor] = useState<string>("#ffffff");
   const [zoom, setZoom] = useState<number>(1);
+  const [generatedId, setGeneratedId] = useState<string | null>(null);
   const [selectedFont, setSelectedFont] = useState<string>("");
-  const [generatedId, setGeneratedId] = useState(null);
+  const [selectedButtonColor, setSelectedButtonColor] =
+    useState<string>("#007bff");
+  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [selectedTabIndex, setSelectedTabIndex] = useState<number>(0);
+  const [tabUnderlineLeft, setTabUnderlineLeft] = useState<number>(0);
+  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState<boolean>(false);
 
-  const handleFontSelect = (font: string) => {
-    setSelectedFont(font);
-  };
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const filterMenuRef = useRef<HTMLDivElement | null>(null);
 
-  const handlePreview = () => {
-    if (generatedHtml) {
-      sessionStorage.setItem("previewHtml", generatedHtml);
-      window.open("/websitebuilding/preview", "_blank");
-    } else {
-      toast.error("No content to preview");
-    }
-  };
+  const tabs = ["CustomDomain", "SubDomain"];
+  const fontOptions = [
+    "Arial",
+    "Times New Roman",
+    "Courier New",
+    "Georgia",
+    "Verdana",
+  ];
+
   useEffect(() => {
     const storedData = localStorage.getItem("projectData");
 
@@ -260,158 +279,29 @@ const ViewGeneratedWebsite = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (iframeRef.current && generatedHtml) {
-      iframeRef.current.srcdoc = generatedHtml;
-      updateHtmlFont();
-    }
-  }, [selectedFont, generatedHtml, selectedDesign]);
-
- 
-
-  const handleMouseOver = (event: MouseEvent) => {
-    const element = event.target as HTMLElement;
-    element.style.outline = "2px dashed blue";
-  };
-
-  const handleMouseOut = (event: MouseEvent) => {
-    const element = event.target as HTMLElement;
-    element.style.outline = "none";
-  };
-
-  const handleFocus = (event: FocusEvent) => {
-    const element = event.target as HTMLElement;
-    element.style.border = "2px solid blue";
-  };
-
-  const handleBlur = (event: FocusEvent) => {
-    const element = event.target as HTMLElement;
-    element.style.border = "none";
-  };
-
-  const [selectedButtonColor, setSelectedButtonColor] =
-    useState<string>("#007bff");
-  const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  const [tabUnderlineLeft, setTabUnderlineLeft] = useState(0);
-  const tabs = ["CustomDomain ", "SubDomain"];
-
   const renderContent = (selectedTabIndex: number) => {
     switch (selectedTabIndex) {
       case 0:
         return <CustomDomain />;
       case 1:
         return <SubDomain />;
+      default:
+        return null;
     }
   };
-
+  const handleFontSelect = (font: string) => {
+    setSelectedFont(font);
+  };
+  const handlePreview = () => {
+    if (generatedHtml) {
+      sessionStorage.setItem("previewHtml", generatedHtml);
+      window.open("/websitebuilding/preview", "_blank");
+    } else {
+      toast.error("No content to preview");
+    }
+  };
 
  
-  useEffect(() => {
-    const fetchData = async () => {
-      const prompt = sessionStorage.getItem("savedPrompt");
-      console.log("Prompt from session storage:", prompt);
-      console.log(prompt);
-      if (prompt) {
-        try {
-          const token = document.cookie.match(
-            new RegExp("(^| )token=([^;]+)")
-          )?.[2];
-          if (!token) {
-            throw new Error("Authentication token not found");
-          }
-
-          const response = await axios.post(
-            `${API_URL}/ai/api/v1/generate-website`,
-            {
-              user_prompt: prompt,
-              model: "gpt-4o",
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-
-          if (response.data.success) {
-            setGeneratedHtml(response.data.data.data.doc_content);
-            const id = response.data.data.data._id;
-            setGeneratedId(id);
-          } else {
-            throw new Error("Failed to generate website");
-          }
-        } catch (error) {
-          if (error instanceof Error) {
-            toast.error(error.message);
-          } else {
-            toast.error("An unexpected error occurred");
-          }
-          console.error("Error generating website:", error);
-        }
-      }
-    };
-
-    fetchData();
-  }, [router]);
-
-  useEffect(() => {
-    if (generatedHtml) {
-      updateHtmlFont();
-    }
-  }, [selectedFont, generatedHtml, selectedDesign]);
-
-  const updateHtmlFont = () => {
-    if (iframeRef.current && generatedHtml) {
-      const updatedHtml = `
-          <html>
-            <head>
-              <style>
-                @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage:wght@400;700&family=Grotesque:wght@400;700&family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
-                body {
-                  font-family: ${selectedFont} !important;
-                  color: ${color} !important;
-                }
-                .classic {
-                  /* Default Classic theme styles */
-                  background-color: #f5f5f5;
-                  color: #333;
-                }
-                .modern {
-                  /* Default Modern theme styles */
-                  background-color: #fff;
-                  color: #000;
-                }
-                .main {
-                  /* Default Main theme styles */
-                  background-color: #eaeaea;
-                  color: #000;
-                }
-                .vintage {
-                  /* Default Vintage theme styles */
-                  background-color: #f9f3e1;
-                  color: #555;
-                }
-                .minimal {
-                  /* Default Minimal theme styles */
-                  background-color: #fff;
-                  color: #666;
-                }
-                .${selectedDesign.toLowerCase()} {
-                  /* Add the selected design theme class */
-                }
-              </style>
-            </head>
-            <body class="${selectedDesign.toLowerCase()}">
-              ${generatedHtml}
-            </body>
-          </html>
-        `;
-      iframeRef.current.srcdoc = updatedHtml;
-    }
-  };
-
   const handleViewScreenChange = (view: string) => {
     switch (view) {
       case "desktop":
@@ -449,55 +339,28 @@ const ViewGeneratedWebsite = () => {
     setEditingMode(!editingMode);
   };
 
+  const handleMouseOver = (event: MouseEvent) => {
+    const element = event.target as HTMLElement;
+    element.style.outline = "2px dashed blue";
+  };
 
+  const handleMouseOut = (event: MouseEvent) => {
+    const element = event.target as HTMLElement;
+    element.style.outline = "none";
+  };
 
-  const handleExitEdit = async () => {
-    setEditingMode(false);
-    try {
-      const token = document.cookie.match(
-        new RegExp("(^| )token=([^;]+)")
-      )?.[2];
-      if (!token) {
-        throw new Error("Authentication token not found");
-      }
+  const handleFocus = (event: FocusEvent) => {
+    const element = event.target as HTMLElement;
+    element.style.border = "2px solid blue";
+  };
 
-      if (generatedId) {
-        const response = await axios.put(
-          `${API_URL}/users/api/v1/docs/${generatedId}`,
-          {
-            updated_data: generatedHtml,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        console.log(response);
-        if (response.data.success) {
-          toast.success("Website updated successfully");
-        } else {
-          throw new Error("Failed to update website");
-        }
-      } else {
-        throw new Error("ID not found. Cannot update website.");
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("An unexpected error occurred");
-      }
-      console.error("Error updating website:", error);
-    }
+  const handleBlur = (event: FocusEvent) => {
+    const element = event.target as HTMLElement;
+    element.style.border = "none";
   };
 
   const handlePublish = () => {
     toast.success("Project saved successfully");
-  };
-
-  const handleFullScreenChange = () => {
-    setIsFullScreen(document.fullscreenElement !== null);
   };
 
   const handleZoomIn = () => setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3));
@@ -515,36 +378,110 @@ const ViewGeneratedWebsite = () => {
     }
   };
 
-  const toggleTheme = () => {
+  useEffect(() => {
+    const updateIframeContent = () => {
+      if (iframeRef.current && generatedHtml) {
+        const iframeDocument = iframeRef.current.contentDocument;
+        if (iframeDocument) {
+          iframeDocument.open();
+          iframeDocument.write(generatedHtml);
+          iframeDocument.close();
+
+          iframeDocument.addEventListener("DOMContentLoaded", () => {
+            const body = iframeDocument.body;
+            if (body) {
+              const existingStyles = body.querySelectorAll(
+                "style[data-dark-mode], style[data-font]"
+              );
+              existingStyles.forEach((style) => style.remove());
+
+              const style = document.createElement("style");
+              style.setAttribute("data-dark-mode", "true");
+              style.setAttribute("data-font", selectedFont);
+              style.textContent = `
+               @import url('https://fonts.googleapis.com/css2?family=${selectedFont.replace(
+                 /\s+/g,
+                 "+"
+               )}&display=swap');
+
+                body {
+                  background-color: ${isDarkMode ? "#000" : "#fff"} !important;
+                  color: ${isDarkMode ? "#fff" : "#000"} !important;
+                  font-family: ${selectedFont}, sans-serif !important;
+                }
+                .dark-mode * {
+                  color: ${isDarkMode ? "#fff" : "#000"} !important;
+                  background-color: ${isDarkMode ? "#000" : "#fff"} !important;
+                }
+              `;
+              body.appendChild(style);
+
+              const updatedHtml = iframeDocument.documentElement.outerHTML;
+              if (generatedId) {
+                updateHtmlOnServer(updatedHtml, generatedId);
+              } else {
+                console.error("Generated ID is not available");
+              }
+            }
+          });
+        }
+      }
+    };
+
+    if (generatedHtml) {
+      updateIframeContent();
+    }
+  }, [generatedHtml, isDarkMode, selectedFont, generatedId]);
+
+  const updateHtmlOnServer = async (html: string, id: string) => {
+    if (!id) {
+      console.error("ID is required for updating the server");
+      return;
+    }
+
+    try {
+      const token = document.cookie.match(
+        new RegExp("(^| )token=([^;]+)")
+      )?.[2];
+      if (!token) {
+        throw new Error("Authentication token not found");
+      }
+
+      const response = await axios.put(
+        `${API_URL}/users/api/v1/docs/${id}`,
+        { updated_data: html },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      if (response.data.success) {
+        toast.success("Website updated successfully");
+      } else {
+        throw new Error("Failed to update website");
+      }
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "An unexpected error occurred"
+      );
+      console.error("Error updating website:", error);
+    }
+  };
+
+  const handleExitEdit = async () => {
+    setEditingMode(false);
+    if (generatedId) {
+      await updateHtmlOnServer(generatedHtml || "", generatedId);
+    } else {
+      toast.error("ID not found. Cannot update website.");
+    }
+  };
+  const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
-  useEffect(() => {
-    const iframeDocument = iframeRef.current?.contentDocument;
-    if (iframeDocument) {
-      const body = iframeDocument.body;
-      if (isDarkMode) {
-        body.classList.add("dark-mode");
-        body.classList.remove("light-mode");
-      } else {
-        body.classList.add("light-mode");
-        body.classList.remove("dark-mode");
-      }
-    }
-
-    document.addEventListener("fullscreenchange", handleFullScreenChange);
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullScreenChange);
-    };
-  }, [isDarkMode]);
-
-  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-  const filterMenuRef = useRef<HTMLDivElement | null>(null);
   const handleMenuToggle = () => {
     setIsFilterMenuOpen((prevState) => !prevState);
   };
 
-  // Close menu if click is outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -560,6 +497,7 @@ const ViewGeneratedWebsite = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <RootLayout shoWebar={true}>
       <main className="flex-1 h-full w-full flex flex-col mt-10">
@@ -869,15 +807,15 @@ const ViewGeneratedWebsite = () => {
                         {isFullScreen ? "" : ""}
                       </button>
                       <button
-                        onClick={toggleTheme}
+                        onClick={toggleDarkMode}
                         className="p-1 border rounded-lg"
                       >
-                        {isDarkMode ? <SunIcon /> : <MoonIcon />}{" "}
+                        {isDarkMode ? <SunIcon /> : <MoonIcon />}
                         {isDarkMode ? "" : ""}
                       </button>
                     </div>{" "}
                     <button
-                      className="border w-10 h-10 rounded-lg flex items-center justify-center"
+                      className="border w-10 h-8 rounded-lg flex items-center justify-center"
                       onClick={handleExitEdit}
                     >
                       <RxCross2 />
@@ -889,7 +827,7 @@ const ViewGeneratedWebsite = () => {
           </div>
           <div
             className="flex-1 max-w-[1668px]  w-full mx-auto items-center justify-center"
-            style={{ width: iframeWidth, zoom: zoom }}
+            style={{ width: "100%", zoom: "1" }}
           >
             {generatedHtml ? (
               <iframe
@@ -898,7 +836,7 @@ const ViewGeneratedWebsite = () => {
                 title="Generated Website"
                 className="w-full h-full pt-3 bg-white"
                 style={{
-                  width: iframeWidth,
+                  width: "100%",
                   height: "calc(100vh - 100px)",
                   margin: "0 auto",
                 }}

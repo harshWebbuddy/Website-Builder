@@ -1,23 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.shadow-left {
-  box-shadow: -6px 0px 0px rgba(0, 164, 166, 1);
-  border-radius: 10px 10px 10px 10px;
-  position: relative;
-}
-.custom-bg {
-  background-color: rgba(0, 164, 166, 0.07);
-}
-.light-mode {
-  background-color: white;
-  color: black;
-}
 
-.dark-mode {
-  background-color: black;
-  color: white;
-}
 @import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;700&family=Bricolage:wght@400;700&family=Grotesque:wght@400;700&family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arial:wght@400;700&family=Courier+New:wght@400;700&family=Georgia:wght@400;700&family=Times+New+Roman:wght@400;700&family=Verdana:wght@400;700&display=swap");
@@ -28,6 +12,42 @@
   font-weight: normal;
   font-style: normal;
 }
+.shadow-left {
+  box-shadow: -6px 0px 0px rgba(0, 164, 166, 1);
+  border-radius: 10px 10px 10px 10px;
+  position: relative;
+}
+.custom-bg {
+  background-color: rgba(0, 164, 166, 0.07);
+}
+/* Light Mode */
+body.light-mode {
+  background-color: #f7fafc;
+  color: #2d3748;
+}
+
+body.light-mode .bg-white {
+  background-color: #ffffff;
+}
+
+body.light-mode .text-gray-600 {
+  color: #4a5568;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+body.dark-mode .bg-white {
+  background-color: #2d3748;
+}
+
+body.dark-mode .text-gray-600 {
+  color: #e2e8f0;
+}
+
 .toggle-container {
   display: inline-block;
   position: relative;
