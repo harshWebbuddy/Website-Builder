@@ -337,7 +337,7 @@ export default function ViewGeneratedWebsite() {
                 body {
                    background-color: ${selectedColor || "#007bff"} !important;
                  background-color: ${isDarkMode ? "#000" : "#fff"} !important;
-                  color: ${isDarkMode ? "yellow" : "red"} !important;
+                  color: ${isDarkMode ? "black" : "white"} !important;
                   font-family: ${selectedFont}, sans-serif !important;
                 }
                 .dark-mode * {
@@ -819,9 +819,9 @@ export default function ViewGeneratedWebsite() {
               )}
             </div>
           </div>
-          <div
-            className="flex-1 max-w-[1668px] w-full mx-auto items-center justify-center"
-            style={{ width: "100%", zoom: "1" }}
+              <div
+            className="flex-1 max-w-[1668px]  w-full mx-auto items-center justify-center"
+            style={{ width: iframeWidth, zoom: zoom }}
           >
             {generatedHtml ? (
               <iframe
@@ -830,9 +830,8 @@ export default function ViewGeneratedWebsite() {
                 title="Generated Website"
                 className="w-full h-full pt-3 bg-white"
                 style={{
-                  width: "100%",
+                  width: iframeWidth,
                   height: "calc(100vh - 100px)",
-                  border: "none",
                   margin: "0 auto",
                 }}
               />

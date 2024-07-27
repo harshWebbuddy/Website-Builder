@@ -796,32 +796,31 @@ const ViewGeneratedWebsite = () => {
             </div>
           </div>
           <div
-  className="flex-1 max-w-[1668px] w-full mx-auto items-center justify-center"
-  style={{ width: "100%", zoom: "1" }}
->
-  {generatedHtml ? (
-    <iframe
-      ref={iframeRef}
-      srcDoc={generatedHtml}
-      title="Generated Website"
-      className="w-full h-full pt-3 bg-white"
-      style={{
-        width: "100%",
-        height: "calc(100vh - 100px)",
-        border: "none",
-        margin: "0 auto",
-      }}
-    />
-  ) : (
-    <div className="flex flex-col items-center translate-y-60 relative">
-      <img
-        src="/LoadingCircles.gif"
-        alt="Loading"
-        className="w-32 h-32 mb-2"
-      />
-    </div>
-  )}
-</div>
+            className="flex-1 max-w-[1668px]  w-full mx-auto items-center justify-center"
+            style={{ width: iframeWidth, zoom: zoom }}
+          >
+            {generatedHtml ? (
+              <iframe
+                ref={iframeRef}
+                srcDoc={generatedHtml}
+                title="Generated Website"
+                className="w-full h-full pt-3 bg-white"
+                style={{
+                  width: iframeWidth,
+                  height: "calc(100vh - 100px)",
+                  margin: "0 auto",
+                }}
+              />
+            ) : (
+              <div className="flex flex-col items-center translate-y-60 relative">
+                <img
+                  src="/LoadingCircles.gif"
+                  alt="Loading"
+                  className="w-32 h-32 mb-2"
+                />
+              </div>
+            )}
+          </div>
 
         </div>
       </main>
