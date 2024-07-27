@@ -12,6 +12,15 @@
   font-weight: normal;
   font-style: normal;
 }
+.multi-line-ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show before truncating */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
 .shadow-left {
   box-shadow: -6px 0px 0px rgba(0, 164, 166, 1);
   border-radius: 10px 10px 10px 10px;

@@ -1169,45 +1169,48 @@ export default function Home() {
 
             <div className="max-w-[1720px] mx-auto mt-10 2xl:mt-20">
               <div className="testimonials">
-                <Slider ref={sliderRef} {...settings}>
-                  {testimonials.map((item, index) => (
-                    <div
-                      key={index}
-                      className="max-w-[454px] max-h-[394px] bg-[#191E2A] min-h-[320px] min-[400px]:min-h-[220px] md:px-1 py-4 rounded-[17px] border border-[#e9e7e7] flex"
-                    >
-                      <div className=" flex  px-4 md:px-6  md:py-6 py-4  flex-col justify-between h-full w-full">
-                        <div className="flex flex-col gap-y-4  pb-6">
-                          {" "}
-                          <h1 className="text-[20px] text-white leading-normal font-semibold">
-                            {item.companyImage}
-                          </h1>
-                          <h1 className="text-white !leading-loose whitespace-normal text-[16px] font-light w-[380px] h-[110px] ">
-                            {item.description}
-                          </h1>
-                        </div>
-                        <div className="border-[0.2px] border-[#90A3BF]" />
-                        <div className="space-x-4 mt-10 flex flex-row   ">
-                          <div className="">
-                            <Image
-                              src={item.img1}
-                              alt="image"
-                              width={82}
-                              height={82}
-                              className="rounded-xl"
-                            />
-                          </div>
-                          <div className="flex flex-col gap-y-2">
-                            {" "}
-                            <h1 className="text-lg text-white leading-normal font-bold">
-                              {item.name}
-                            </h1>
-                            <p className="text-sm text-white">{item.role}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </Slider>
+              <Slider ref={sliderRef} {...settings}>
+  {testimonials.map((item, index) => (
+    <div
+      key={index}
+      className="w-[454px] h-[394px] bg-[#191E2A] rounded-[17px] border border-[#e9e7e7] flex flex-col"
+    >
+      <div className="flex flex-col justify-between h-full w-full p-4 md:px-6 md:py-6">
+        <div className="flex flex-col gap-y-4 pb-6">
+          <h1 className="text-[20px] text-white leading-normal font-semibold multi-line-ellipsis">
+            {item.companyImage}
+          </h1>
+          <p className="text-white text-[16px] font-light multi-line-ellipsis h-[110px]">
+            {item.description}
+          </p>
+        </div>
+        <div className="border-[0.2px] border-[#90A3BF]" />
+        <div className="space-x-4 mt-10 flex flex-row">
+          <div>
+            <Image
+              src={item.img1}
+              alt="image"
+              width={82}
+              height={82}
+              className="rounded-xl"
+            />
+          </div>
+          <div className="flex flex-col gap-y-2">
+            <h1 className="text-lg text-white leading-normal font-bold multi-line-ellipsis">
+              {item.name}
+            </h1>
+            <p className="text-sm text-white multi-line-ellipsis">
+              {item.role}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</Slider>
+
+
+
               </div>
 
               <div className="mt-16">
