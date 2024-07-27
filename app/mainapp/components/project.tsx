@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         if (iframeRef.current && iframeRef.current.contentWindow) {
           const iframeDocument = iframeRef.current.contentWindow.document;
           const height = iframeDocument.body.scrollHeight;
-          iframeRef.current.style.height = `${height}px`;
+          iframeRef.current.style.height = `${height * 0.8}px`; // Adjust height based on scaling
         }
       };
       iframeRef.current.addEventListener("load", adjustIframeHeight);
@@ -116,12 +116,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 border: "none",
                 overflow: "hidden",
                 height: "auto",
+                transform: "scale(0.8)",
+                transformOrigin: "0 0",
               }}
             />
           </div>
           <div className="flex items-start">
             <div className="w-full text-black xl:text-[14px] font-light">
-              <h1 className="xl:text-[18px] font-bold sm:text-[14px]">{title}</h1>
+              <h1 className="xl:text-[18px] font-bold sm:text-[14px]">
+                {title}
+              </h1>
               <p className="text-primary-black xl:text-[14px] sm:text-[12px] text-opacity-70 flex items-center gap-2 mt-2">
                 {formatDate(created_on.date)} {created_on.time}
               </p>
@@ -167,7 +171,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         className="fixed inset-0 z-[20] overflow-y-auto"
       >
         <div className="min-h-screen z-[20] flex items-center justify-center px-4 text-center">
-          <div className="inset-0 fixed z-[20] bg-black opacity-20" aria-hidden="true"></div>
+          <div
+            className="inset-0 fixed z-[20] bg-black opacity-20"
+            aria-hidden="true"
+          ></div>
           <div className="bg-white border z-[50] border-md rounded-lg max-w-sm w-full p-6 mx-auto">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-medium">Delete Project</h2>
@@ -177,7 +184,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
             <div className="mt-4">
               <p className="text-sm text-gray-700">
-                Are you sure you want to delete this project? This action cannot be undone.
+                Are you sure you want to delete this project? This action cannot
+                be undone.
               </p>
             </div>
             <div className="mt-6 flex justify-end space-x-4">
@@ -189,7 +197,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </button>
               <button
                 onClick={confirmDelete}
-                className="px-4 py-2 text-sm hover:shadow-md  shadow-red-500 dfont-medium text-white bg-red-600 rounded-md hover:bg-red-700"
+                className="px-4 py-2 text-sm hover:shadow-md shadow-red-500 dfont-medium text-white bg-red-600 rounded-md hover:bg-red-700"
               >
                 Delete
               </button>

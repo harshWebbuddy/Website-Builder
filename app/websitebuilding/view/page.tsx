@@ -333,18 +333,15 @@ export default function ViewGeneratedWebsite() {
                 background-color: ${selectedColor || "#007bff"} !important;
                 color: #fff !important;
               }
-                button {
-                background-color:  ${selectedColor || "#007bff"} !important;
-                color: red;
-                font-weight: bold;
-                padding: 0.5rem 1rem;
-                border-radius: 0.25rem;
-              }
+              
                 body {
+                   background-color: ${selectedColor || "#007bff"} !important;
+                 background-color: ${isDarkMode ? "#000" : "#fff"} !important;
+                  color: ${isDarkMode ? "yellow" : "red"} !important;
                   font-family: ${selectedFont}, sans-serif !important;
                 }
                 .dark-mode * {
-                  color: ${isDarkMode ? "#fff" : "#000"} !important;
+                  color: ${isDarkMode ? "yellow" : "red"} !important;
                   background-color: ${isDarkMode ? "#000" : "#fff"} !important;
                 }
               `;
@@ -434,8 +431,8 @@ export default function ViewGeneratedWebsite() {
 
   return (
     <RootLayout shoWebar={true}>
-      <main className="flex-1 h-full w-full flex flex-col mt-40 border-white">
-        <div className="bg-white  flex flex-col justify-between max-w-[1668px] mx-auto w-full items-center rounded-xl  shadow  shadow-gray-100 ">
+      <main className="flex-1 h-full w-full flex flex-col  border-white">
+        <div className="bg-white mt-40 flex flex-col justify-between max-w-[1668px] mx-auto w-full items-center rounded-xl  shadow  shadow-gray-100 ">
           <div className="flex px-4 flex-wrap border-b-2  rounded-xl 2xl:flex-nowrap 2xl:justify-between items-center w-full max-w-[1668px]">
             <div className="flex items-center gap-x-1.5 w-full max-w-[718px]">
               <span className="w-3 h-3 rounded-full bg-[#EF4444]" />
@@ -497,7 +494,7 @@ export default function ViewGeneratedWebsite() {
               {!editingMode ? (
                 <>
                   <div className="flex xl:flex-nowrap 2xl:flex-nowrap flex-wrap 2xl:flex-row items-center gap-3 ">
-                    <div className="flex flex-row items-center mx-auto justify-center gap-2 2xl:gap-4 flex-1">
+                    {/* <div className="flex flex-row items-center mx-auto justify-center gap-2 2xl:gap-4 flex-1">
                       <div className="toggle-container flex-1">
                         <input
                           type="checkbox"
@@ -533,7 +530,7 @@ export default function ViewGeneratedWebsite() {
                       <h2 className="font-mona-sans text-[10px] xl:text-[12px] 2xl:text-[14px] bl:text-base font-light whitespace-nowrap leading-normal 2xl:leading-[24px] bl:leading-[32px] tracking-[0.05em] bl:tracking-[0.2px] flex-1">
                         Construction mode
                       </h2>
-                    </div>
+                    </div> */}
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -823,7 +820,7 @@ export default function ViewGeneratedWebsite() {
             </div>
           </div>
           <div
-            className="flex-1 max-w-[1668px]  w-full mx-auto items-center justify-center"
+            className="flex-1 max-w-[1668px] w-full mx-auto items-center justify-center"
             style={{ width: "100%", zoom: "1" }}
           >
             {generatedHtml ? (
@@ -835,6 +832,7 @@ export default function ViewGeneratedWebsite() {
                 style={{
                   width: "100%",
                   height: "calc(100vh - 100px)",
+                  border: "none",
                   margin: "0 auto",
                 }}
               />

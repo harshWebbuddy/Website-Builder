@@ -136,7 +136,7 @@ export default function NewWebsite() {
               )}
             </button>
           </div>
-          <h2 className="text-sm text-primary-black text-center 2xl:text-left 2xl:items-start 2xl:justify-start relative xl:-translate-x-80 2xl:-translate-x-80 text-opacity-60">
+          <h2 className="text-sm text-primary-black text-center xl:-translate-y-4 2xl:-translate-y-4 2xl:text-left 2xl:items-start 2xl:justify-start relative xl:-translate-x-80 2xl:-translate-x-80 text-opacity-60">
             Describe your business
           </h2>
           <div className="flex 2xl:flex-row xl:flex-row md:flex-row lg:flex-row flex-col   items-center gap-4">
