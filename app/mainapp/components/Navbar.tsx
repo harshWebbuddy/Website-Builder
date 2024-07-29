@@ -17,7 +17,7 @@ export default function WebsiteNavbar() {
     <section className="absolute top-0 w-full px-4 py-4 z-[5] ">
       <div className="bg-white border shadow-xl rounded-xl max-w-[1740px] mx-auto">
         <nav className="w-full flex items-center justify-between">
-      <Link href="/">  <svg href=""  className="select-none 2xl:min-w-[180px] w-[100px] 2xl:max-h-14 ml-6" 
+      <Link href="/mainapp">  <svg href=""  className="select-none 2xl:min-w-[180px] w-[100px] 2xl:max-h-14 ml-6" 
  width="162" height="35" viewBox="0 0 162 35" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_47_212)">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.77832 11.2708C0.77832 8.26061 3.21859 5.82034 6.22882 5.82034H18.6871C21.6973 5.82034 24.1376 8.26061 24.1376 11.2708V17.5C24.1376 17.93 23.789 18.2786 23.359 18.2786C22.9289 18.2786 22.5803 17.93 22.5803 17.5V13.2175H2.33561V23.7291C2.33561 25.8793 4.07868 27.6224 6.22882 27.6224H12.458C12.888 27.6224 13.2366 27.971 13.2366 28.401C13.2366 28.831 12.888 29.1796 12.458 29.1796H6.22882C3.21859 29.1796 0.77832 26.7394 0.77832 23.7291V11.2708ZM5.06086 9.71356C5.06086 9.28351 5.40946 8.93492 5.8395 8.93492H6.61814C7.04819 8.93492 7.39679 9.28351 7.39679 9.71356C7.39679 10.1436 7.04819 10.4922 6.61814 10.4922H5.8395C5.40946 10.4922 5.06086 10.1436 5.06086 9.71356Z" fill="black"/>

@@ -22,8 +22,10 @@ type Project = {
 const WebsiteBuilder = () => {
   const router = useRouter();
   const [projects, setProjects] = useState<Project[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleCreateNewClick = () => {
     router.push("/websitebuilding");
@@ -41,22 +43,23 @@ const WebsiteBuilder = () => {
         }
       );
 
-      setProjects(
-        response.data.data.docs.map((project: any) => {
-          const createdAt = new Date(project.createdAt);
-          const createdOn = {
-            date: createdAt.toLocaleDateString(),
-            time: createdAt.toLocaleTimeString(),
-          };
+      const fetchedProjects = response.data.data.docs.map((project: any) => {
+        const createdAt = new Date(project.createdAt);
+        const createdOn = {
+          date: createdAt.toLocaleDateString(),
+          time: createdAt.toLocaleTimeString(),
+        };
 
-          return {
-            id: project._id,
-            title: project.doc_name,
-            preview_html: project.doc_content,
-            created_on: createdOn,
-          };
-        })
-      );
+        return {
+          id: project._id,
+          title: project.doc_name,
+          preview_html: project.doc_content,
+          created_on: createdOn,
+        };
+      });
+
+      setProjects(fetchedProjects);
+      setFilteredProjects(fetchedProjects);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -80,6 +83,9 @@ const WebsiteBuilder = () => {
       setProjects((prevProjects) =>
         prevProjects.filter((project) => project.id !== id)
       );
+      setFilteredProjects((prevProjects) =>
+        prevProjects.filter((project) => project.id !== id)
+      );
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -87,6 +93,17 @@ const WebsiteBuilder = () => {
         setError("An unknown error occurred");
       }
     }
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+
+    const lowercasedQuery = query.toLowerCase();
+    const filtered = projects.filter((project) =>
+      project.title.toLowerCase().includes(lowercasedQuery)
+    );
+    setFilteredProjects(filtered);
   };
 
   useEffect(() => {
@@ -118,6 +135,8 @@ const WebsiteBuilder = () => {
             <Search className="text-gray-500" size={16} />
             <input
               type="search"
+              value={searchQuery}
+              onChange={handleSearchChange}
               className="outline-none h-[24px] xl:w-[461px] 2xl:w-[461px] max-w-[461px] xl:h-[34px] 2xl:h-[52px] w-full bg-gray-100 text-sm px-2"
               placeholder="Search websites"
             />
@@ -132,7 +151,7 @@ const WebsiteBuilder = () => {
         </div>
       </div>
       <div className="p-4 grid gap-4 mt-2 w-full grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <ProjectCard
             key={project.id}
             id={project.id}

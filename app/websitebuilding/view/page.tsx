@@ -2,6 +2,8 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { FaSearchPlus, FaSearchMinus, FaEdit } from "react-icons/fa";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import {
   ZoomInIcon,
   ZoomOutIcon,
@@ -286,7 +288,17 @@ export default function ViewGeneratedWebsite() {
   };
 
   const handlePublish = () => {
-    toast.success("Project saved successfully");
+    toast.success("Project saved successfully", {
+      // position: toast.POSITION.TOP_CENTER,
+      // autoClose: 3000,
+      style: {
+        backgroundColor: '#4caf50', // Stylish background color
+        color: '#fff', // Text color
+        borderRadius: '8px', // Rounded corners
+        padding: '16px', // Padding
+        fontSize: '16px', // Font size
+      }
+    });
   };
 
   const handleZoomIn = () => setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3));
