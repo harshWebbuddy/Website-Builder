@@ -154,6 +154,7 @@ const ViewGeneratedWebsite = () => {
   const [tabUnderlineLeft, setTabUnderlineLeft] = useState<number>(0);
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState<boolean>(false);
   const [selectedColor, setSelectedColor] = useState<string>("");
+  const [showModal, setShowModal] = useState(false);
 
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const filterMenuRef = useRef<HTMLDivElement | null>(null);
@@ -191,6 +192,34 @@ const ViewGeneratedWebsite = () => {
       default:
         return null;
     }
+  };
+  interface ModalProps {
+    message: string;
+    onClose: () => void;
+  }
+  const Modal: React.FC<ModalProps> = ({ message, onClose }) => {
+    return (
+      <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="bg-white p-6 rounded-lg  items-center justify-center shadow-lg max-w-sm mx-auto">
+          <p className="text-lg mb-4">{message}</p>
+          <button
+            onClick={onClose}
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none justify-center mx-auto items-center focus:ring-2 focus:ring-green-500"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  };
+  const handleSave = async () => {
+    setEditingMode(false);
+    if (generatedId) {
+      await updateHtmlOnServer(generatedHtml || "", generatedId);
+    } else {
+      toast.error("ID not found. Cannot update website.");
+    }
+    router.push("/mainapp");
   };
   const handleFontSelect = (font: string) => {
     setSelectedFont(font);
@@ -262,9 +291,9 @@ const ViewGeneratedWebsite = () => {
   };
 
   const handlePublish = () => {
-    toast.success("Project saved successfully");
+    setShowModal(true);
+    setTimeout(() => setShowModal(false), 3000);
   };
-
   const handleZoomIn = () => setZoom((prevZoom) => Math.min(prevZoom + 0.1, 3));
   const handleZoomOut = () =>
     setZoom((prevZoom) => Math.max(prevZoom - 0.1, 0.5));
@@ -704,7 +733,12 @@ const ViewGeneratedWebsite = () => {
                         />
                       </svg>
                       <span>Publish</span>
-                    </button>
+                    </button>   {showModal && (
+                      <Modal
+                        message="Project saved successfully"
+                        onClose={() => setShowModal(false)}
+                      />
+                    )}
                     <button
                       className="border h-full max-h-[38px] w-full max-w-[81px] text-[10px] font-light xl:text-[12px] gap-2 rounded-lg flex items-center justify-center"
                       onClick={handlePreview}
@@ -732,6 +766,12 @@ const ViewGeneratedWebsite = () => {
                         />
                       </svg>
                       Preview
+                    </button>
+                    <button
+                      className="border h-full max-h-[38px] w-full max-w-[81px] text-[10px] font-light xl:text-[12px] gap-2 rounded-lg flex items-center justify-center"
+                      onClick={handleSave}
+                    >
+                      Save and Exit
                     </button>
                     <button
                       className="border px-2 py-4 max-h-[22px]   rounded-lg flex items-center justify-center"

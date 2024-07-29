@@ -453,7 +453,13 @@ export default function ViewGeneratedWebsite() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const handleSave = () => {
+  const handleSave = async () => {
+    setEditingMode(false);
+    if (generatedId) {
+      await updateHtmlOnServer(generatedHtml || "", generatedId);
+    } else {
+      toast.error("ID not found. Cannot update website.");
+    }
     router.push("/mainapp");
   };
   return (
